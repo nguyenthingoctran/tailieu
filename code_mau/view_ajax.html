@@ -1,0 +1,16 @@
+﻿if request.method == 'POST':
+       if request.is_ajax():
+           try:
+               # 1) Lấy các giá trị từ request
+               print()
+               # 2) Thực hiện câu lệnh query
+
+               # 3) Lấy tổng số bản ghi để phân trang
+		return HttpResponse('')
+           except Exception as inst:
+               result = '-1'
+               logger.error('Exception : ' + str(type(inst)))
+               logger.error(str(inst))
+
+           return HttpResponse(result)
+       return HttpResponse('')

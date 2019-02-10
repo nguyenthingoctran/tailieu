@@ -1,0 +1,2 @@
+SELECT * FROM lptool_db_master.report_monthly_data
+WHERE site_id = 11 AND year(date) = 2018 and month(date)=12;

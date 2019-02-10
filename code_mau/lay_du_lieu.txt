@@ -1,0 +1,43 @@
+============ LẤY DỮ LIỆU SELECT ===============
+var select_annual_revenue = $("select#annual-revenue").children("option:selected").val();
+
+======================================================================================================================
+============ LẤY DỮ LIỆU TRONG NHIỀU CỘT GIỐNG NHAU ==================================================================
+=====================================================================================================================
+
+<a id="{{data.company_info.id}}" data-id="{{data.company_info.id}}" data-vid="{{data.contact.vid}}" class="btn btn-info a-edit-contact" href="#" data-toggle="modal" data-target="#myModal" >
+    <i class="fa fa-edit"></i>
+</a>
+
+
+$(document).ready(function(){
+    $('#myModal').on('shown.bs.modal', function (e) {
+        show_loading_bar('message');
+        var id = $(e.relatedTarget).data('id');
+        var vid = $(e.relatedTarget).data('vid');
+        $.ajax({
+            url : '/report/contact/edit-info',
+            method : 'POST',
+            data : {
+                'id' : id,
+                'vid' : vid,
+                'csrfmiddlewaretoken' : '{{ csrf_token }}',
+            },
+            success : function(response){
+                hide_loading_bar('message');
+                $(".modal-body").html(response);
+            },
+            error : function(xhr, status, e){
+                hide_loading_bar('message');
+                $('#bodyHTML').html('Load form failed.');
+            }
+        });
+    });
+    
+    $('#myModal').on('hidden.bs.modal', function (e) {
+        $(".modal-body").html('');
+    });
+
+});
+
+

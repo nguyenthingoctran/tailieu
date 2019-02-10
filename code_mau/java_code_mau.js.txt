@@ -1,0 +1,3 @@
+$('input[type="submit"]').attr('disabled','disabled');  // DISABLE NÚT
+
+$('input[type="submit"]').removeAttr('disabled'); // XÓA ATTR

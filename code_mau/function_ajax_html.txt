@@ -1,0 +1,20 @@
+  function delete_item(id) {
+    if(confirm('are you sure ?')) {
+      //1. Show loading bar and hide message box
+      show_loading_bar();
+
+      //3. Call Add a new site method by Ajax
+      $.ajax({
+        type: "POST",
+        url: "/management/site/ajax_delete",
+        dataType: "html",
+        data : { id : id, 'csrfmiddlewaretoken' : '{{ csrf_token }}' },
+        success : function(response) {
+          load_data();
+        },
+        error: function(xhr, status, e) {
+          hide_loading_bar();
+        }
+      });
+    }
+  }
