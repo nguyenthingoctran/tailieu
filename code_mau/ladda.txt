@@ -1,0 +1,18 @@
+========================================================================================
+============================Button loading==============================================
+https://coreui.io/docs/components/loading-buttons/
+======================================================================================== 
+	1. Thêm link   
+		<link href='{{static ("/vendors/ladda/css/ladda-themeless.min.css")}}' rel="stylesheet">
+
+		<script src='{{ static ("/vendors/ladda/js/spin.min.js")}}'></script>
+		<script src='{{ static ("/vendors/ladda/js/ladda.min.js")}}'></script>
+
+
+	2. html
+		<button onclick="login();" class="btn btn-primary btn-ladda my-button" data-style="expand-left" type="button" style="width:120px">Login</button>
+
+
+	3. Hàm chạy js
+		const btn = Ladda.create(document.querySelector('.my-button'));
+		btn.start();
