@@ -1,4 +1,4 @@
-============ LẤY DỮ LIỆU SELECT ===============
+﻿============ LẤY DỮ LIỆU SELECT ===============
 var select_annual_revenue = $("select#annual-revenue").children("option:selected").val();
 
 ======================================================================================================================
@@ -40,4 +40,8 @@ $(document).ready(function(){
 
 });
 
+======LẤY DỮ LIỆU CỦA NHIỀU CHECKBOX================
+var id = $('.checkbox:checked').map(function(){
+	return $(this).val();
+}).get().join(' ');
 

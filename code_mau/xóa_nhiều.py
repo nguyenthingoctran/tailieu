@@ -1,4 +1,4 @@
-# ========================================================
+﻿# ========================================================
 # 1. Chọn tất cả và bỏ chọn tất cả
 # ========================================================
 1.1 Checkbox chọn tất cả
@@ -11,7 +11,7 @@
 1.3 Đặt hàm này ở ready
 	checked_show_button('checkbox', 'card-footer');
 
-1.3 JS:
+1.4 JS:
 	1.3.1 Hàm checkAll của checkbox chọn tất cả
 	function checkAll(element,div_show,checkbox_item_class){
 	  var is_checked = $(element).is(':checked');
@@ -42,6 +42,9 @@
 	    }
 	  });
 	}
+
+1.5 Hàm lấy giá trị checkbox
+
 
 	
 
