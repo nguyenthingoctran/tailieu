@@ -14,3 +14,28 @@
 
            return HttpResponse(result)
        return HttpResponse('')
+
+-------------------------------------------------------------------------------------------
+  if request.method == 'POST':
+    if request.is_ajax():
+      # 1) Lấy các giá trị từ request
+      vid = request.POST['id']
+      contact_list_id = int(request.POST['contact_list_id'])
+      list_vid = vid.split(',')
+      
+      oracel_id = [1215]
+      netsuid_id = [1217,1088,1300]
+      # 2) Thực hiện câu lệnh update
+      #LẤY API KEY
+      hapikey = until.get_hapikey_by_site_id(CLOUD_SITE_ID)
+
+      if contact_list_id in oracel_id:
+        property_sent_date = 'oracle_sent_date'
+      if contact_list_id in netsuid_id:
+        property_sent_date = 'netsuite_sent_date'
+
+      date = datetime.now().strftime("%Y-%m-%d")
+      start_millisecond = until.conver_datetime_to_millisecond(date) + 7*60*60*1000
+      for vid in list_vid:
+        connection_with_hubspot_api.update_contact_sent_date(vid,property_sent_date,start_millisecond,hapikey)
+      return HttpResponse('')
