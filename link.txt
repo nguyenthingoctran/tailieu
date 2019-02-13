@@ -1,0 +1,5 @@
+>>>tag-manager
+https://maxfavilli.com/jquery-tag-manager
+
+>>>tag-manager
+https://bootstrap-tagsinput.github.io/bootstrap-tagsinput/examples/

@@ -1,0 +1,9 @@
+================Thêm thư viện==============
+<link href='{{static ("/css/tagsinput.css")}}' rel="stylesheet">
+<script src='{{ static ("/js/tagsinput.js") }}'></script>
+
+================HTML=======================
+<input class="form-control" id="tags" type="text" data-role="tagsinput">
+
+================Lấy dữ liệu================
+var tags = $("#tags").val();

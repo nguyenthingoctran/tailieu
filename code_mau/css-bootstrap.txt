@@ -3,3 +3,5 @@
 .text-danger // thay màu
 
 .https://getbootstrap.com/docs/4.1/utilities/display/  // display
+
+.animated .fadeIn // 
