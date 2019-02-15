@@ -1,0 +1,30 @@
+============================================================================================================
+===============================Làm trang hiển thị tất cả các site===========================================
+============================================================================================================
+
+def monthly(request):
+    sql_query = '''SELECT p.id,p.name,s.report_type
+                      FROM management_site p INNER JOIN report_site_setting s ON p.id=s.site_id
+                      ORDER BY id ASC
+                    '''
+    list_site_info = Site.objects.raw(sql_query)
+
+    data = { 'list_site_info' : list_site_info, 'page_url' : '/report/monthly/site' }
+    return render(request, 'apps/report/monthly_list.html', data)
+
+============================================================================================================
+===============================Đổ dữ liệu vảo view==========================================================
+============================================================================================================
+tham khảo trang test/test_link.html
+
+============================================================================================================
+===============================Link authen==================================================================
+============================================================================================================
+url(r'^test/link/site/(?P<id>\d+)$', views.test_link_detail, name='hubspot_test_link_detail'),
+
+hubspot/urls.py --> function test_link_detail
+
+Đổ dữ liệu vào trang apps/test/test_link_detail.html
+
+Lưu ý đổi đường dẫn chỗ biến _auth_redirect_uri
+OK thì nạp vào {% include 'apps/test/link/form_test_link.html' %}
