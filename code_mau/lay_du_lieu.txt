@@ -2,8 +2,8 @@
 var select_annual_revenue = $("select#annual-revenue").children("option:selected").val();
 
 ======================================================================================================================
-============ LẤY DỮ LIỆU TRONG NHIỀU CỘT GIỐNG NHAU ==================================================================
-=====================================================================================================================
+============ LẤY DỮ LIỆU duy nhất chọn TRONG NHIỀU CỘT GIỐNG NHAU ====================================================
+======================================================================================================================
 
 <a id="{{data.company_info.id}}" data-id="{{data.company_info.id}}" data-vid="{{data.contact.vid}}" class="btn btn-info a-edit-contact" href="#" data-toggle="modal" data-target="#myModal" >
     <i class="fa fa-edit"></i>
@@ -41,7 +41,22 @@ $(document).ready(function(){
 });
 
 ======LẤY DỮ LIỆU CỦA NHIỀU CHECKBOX================
-var id = $('.checkbox:checked').map(function(){
-	return $(this).val();
-}).get().join(' ');
+C1: Chỉ lấy một giá trị
+    var id = $('.checkbox:checked').map(function(){
+    	return $(this).val();
+    }).get().join(' ');
 
+C2: Lấy nhiều giá trị
+    a) html:
+        <th><input type="checkbox" name="check_all_item" data-siteid={{data.site_info.id}} data-blogid = {{blog.id}} class="checkbox"></th>
+
+    b) js
+        var list_site_id = "";
+        var list_blog_id = "";
+        // Lấy tất cả các giá trị của checkbox
+        var site_and_blog_id = $('.checkbox:checked').map(function(){
+          var site_id = $(this).data("siteid");
+          list_site_id = list_site_id + site_id + ",";
+          var blog_id = $(this).data("blogid");
+          list_blog_id = list_blog_id + blog_id + ",";
+        });

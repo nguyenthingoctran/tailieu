@@ -1,0 +1,26 @@
+sql_query_site_info = '''SELECT *
+                  FROM management_site
+                  WHERE id={0}
+                '''.format(param_id)
+object_site_info = db_controller.query(sql_query_site_info)
+site_info = object_site_info[0]  
+
+==> Lưu ý: [0]: chính là lấy dòng đầu tiên của của data mà không cần phải lặp
+
+
+==============================================================
+==============================================================
+
+sql_query_hub_site = '''SELECT *
+                      FROM hubspot_site_setting
+                      WHERE site_id={0}
+                    '''.format(param_id)
+
+In ra:
+for i in object_sql_query_list_site:
+	print(i['report_type'])
+
+==============================================================
+================== UPDATE ====================================
+==============================================================
+object_company_info_exist = company_info.objects.filter(name = param_company_name).first()

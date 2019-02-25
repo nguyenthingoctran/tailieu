@@ -6,7 +6,7 @@
       //3. Call Add a new site method by Ajax
       $.ajax({
         type: "POST",
-        url: "/management/site/ajax_delete",
+        url: "/management/site/ajax_abc",
         dataType: "html",
         data : { id : id, 'csrfmiddlewaretoken' : '{{ csrf_token }}' },
         success : function(response) {

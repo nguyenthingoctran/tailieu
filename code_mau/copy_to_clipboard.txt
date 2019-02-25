@@ -63,9 +63,7 @@ function copyText(div, icon_id) {
     
     try {
         document.execCommand('copy');
-        $("#" + icon_id).removeClass("fa-copy").addClass("fa-check-square-o").delay(800);        
-        $("#" + icon_id).removeClass("fa-check-square-o").addClass("fa-copy");        
-
+        $("#" + icon_id).addClass("text-success");        
     }
     catch (err) {
         alert('Error data can\'t copy');

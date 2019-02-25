@@ -1,0 +1,7 @@
+    function open_input(check_id, input_id){
+        if ($("#"+ check_id).is(":checked")){
+            $("#"+ input_id).prop('disabled', false);
+        }else{
+            $("#"+ input_id).prop('disabled', true);
+        }
+    }
