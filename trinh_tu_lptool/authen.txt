@@ -28,3 +28,11 @@ hubspot/urls.py --> function test_link_detail
 
 Lưu ý đổi đường dẫn chỗ biến _auth_redirect_uri
 OK thì nạp vào {% include 'apps/test/link/form_test_link.html' %}
+
+============================================================================================================
+===============================LẤY ACCESS_TOKEN ============================================================
+============================================================================================================
+hub_auth_client = HubAuth()
+access_token = hub_auth_client.get_last_access_token(request, param_site_id) 
+
+--> param_site_id: site_id

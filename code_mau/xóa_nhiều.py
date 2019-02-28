@@ -1,6 +1,7 @@
 ﻿# ========================================================
 # 1. Chọn tất cả và bỏ chọn tất cả
 # ========================================================
+=========================================== AUTHOUR: TRAN =======================================================
 1.1 Checkbox chọn tất cả
     <input onclick="checkAll(this,'card-footer','checkbox');" id="checkAll"  type="checkbox" value="">
 1.2 Checkbox tự chọn
@@ -45,8 +46,31 @@
 
 1.5 Hàm lấy giá trị checkbox
 
+=========================================== AUTHOU : TUANDV ===========================================
+<th style="width: 30px;"><input onclick="check_uncheck_all(this);" type="checkbox" name="checkAll" id="check_all"></th>
+
+<td class="td-check"><input type="checkbox" name="check_all_item" class="checkbox"></td>
 
 	
+  function delete_item(id) {
+    if(confirm('are you sure ?')) {
+      //1. Show loading bar and hide message box
+      show_loading_bar();
 
+      //3. Call Add a new site method by Ajax
+      $.ajax({
+        type: "POST",
+        url: "/management/site/ajax_abc",
+        dataType: "html",
+        data : { id : id, 'csrfmiddlewaretoken' : '{{ csrf_token }}' },
+        success : function(response) {
+          load_data();
+        },
+        error: function(xhr, status, e) {
+          hide_loading_bar();
+        }
+      });
+    }
+  }
 
 

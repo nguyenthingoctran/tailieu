@@ -24,3 +24,13 @@ for i in object_sql_query_list_site:
 ================== UPDATE ====================================
 ==============================================================
 object_company_info_exist = company_info.objects.filter(name = param_company_name).first()
+
+==============================================================
+================== DELETE ====================================
+==============================================================
+
+sql_query_delete = '''
+                DELETE from report_site_setting WHERE site_id IN ({0});
+                '''.format(param_list_site_id)
+
+==> Không cần query

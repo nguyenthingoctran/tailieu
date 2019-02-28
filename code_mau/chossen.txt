@@ -1,0 +1,25 @@
+$(".select_property").chosen({no_results_text: "Oops, nothing found!"});  ==> Nếu dùng trong modal thì phải bỏ trong hàm
+
+==========================================================================
+=========================== Chosen trong modal ===========================
+==========================================================================
+	$("#txt_hubspot_list_id").chosen({no_results_text: "Oops, nothing found!"});
+	$("div.chosen-container-single").css({'width':'100%'});
+
+	Lưu ý: Đặt trong hàm này
+
+	$('#modalCreateForm').on('show.bs.modal', function (e) {
+
+	});
+
+===========================================================================
+=========================== Modal không cùng trang ========================
+===========================================================================
+  $( document ).ready(function() {
+    $("#txt_hubspot_lp_id_edit").chosen({no_results_text: "Oops, nothing found!"});
+    $("#txt_hubspot_list_id_edit").chosen({no_results_text: "Oops, nothing found!"});
+    $("div.chosen-container-single").css({'width':'100%'});
+  });
+
+	Lưu ý: 
+	Đặt hàm này trong script của html trang riêng của nó 

@@ -1,0 +1,12 @@
+
+=======================Thêm thư viện===========================
+<link href='{{static ("/css/gijgo.min.css")}}' rel="stylesheet">
+<script src='{{ static ("/js/gijgo.min.js") }}'></script>
+
+==========================Thẻ input============================
+<input id="datepicker1" value="{{date}}"/>
+
+=========================Script================================
+$('#datepicker1').datepicker({
+  uiLibrary: 'bootstrap4'
+});

@@ -1,20 +1,58 @@
-  function delete_item(id) {
-    if(confirm('are you sure ?')) {
-      //1. Show loading bar and hide message box
-      show_loading_bar();
 
-      //3. Call Add a new site method by Ajax
-      $.ajax({
-        type: "POST",
-        url: "/management/site/ajax_abc",
-        dataType: "html",
-        data : { id : id, 'csrfmiddlewaretoken' : '{{ csrf_token }}' },
-        success : function(response) {
-          load_data();
-        },
-        error: function(xhr, status, e) {
-          hide_loading_bar();
-        }
+
+    function add() {
+      hide_message("message-add");
+      const btn = Ladda.create(document.querySelector('.add-button'));
+      btn.start();
+
+      // Get data input
+      var name = $("#txt_name").val();
+      var size = $("#txt_size").val();
+      var hubspot_list_id = $("select#txt_hubspot_list_id").children("option:selected").val();
+      var hubspot_lp_id = $("select#txt_hubspot_lp_id").children("option:selected").val();
+      var close_type = $("select#close_type").children("option:selected").val();
+      var event_state = $("select#event_state").children("option:selected").val();
+      var date = $("#datepicker").val();
+      var notify_user = $("select#notify_user").children("option:selected").val();
+      var site_id = $("#site_id").val();
+
+      if (name == "" || size == "" || hubspot_list_id == "0" || hubspot_lp_id == undefined || close_type == undefined || event_state == "0" || date == "" || notify_user == "0" ){
+        show_error_message("message-add","Please fill all input");
+        btn.stop();
+      }else{
+        $.ajax({
+            type: "POST",
+            url: "/cms/event/ajax-add-or-update",
+            dataType: "html",
+            data: { 
+              name : name,
+              size : size,
+              hubspot_list_id : hubspot_list_id,
+              hubspot_lp_id : hubspot_lp_id,
+              close_type : close_type,
+              event_state : event_state,
+              date : date,
+              notify_user : notify_user,
+              site_id : site_id,
+              id : "-1",
+              'csrfmiddlewaretoken': '{{ csrf_token }}',
+            },
+            success: function (response) {
+              if (response == 0){
+                show_error_message("message-add","Add Fail");
+                btn.stop();
+              }else{
+                show_success_message("message-add","Add event successfully");
+                btn.stop();
+                $(".add-button").addClass("disabled");
+                show_loading_bar(loading_bar_id);
+                $("tbody").addClass("d-none");
+                load_data();
+              }
+            },
+            error: function (xhr, status, e) {
+            }
       });
+      }
+
     }
-  }
