@@ -11,7 +11,7 @@ def ajax_blog_delete(request):
                 # 2) Thực hiện câu lệnh query
 
                 # 3) Lấy tổng số bản ghi để phân trang
-                return HttpResponse('')
+                return HttpResponse(result)
             except Exception as inst:
                 #1. Trường hợp là hàm Ajax thì trả về giá trị AjaxResponseResult = -1
                 result = AjaxResponseResult.error.value

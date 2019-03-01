@@ -11,7 +11,7 @@
 ============================================
 2. Tại table trong html thêm thuộc tính id
 ============================================
-    <table id="datatable-coreui" class="table table-striped table-bordered datatable">
+    <table id="datatable-coreui" class="table table-striped table-bordered table-hover datatable">
 
 
 ============================================
@@ -26,18 +26,6 @@ Lưu ý table phải có div (card-body) bọc ngoài.
 </style>
 
 
-============================================
-4. Thêm javascript
-============================================
-  $(document).ready(function() {
-      $('#datatable-coreui').DataTable( {
-
-      } );
-
-  } );
-
-
-
 *********************************************************************************************************************************
 *-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*
 *********************************************************************************************************************************
@@ -49,14 +37,29 @@ Lưu ý table phải có div (card-body) bọc ngoài.
      <th class="no-sort" class="checkAll"><input id="checkAll" type="checkbox" value=""></th>
 
 5.2 Js
-  $('#datatable-coreui').DataTable( {
-    "order": [],
-    "columnDefs": [ {
-      "targets": 'no-sort',
-      "orderable": false,
-      
-    } ]
-  } );
+$('#datatable-coreui').DataTable( {
+  "order": [],
+  "columnDefs": [ {
+    "targets": 'no-sort',
+    "orderable": false,
+    
+  } ]
+} );
 
-  Lưu ý:
-  + "targets": 'no-sort' ==> tương ứng là class của input đã đặt ở trên
+
+$('#tbl_data').DataTable( {
+  "order": [],
+  "bPaginate": true,
+  "bLengthChange": false,
+  "bFilter": false,
+  "bInfo": true,
+  "iDisplayLength": 10,
+  "columnDefs": [ {
+    "targets": 'no-sort',
+    "orderable": false,
+    
+  } ]
+} );
+
+Lưu ý:
++ "targets": 'no-sort' ==> tương ứng là class của th đã đặt ở trên
