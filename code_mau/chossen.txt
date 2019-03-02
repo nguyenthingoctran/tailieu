@@ -23,3 +23,22 @@ $(".select_property").chosen({no_results_text: "Oops, nothing found!"});  ==> N�
 
 	Lưu ý: 
 	Đặt hàm này trong script của html trang riêng của nó 
+
+==================================================================================
+============================ CHOSSEN COREUI ======================================
+==================================================================================
+<link href='{{ static ("/vendors/select2/css/select2.min.css")}}' rel="stylesheet">
+<script src='{{ static ("/vendors/select2/js/select2.min.js") }}'></script>
+
+<select class="form-control select2-single" id="select2-1">
+    <option>nguyen</option>
+    <option>thi</option>
+    <option>ngoc</option>
+    <option>tran</option>
+    <option>xinh</option>
+</select>
+
+JS:
+$('#select2-1').select2({
+    theme: 'bootstrap'
+});
