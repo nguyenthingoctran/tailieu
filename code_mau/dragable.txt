@@ -5,6 +5,9 @@ https://viblo.asia/p/keo-tha-dragable-trong-js-va-cach-dung-m68Z0OOzKkG
 - Thiết lập một Event Listener cho dragstart mà lưu giữ dữ liệu được kéo
 	+ dragstart(của Event Listener): copy, move, link, hoặc một số sự kết hợp khác
 
+=================================================================================
+Lưu ý: yarn -and yarn start ==> chạy lệnh này để chạy examples
+
 
 ==================================================================================
 ================================ Shopify =========================================
