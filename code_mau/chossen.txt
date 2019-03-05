@@ -42,3 +42,5 @@ JS:
 $('#select2-1').select2({
     theme: 'bootstrap'
 });
+
+==> Lưu ý: Lỗi không search được thì dùng xóa tabindex của modal

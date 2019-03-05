@@ -5,3 +5,14 @@
             $("#"+ input_id).prop('disabled', true);
         }
     }
+
+
+    $("#row-data-setting input[name='edit-checkbox']").change(function(e){
+        if ($(this).is(":checked")){
+            $(this).closest("#row-data-setting").find("select.select2-single").prop('disabled', false);
+            $(this).closest("#row-data-setting").find("div#tag-input").css({'pointer-events':'auto','opacity':'1'});
+        }else{
+            $(this).closest("#row-data-setting").find("select.select2-single").prop('disabled', true);
+            $(this).closest("#row-data-setting").find("div#tag-input").css({'pointer-events':'none','opacity':'0.6'});           
+        }       
+    });

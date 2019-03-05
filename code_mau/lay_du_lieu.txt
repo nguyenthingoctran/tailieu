@@ -60,3 +60,9 @@ C2: Lấy nhiều giá trị
           var blog_id = $(this).data("blogid");
           list_blog_id = list_blog_id + blog_id + ",";
         });
+
+======= LẤY DỮ LIỆU KHI KHÔNG DÙNG FUNCTION ================
+$("a#delete").click(function(e){
+    var id = $(this).data('id');
+    console.log(id);
+});
