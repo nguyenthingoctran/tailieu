@@ -115,3 +115,19 @@
 
   </script>
 {% endblock script %}
+
+
+================================================== Cài đặt mặc định ==========================================================================
+    $("#reportrange span").html(moment().subtract(6, "days").format("MM-DD-YYYY") +" - " +moment().subtract(1, "days").format("MM-DD-YYYY"));
+    $("#reportrange span").html(moment().format("YYYY-MM-D") + " - " + moment().format("YYYY-MM-D"));
+
+      var start_day = moment()
+      var end_day = moment()
+
+  # Lấy ngày hiện tại
+  start_day = (str(datetime.today())).split(" ")[0]
+  end_day = (str(datetime.today())).split(" ")[0]
+  print(start_day)
+  print(end_day)
+
+      $('#').href()=
