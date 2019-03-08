@@ -31,7 +31,7 @@ $(".select_property").chosen({no_results_text: "Oops, nothing found!"});  ==> N�
 <script src='{{ static ("/vendors/select2/js/select2.min.js") }}'></script>
 
 <select class="form-control select2-single" id="select2-1">
-    <option>nguyen</option>
+    <option value="">nguyen</option>     // Lưu ý là lưu value
     <option>thi</option>
     <option>ngoc</option>
     <option>tran</option>

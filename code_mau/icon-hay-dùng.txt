@@ -1,2 +1,3 @@
 Dấu cộng, thêm:  <i class="fa fa-plus-circle fa-lg mt-4"></i>       
-Xóa: <i class="fa fa-times-circle fa-lg mt-4"></i>                  
+Xóa: <i class="fa fa-times-circle fa-lg mt-4"></i>
+	<i class="fa fa-close fa-lg mt-4"></i>                  

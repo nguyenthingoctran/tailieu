@@ -1,0 +1,58 @@
+================Thêm thư viện==============
+<link href='{{static ("/css/tagsinput.css")}}' rel="stylesheet">
+<script src='{{ static ("/js/tagsinput.js") }}'></script>
+
+================HTML=======================
+<input class="form-control" id="tags" type="text" data-role="tagsinput">
+
+================Lấy dữ liệu================
+var tags = $("#tags").val();
+
+
+================================ tags mới ==========================================
+<link href='{{ static ("/css/amsify.suggestags.css")}}' rel="stylesheet">
+<script src='{{ static ("/js/jquery.amsify.suggestags.js")}}'></script>
+
+
+<input type="text" name="color">
+
+$('input[name="color"]').amsifySuggestags({
+    type : 'amsify'
+});
+
+// kiểm tra email có hợp lệ không
+
+$('input[name="email-sent"]').amsifySuggestags({
+    type : 'amsify',
+    afterAdd: function(value){
+      var filter = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/; 
+      if(!filter.test(value)){
+        alert("Invalid email");
+      }
+    }
+});
+===================================
+// Validator email
+var email = $('input[name="email-sent"]').val();
+if (email == ""){
+  $('#download').css({'pointer-events':'none','opacity':'0.5'});
+}
+
+$('input[name="email-sent"]').amsifySuggestags({
+    type : 'amsify',
+    afterAdd: function(value){
+      var filter = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/; 
+      if(!filter.test(value)){
+        alert("Invalid email");
+      }else{
+        $('#download').css({'pointer-events':'auto','opacity':'1'});
+      }
+    },
+    afterRemove : function(value) {
+      var email = $('input[name="email-sent"]').val();
+      if(email == ""){
+        $('#download').css({'pointer-events':'none','opacity':'0.5'});
+      }
+    },
+});        
+// Validator email

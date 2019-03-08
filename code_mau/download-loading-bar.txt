@@ -1,0 +1,33 @@
+return false: Tại hàm tạo slide --> boss_pptx
+
+  function download_pptx(){
+    var site_id = $('.my-button').data('siteid');
+    date_text = $('#reportrange span').text();
+    date = date_text.split(" - ");
+    start_day = date[0];
+    end_day = date[1];
+
+    show_loading_bar('progress_box');
+    $('#download').attr('disabled', 'disabled');
+
+     $.ajax({
+        url: '/report/customer/download?site_id='+site_id+'&start_day='+start_day+'&end_day='+end_day,
+        method: 'GET',
+        xhrFields: {
+            responseType: 'blob'
+        },
+        success: function (data) {
+          hide_loading_bar('progress_box');
+          $('#download').removeAttr('disabled');
+
+          var a = document.createElement('a');
+          var url = window.URL.createObjectURL(data);
+          a.href = url;
+          a.download = '{{site_info.name}}' + "|from:" + start_day + "|to:" + end_day + '.pptx'
+          a.click();
+          window.URL.revokeObjectURL(url);
+        }
+    });
+
+    //$("a#download").attr('href','/report/customer/download?site_id='+site_id+'&start_day='+start_day+'&end_day='+end_day);
+  }

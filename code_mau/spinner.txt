@@ -1,0 +1,26 @@
+//////////////// Tài liệu tham khảo /////////////////////////////////
+https://coreui.io/docs/components/spinners/
+
+//Thêm link
+<link href='{{ static ("/vendors/spinkit/css/spinkit.css") }}' rel="stylesheet">
+
+//html
+<div class="sk-three-bounce">
+    <div class="sk-child sk-bounce1"></div>
+    <div class="sk-child sk-bounce2"></div>
+    <div class="sk-child sk-bounce3"></div>
+</div>
+
+//Viết trong js
+spinner = '<div class="sk-three-bounce"><div class="sk-child sk-bounce1"></div><div class="sk-child sk-bounce2"></div><div class="sk-child sk-bounce3"></div></div>';
+$("#list-partner").html(spinner);
+$(".sk-three-bounce div").css('background-color','#b2bec3'); 
+$(".sk-three-bounce").css('margin','0'); 
+$(".sk-three-bounce .sk-child").css({'width':'10px','height':'10px'});
+
+// Đổi màu
+$(".sk-three-bounce div").css('background-color','red');
+
+.sk-three-bounce .sk-child {
+    width: 10px;
+    height: 10px;

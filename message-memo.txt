@@ -1,13 +1,25 @@
-Please fill in all required fields !!! ==> Xin vui lòng điền đầy đủ thông tin vào các ô bắt buộc
-Please select at least one item !!! ==> Vui lòng chọn ít nhất một mục
-Please fill all required fields !!! == Vui lòng điền hết các trường cần thiết
+- Please fill in all required fields !!! ==> Xin vui lòng điền đầy đủ thông tin vào các ô bắt buộc
+- Please select at least one item !!! ==> Vui lòng chọn ít nhất một mục
+- Delete error. 
+- Please enter your email address in format: yourname@example.com ===> Vui lòng nhập email đúng với định dạng
+- The network connection is lost
+
+'Add event <strong>' + _name + '</strong> failed.'
 
 ================================ Tạo div message ====================================================
-    <div id="addform_message_box" class="mt-3 invisible">
+<div id="addform_message_box" class="mt-3 invisible">
 
+</div>
+
+<div id="addform_progress_box" class="progress-bar invisible">
+    <div class="progress">
+        <div class="progress-bar" role="progressbar" style="width: 100%;" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100">75%</div>
     </div>
+</div>
 
+// Biến global
+var addform_message_box_id = 'addform_message_box';
+var addform_loading_bar_id = 'addform_progress_box';
+var addform_is_updated = false;
 
-     var addform_message_box_id = 'addform_message_box';  //Biến globals
-
-     show_loading_bar(addform_loading_bar_id); 
+show_loading_bar(addform_loading_bar_id); 
