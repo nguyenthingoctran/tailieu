@@ -1,4 +1,4 @@
-===========================================
+﻿===========================================
 1. Thêm thư viện:
 ===========================================
     <link href='{{static ("/vendors/datatables.net-bs4/css/dataTables.bootstrap4.css")}}' rel="stylesheet">
@@ -11,7 +11,7 @@
 ============================================
 2. Tại table trong html thêm thuộc tính id
 ============================================
-    <table id="datatable-coreui" class="table table-striped table-bordered table-hover datatable">
+    <table id="datatable-coreui" class="table table-striped table-bordered table-hover datatable display nowrap">
 
 
 ============================================
