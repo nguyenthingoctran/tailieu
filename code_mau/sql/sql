@@ -29,11 +29,11 @@ object_company_info_exist = company_info.objects.filter(name = param_company_nam
 ================== DELETE ====================================
 ==============================================================
 
-sql_query_delete = '''
-                DELETE from report_site_setting WHERE site_id IN ({0});
-                '''.format(param_list_site_id)
-db_controller.query(sql_query_site_info)
-==> Không cần query
+for id in list_id:
+	sql_query_delete = '''
+	                DELETE from cms_event_info WHERE id = {0};
+	                '''.format(id)
+	db_controller.query(sql_query_delete)
 
 
 ==============================================================
@@ -45,3 +45,10 @@ object_monthly_data.value = value
 object_monthly_data.date = param_date
 object_monthly_data.site_id = param_site_id
 object_monthly_data.save()
+
+==============================================================
+=== CÓ TRONG TABLE NÀY MÀ KHÔNG CÓ TRONG TABLE KHÁC  =========
+==============================================================
+SELECT a.id 
+FROM management_site a
+WHERE a.id NOT IN (SELECT report_site_setting.site_id FROM report_site_setting)
