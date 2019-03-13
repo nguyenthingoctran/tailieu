@@ -35,6 +35,8 @@ for id in list_id:
 	                '''.format(id)
 	db_controller.query(sql_query_delete)
 
+	db_controller.execute(sql_query_delete)
+
 
 ==============================================================
 ================== SAVE   ====================================

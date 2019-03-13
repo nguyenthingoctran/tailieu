@@ -39,6 +39,7 @@ Lưu ý table phải có div (card-body) bọc ngoài.
 5.2 Js
 $('#datatable-coreui').DataTable( {
   "order": [],
+  "scrollX": true,
   "columnDefs": [ {
     "targets": 'no-sort',
     "orderable": false,
@@ -63,3 +64,6 @@ $('#tbl_data').DataTable( {
 
 Lưu ý:
 + "targets": 'no-sort' ==> tương ứng là class của th đã đặt ở trên
+
+https://stackoverflow.com/questions/17339564/twitter-bootstrap-buttons-appearing-on-hover-over-the-table-row
+https://codepen.io/kjohnson/pen/klBzo
