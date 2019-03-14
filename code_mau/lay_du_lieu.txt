@@ -68,3 +68,5 @@ $("a#delete").click(function(e){
     var id = $(this).data('id');
     console.log(id);
 });
+
+

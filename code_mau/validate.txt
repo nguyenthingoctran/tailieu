@@ -21,3 +21,13 @@ C2:
         }
       }
     });
+
+============================= SỬ DỤNG TRONG TOOL ============================
+<div class="row">
+    <div class="col-5">Internal Email <span class="required text-danger">*</span></div>
+    <div class="col-7" id="internal_email"><input type="text" class="form-control" id="txt_internal_email" {% if site_detail.internal_email != None %}value="{{site_detail.internal_email}}"{% endif %}></div>
+</div> <br>
+
+validation_email("txt_internal_email", "internal_email"); 
+--> txt_internal_email : id của input
+    internal_email : id của div

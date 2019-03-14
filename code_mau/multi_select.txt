@@ -17,6 +17,26 @@ $('#select2-2').select2({
     placeholder: 'Your Favorite Football Team',
     allowClear: true
 });
-
+==============================================================
 =================== Lấy dữ liệu ==============================
+==============================================================
 $("#select2-2").val()
+
+==============================================================
+=================== Đổ dữ liệu ===============================
+==============================================================
+<select class="form-control select2-multiple" id="select_type" multiple="">
+    {% set type_of_site = site_detail.report_type.split(',') %}
+    {% for type in set_type %}
+        {% if type in type_of_site %}
+        <option value="{{type}}" selected>{{type}}</option>
+        {% else %}
+        <option value="{{type}}">{{type}}</option>
+        {% endif %} 
+    {% endfor %}
+</select>
+
+==============================================================
+================== Reset data ================================
+==============================================================
+$("#select_type").val([]).trigger('change');
