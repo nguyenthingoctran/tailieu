@@ -2,3 +2,4 @@
 =============== CẮT CHUỖI ======================
 ================================================
 {% set list_type = site.report_type.split(',') %} 
+{{data.name|truncate(36, True)}}

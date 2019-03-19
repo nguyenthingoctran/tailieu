@@ -16,3 +16,18 @@
             $(this).closest("#row-data-setting").find("div#tag-input").css({'pointer-events':'none','opacity':'0.6'});           
         }       
     });
+
+
+============================================================================================================
+=== CÔNG TẮC BẬT ==
+============================================================================================================
+      <div class="form-group row">
+        <label class="col-md-3 col-form-label" for="leads_status">Hubspot Include Offline Sources Leads Status <span class="required">*</span></label>
+        <div class="col-md-9">
+          <label class="switch switch-3d switch-primary">
+            <input type="checkbox" class="switch-input" id="leads_status">
+            <span class="switch-slider"></span>
+          </label>
+        </div>
+      </div>
+      <!-- End .row Hubspot Include Offline Sources Leads Status -->

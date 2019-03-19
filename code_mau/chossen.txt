@@ -22,7 +22,8 @@ $(".select_property").chosen({no_results_text: "Oops, nothing found!"});  ==> N�
   });
 
 	Lưu ý: 
-	Đặt hàm này trong script của html trang riêng của nó 
+	Đặt hàm này trong script của html trang riêng của nó,
+    Đặt hàm này trong chính function của nó
 
 ==================================================================================
 ============================ CHOSSEN COREUI ======================================
