@@ -1,0 +1,29 @@
+// Thêm link
+    <link href='{{ static ("vendors/quill/css/quill.snow.css") }}' rel="stylesheet">
+
+    <script src='{{ static ("/vendors/quill/js/quill.min.js") }}'></script>
+    <script src='{{ static ("/js/text-editor.js") }}'></script>
+
+// Thẻ html
+  <div class="card-body px-0">
+    <div id="editor" >
+    
+    </div>          
+  </div>
+
+///////////////////////////////////////////////////////////
+==================CKEDITOR
+///////////////////////////////////////////////////////////
+
+
+<textarea name="editor1" id="editor1" rows="10" cols="80">
+    This is my textarea to be replaced with CKEditor.
+</textarea>
+
+<script src='{{ static ("/ckeditor/ckeditor.js") }}'></script>
+<script>
+    CKEDITOR.replace( 'editor1' );
+</script> 
+
+============= LẤY GIÁ TRỊ ================
+var data = CKEDITOR.instances.editor1.getData();

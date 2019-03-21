@@ -1,3 +1,39 @@
+def ajax_page_create(request):
+  if request.method == 'POST':
+      if request.is_ajax():
+          result = AjaxResponseResult.success.value
+          try:
+              # 1) Lấy các giá trị từ request
+              param_title = request.POST['title']
+              param_meta_description = request.POST['meta_description']
+              param_sub_title = request.POST['sub_title']
+              param_content_title = request.POST['content_title']
+              param_content = request.POST['content']
+              param_campaign_name = request.POST['campaign_name']
+              param_uri = request.POST['uri']
+              param_form_id = request.POST['form_id']
+              param_email_id = request.POST['email_id']
+              param_site_id = request.POST['site_id']
+              param_input_file = request.POST['input_file']
+
+              print(param_input_file)
+
+              return HttpResponse(result)
+          except Exception as inst:
+              #1. Trường hợp là hàm Ajax thì trả về giá trị AjaxResponseResult = -1
+              result = AjaxResponseResult.error.value
+
+              #2. Lấy thông tin chi tiết lỗi (Msg, File name, Line number)
+              exc_type, ms_tb, exc_tb = sys.exc_info()
+              fname = os.path.split(exc_tb.tb_frame.f_code.co_filename)[1]
+              exc_msg = 'File : {0} | Line : {1} | Type : {2}\nError: {3}'.format(fname, exc_tb.tb_lineno,exc_type,ms_tb)
+
+              #4. In ra màn hình console
+              print(exc_msg)
+
+          return HttpResponse(result)
+      return HttpResponse('')
+============================================================================================================
 def ajax_blog_delete(request):
     if request.method == 'POST':
         if request.is_ajax():
