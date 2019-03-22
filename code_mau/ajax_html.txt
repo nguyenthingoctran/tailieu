@@ -56,3 +56,51 @@
       }
 
     }
+
+====================================================================================
+============================ function download =====================================
+====================================================================================
+
+1. Html
+        <div class="col-2">
+            <a onclick="download_pptx();" class="btn btn-info" id="download" data-toggle="modal" data-target="#modalMessageDownload">
+              <i class="fa fa-download"></i>
+              <span>Download</span>
+            </a>
+        </div>
+
+2. function
+  function download_pptx(){
+    var site_id = $('.my-button').data('siteid');
+    var date_text = $('#reportrange span').text();
+    var date = date_text.split(" - ");
+    var start_day = date[0];
+    var end_day = date[1];
+    var email = $('input[name="email-sent"]').val();
+
+    if (email == ""){
+      show_error_message('message-detail','Please enter your email');
+    }else{
+      show_loading_bar('progress_box');
+      $('#download').attr('disabled', 'disabled');
+
+      $.ajax({
+          url: '/report/customer/download?site_id='+site_id+'&start_day='+start_day+'&end_day='+end_day+'&list_email='+email,
+          method: 'GET',
+          xhrFields: {
+              responseType: 'blob'
+          },
+          success: function (data) {
+            hide_loading_bar('progress_box');
+            $('#download').removeAttr('disabled');
+
+            var a = document.createElement('a');
+            var url = window.URL.createObjectURL(data);
+            a.href = url;
+            a.download = '{{site_info.name}}' + "|from:" + start_day + "|to:" + end_day + '.pptx'
+            a.click();
+            window.URL.revokeObjectURL(url);
+          }
+      });      
+    }
+  }

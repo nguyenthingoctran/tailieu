@@ -14,7 +14,7 @@ def ajax_page_create(request):
               param_form_id = request.POST['form_id']
               param_email_id = request.POST['email_id']
               param_site_id = request.POST['site_id']
-              param_input_file = request.POST['input_file']
+              param_input_file = request.FILE['input_file']
 
               print(param_input_file)
 
