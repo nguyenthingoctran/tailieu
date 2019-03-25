@@ -50,6 +50,7 @@ $('#datatable-coreui').DataTable( {
 
 $('#tbl_data').DataTable( {
   "order": [],
+  "aLengthMenu": [[10, 25, 50, -1], [10, 25, 50, "All"]],
   "bPaginate": true,
   "bLengthChange": false,
   "bFilter": false,
