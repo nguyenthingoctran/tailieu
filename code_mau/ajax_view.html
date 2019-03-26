@@ -33,50 +33,20 @@ def ajax_page_create(request):
 
           return HttpResponse(result)
       return HttpResponse('')
-============================================================================================================
-def ajax_blog_delete(request):
-    if request.method == 'POST':
-        if request.is_ajax():
-            result = AjaxResponseResult.success.value
-            try:
-                # 1) Lấy các giá trị từ request
-                param_list_site_id = request.POST['list_site_id']
-                param_list_blog_id = request.POST['list_blog_id']
-                print(param_list_site_id)
-                print(param_list_blog_id)
-                # 2) Thực hiện câu lệnh query
 
-                # 3) Lấy tổng số bản ghi để phân trang
-                return HttpResponse(result)
-            except Exception as inst:
-                #1. Trường hợp là hàm Ajax thì trả về giá trị AjaxResponseResult = -1
-                result = AjaxResponseResult.error.value
+===========================================================================================
+============================ DOWNLOAD =====================================================
+===========================================================================================
 
-                #2. Lấy thông tin chi tiết lỗi (Msg, File name, Line number)
-                exc_type, ms_tb, exc_tb = sys.exc_info()
-                fname = os.path.split(exc_tb.tb_frame.f_code.co_filename)[1]
-                exc_msg = 'File : {0} | Line : {1} | Type : {2}\nError: {3}'.format(fname, exc_tb.tb_lineno,exc_type,ms_tb)
-                
-                #3. Lưu vào file erro.log
-                logger.error('Exception : ' + str(type(inst)))
-                logger.error(exc_msg)
-
-                #4. In ra màn hình console
-                print(exc_msg)
-
-            return HttpResponse(result)
-        return HttpResponse('')
-
-
-========================================== View download ==================================================
-def partner_download_report(request):
+def ajax_customer_download(request):
   if request.method == 'GET':
-    result = AjaxResponseResult.success.value
     try:
-      
       # 1) Lấy các giá trị từ request
-      param_site_id  = int(request.GET['site_id'])
-      param_date = request.GET['date']
+      param_site_id = request.GET['site_id']
+      param_start_day = request.GET['start_day']
+      param_end_day = request.GET['end_day']
+      param_list_email = request.GET['list_email']
+  
       #2 Check security
       #2.1 kiểm tra có phải user đã login:
       if request.user.is_authenticated:
@@ -88,91 +58,54 @@ def partner_download_report(request):
           hub_auth_client = HubAuth()
           access_token = hub_auth_client.get_last_access_token(request, param_site_id)
 
-          # 3) Lấy tên domain từ DB
-          query_site_info = '''SELECT *
-                                FROM management_site a 
-                                WHERE a.id = {0}'''.format(param_site_id)
+          #2.3 Lấy danh sách tên và value của property
+          query_site_info = '''SELECT * 
+                                FROM lptool_db_master.report_customer_setting 
+                                WHERE site_id = {0}'''.format(param_site_id)
           object_site_info = db_controller.query(query_site_info)
-          file_name = object_site_info[0].get('name') + "-Channel Partner" + "_" + param_date + ".xlsx"
-          response = get_data_partner.partner_month_report(file_name,param_site_id)
-          #file_name = object_site_info[0].get('name') + "-All Partner" + "_" + param_date + ".xlsx"
-          #response = get_data_partner.download_partner_month_report(file_name,param_site_id,access_token)
-          print("Complete create report")
+          list_propertie_create_pie_chart = {} # Đây là list data để vẽ chart
+          for site in object_site_info:
+            list_property_value = site['property_value'].split(",")
+            list_propertie_create_pie_chart[site['property']] = list_property_value
+          
+          #3)TẠO BÁO CÁO       
+          #LẤY WORKFOLLOW,CONTRACT START DATE
+          sql_query_company_setting = '''SELECT a.boss_report_workfollow_id,a.contract_start_date,b.id,b.name 
+                                      FROM report_site_setting a 
+                                      INNER JOIN management_site b ON b.id = a.site_id
+                                      WHERE site_id = {0}'''.format(param_site_id)
 
-      return response
+          object_company_setting  = db_controller.query(sql_query_company_setting)
+          #LẤY NGÀY BẮT ĐẦU HỢP ĐỒNG
+          contract_start_date = str(object_company_setting[0]['contract_start_date'])
+          today = datetime.now()
+          #NẾU HÔM NAY KHÔNG PHẢI CUỐI THÁNG THÌ LẤY THÁNG TRƯỚC
+          the_most_recent_month = date_caculate.get_the_most_recent_month(today)
+
+          #LẤY WORDFOLLOW TỪ DB
+          wordkfollow_id = object_company_setting[0]['boss_report_workfollow_id']
+          # ĐẶT TÊN FILE
+          company_name = object_company_setting[0]['name']
+          file_name = company_name + "_from_" + param_start_day + "_to_" + param_end_day + '.pptx'
+
+          #Đưa vào threading để làm sau
+          # Thread 1 
+          print("Đưa vào Thread để làm sau")
+          # === Tạo biến lock để khóa từng hàm lại, đợi tới khi tạo báo cáo xong mới gửi mail ===
+          thread_lock = threading.Lock()
+          _t = threading.Thread(target=export_boss_pptx.export_boss_monthly_pptx,
+                                args=(access_token,file_name,contract_start_date,the_most_recent_month,
+                                      param_start_day,param_end_day,list_propertie_create_pie_chart,wordkfollow_id,
+                                      request,param_site_id,thread_lock),daemon=True)
+          _t.start()
+          # Thread 2 để gửi mail
+          download_url = 'https://download_day_anh_oi'
+          _t2 = threading.Thread(target=email_download_file.send_email,args=(param_site_id,download_url,param_list_email,thread_lock))
+          _t2.start()     
+      return HttpResponse()
+      # return response
     except Exception as inst:
-      #1. Trường hợp là hàm Ajax thì trả về giá trị AjaxResponseResult = -1
-      result = AjaxResponseResult.error.value
-
-      #2. Lấy thông tin chi tiết lỗi (Msg, File name, Line number)
-      exc_type, ms_tb, exc_tb = sys.exc_info()
-      fname = os.path.split(exc_tb.tb_frame.f_code.co_filename)[1]
-      exc_msg = 'File : {0} | Line : {1} | Type : {2}\nError: {3}'.format(fname, exc_tb.tb_lineno,exc_type,ms_tb)
-        
-      #3. Lưu vào file erro.log
-      logger.error('Exception : ' + str(type(inst)))
-      logger.error(exc_msg)
-
-      #4. In ra màn hình console
-      print(exc_msg)
-    return HttpResponse(result)
-  return HttpResponse('')
-
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//////////////////////////////////////////////////// Download //////////////////////////////////////////////////////////////////
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-    url(r'^customer/download/(?P<site_id>\d+)/(?P<start_day>\d+)/(?P<end_day>\d+)$', views.ajax_customer_download, name='ajax_customer_download'),
-    $("a#download").attr('href','/report/customer/download/'+site_id+'/'+start_day+'/'+end_day);
-
-def download_month_report(request):
-  if request.method == 'GET':
-      try:
-          #1 Lấy các giá trị từ request
-          param_date = request.GET['date']
-          param_site_id = int(request.GET['site_id'])
-
-          #2 Check security
-          #2.1 Kiểm tra có phải user đã login
-          if request.user.is_authenticated :
-            #2.2 Kiểm tra user đã auth chưa
-            hub_auth_client = HubAuth()
-            authenticat_state = hub_auth_client.get_authenticate_state(request, param_site_id)
-            
-            if authenticat_state == '1':
-              #3 Lấy tên domain từ DB
-              query_site_info = '''SELECT *
-                                  FROM management_site a 
-                                  WHERE a.id = {0}'''.format(param_site_id)
-              object_site_info = db_controller.query(query_site_info)
-
-              #4 Thực hiện tạo file excel
-              year = param_date[0:4]
-              month = param_date[5:]
-              print("Year take report : %10s" %(year) )
-              file_name = object_site_info[0]['name'] + "_" + param_date + ".xlsx"
-              response = export_report.month_report(file_name,int(year),int(month),param_site_id)  
-              print("Complete create report")
-              return response
-            else :
-              return HttpResponse('Please authentication to download')
-          else :
-            return HttpResponse('Please login to download')
-      except Exception as inst:
-        #1. Trường hợp là hàm Ajax thì trả về giá trị AjaxResponseResult = -1
-        result = AjaxResponseResult.error.value
-
-        #2. Lấy thông tin chi tiết lỗi (Msg, File name, Line number)
-        exc_type, ms_tb, exc_tb = sys.exc_info()
-        fname = os.path.split(exc_tb.tb_frame.f_code.co_filename)[1]
-        exc_msg = 'File : {0} | Line : {1} | Type : {2}\nError: {3}'.format(fname, exc_tb.tb_lineno,exc_type,ms_tb)
-        
-        #3. Lưu vào file erro.log
-        logger.error('Exception : ' + str(type(inst)))
-        logger.error(exc_msg)
-
-        #4. In ra màn hình console
-        print(exc_msg)
-
+      result = log.write_log(inst)
       return HttpResponse(result)
+    return HttpResponse(result)
   return HttpResponse('')
