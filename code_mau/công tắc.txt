@@ -1,0 +1,7 @@
+        <div class="checkbox-wrap position-relative" id='div_check_date_range_compare'>
+          <label class="switch switch-3d switch-primary">
+            <input type="checkbox" id="check_date_range_compare" class="switch-input"/>
+            <span class="switch-slider"></span>
+          </label>
+          <span class="position-absolute fixed-top" style="left: 46px;top: 2px;">Compare</span>
+        </div>

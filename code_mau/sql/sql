@@ -54,3 +54,13 @@ object_monthly_data.save()
 SELECT a.id 
 FROM management_site a
 WHERE a.id NOT IN (SELECT report_site_setting.site_id FROM report_site_setting)
+
+
+==============================================================
+=================== INSERT ===================================
+==============================================================
+INSERT INTO management_site_cta
+ (site_id,cta_type,cta_name)
+ VALUE(7,'footer','[Blog][Footer][NDSB]人材派遣会社様向けスタッフリレーションシップマネジメント for Microsoft Dynamics®');
+
+db_controller.execute(sql_insert_goal)

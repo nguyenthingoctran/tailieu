@@ -3,6 +3,7 @@
 - Delete error. 
 - Please enter your email address in format: yourname@example.com ===> Vui lòng nhập email đúng với định dạng
 - The network connection is lost
+- ABC already existed
 
 'Add event <strong>' + _name + '</strong> failed.'
 

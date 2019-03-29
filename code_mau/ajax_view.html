@@ -5,16 +5,6 @@ def ajax_page_create(request):
           try:
               # 1) Lấy các giá trị từ request
               param_title = request.POST['title']
-              param_meta_description = request.POST['meta_description']
-              param_sub_title = request.POST['sub_title']
-              param_content_title = request.POST['content_title']
-              param_content = request.POST['content']
-              param_campaign_name = request.POST['campaign_name']
-              param_uri = request.POST['uri']
-              param_form_id = request.POST['form_id']
-              param_email_id = request.POST['email_id']
-              param_site_id = request.POST['site_id']
-              param_input_file = request.FILE['input_file']
 
               print(param_input_file)
 
