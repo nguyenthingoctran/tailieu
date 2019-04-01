@@ -1,0 +1,40 @@
+import requests
+import urllib.request
+import json
+import pprint
+APIKEY_VALUE = "demo"
+HS_API_URL = "http://api.hubapi.com"
+APIKEY = "?hapikey=" + APIKEY_VALUE
+def getContactByMQLAndLead():
+    has_more = True
+    vid_offset = "0"
+    list_contact = []
+    while has_more == True:
+        vid_url = "?vidOffset=" + vid_offset
+        APIKEY = "&count=100&hapikey=" + APIKEY_VALUE
+        xurl = "/contacts/v1/lists/516085/contacts/all"
+
+        requestUrl = HS_API_URL + xurl + vid_url + APIKEY
+        statistics = requests.get(requestUrl).json()
+        for vid in statistics['contacts']:
+            list_contact.append(vid['vid'])
+        has_more = statistics['has-more']
+        vid_offset = str(statistics['vid-offset'])
+    return list_contact
+
+# hàm lấy thông tin của contact
+def getContactById(vid):
+    url = "https://api.hubapi.com/contacts/v1/contact/vid/"+ str(vid) +"/profile?hapikey=demo&property=createdate&property=state&property=lastname&property=phone&property=firstname&property=city&property=company&property=company&property=photo&property=lifecyclestage"
+    allContact = {}
+    with urllib.request.urlopen(url) as url:
+        response = url.read()
+    all_info_contact = json.loads(response)
+
+    for key, value in all_info_contact['properties'].items():
+        allContact[key] = value['value']
+    return allContact
+
+# Lấy thông tin của contact trong 1 list
+list_vid = getContactByMQLAndLead()
+for vid in list_vid:
+    pprint.pprint(getContactById(vid))
