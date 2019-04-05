@@ -1,3 +1,22 @@
+
+============================== DÙNG HÀM NÀY ==========================================
+def ajax_page_select_category(request):
+  if request.method == 'POST':
+
+    if request.is_ajax():
+      result = AjaxResponseResult.success.value
+      try:
+        #1)Lấy dữ liệu từ request
+        param_category = request.POST['category']
+        param_site_id = request.POST['site_id']
+
+      except Exception as inst:
+        result = log.write_log(inst)
+        return HttpResponse(result)
+        
+    return HttpResponse('')
+============================================================================
+
 def ajax_page_create(request):
   if request.method == 'POST':
       if request.is_ajax():
@@ -11,7 +30,7 @@ def ajax_page_create(request):
               return HttpResponse(result)
           except Exception as inst:
               #1. Trường hợp là hàm Ajax thì trả về giá trị AjaxResponseResult = -1
-              result = AjaxResponseResult.error.value
+              result = log.write_log(inst)
 
               #2. Lấy thông tin chi tiết lỗi (Msg, File name, Line number)
               exc_type, ms_tb, exc_tb = sys.exc_info()
