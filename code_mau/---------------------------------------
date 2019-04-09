@@ -1,1 +1,46 @@
 {'authorId': 215482, 'listType': 'DYNAMIC', 'archived': False, 'updatedAt': 1554111221061, 'dynamic': True, 'internalListId': 516895, 'metaData': {'listReferencesCount': None, 'parentFolderId': None, 'processing': 'DONE', 'lastSizeChangeAt': 1554111244940, 'lastProcessingStateChangeAt': 1554111244865, 'error': '', 'size': 16}, 'filters': [[{'withinTimeMode': 'PAST', 'operator': 'EQ', 'filterFamily': 'PropertyValue', 'type': 'string', 'property': 'lastname', 'value': 'nguyen'}]], 'portalId': 62515, 'createdAt': 1554111221061, 'listId': 516085, 'name': 'LastName Nguyen'}
+
+<div id="wrap-all" class="container-fluid" style="height : 90%">
+  <div class="animated fadeIn testimonial-group" style="height:750px;">
+    <div class="row" style="height:100%">
+      {% for lifecycle in list_lifecycle %}
+        <div class="col-3 d-inline-block" style="height:100%">
+          <div class="row h-100">
+            <div class="col-md-12" style="height: 97%">
+              <div class="card card-accent-info h-100" >
+                <!-- Header -->
+                <div class="card-header">{{lifecycle.label}}</div>
+                <div class="card-body connect-sortable" style="height:100%; overflow: auto">
+                    <div class="alert alert-primary drag" role="alert">
+                        A simple primary alert—check it out!
+                    </div>
+                    <div class="alert alert-danger drag" role="alert">
+                        A simple primary alert—check it out!
+                    </div>
+                    <div class="alert alert-success drag" role="alert">
+                        A simple primary alert—check it out!
+                    </div>
+                    <div class="alert alert-warning drag" role="alert">
+                        A simple primary alert—check it out!
+                    </div>
+                    <div class="alert alert-primary drag" role="alert">
+                        A simple primary alert—check it out!
+                    </div>
+                    <div class="alert alert-danger drag" role="alert">
+                        A simple primary alert—check it out!
+                    </div>
+                    <div class="alert alert-success drag" role="alert">
+                        A simple primary alert—check it out!
+                    </div>
+                    <div class="alert alert-warning drag" role="alert">
+                        A simple primary alert—check it out!
+                    </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>        
+      {% endfor %}
+    </div>
+  </div>
+</div>
