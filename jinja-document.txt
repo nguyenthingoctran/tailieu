@@ -1,5 +1,15 @@
-================================================
+﻿================================================
 =============== CẮT CHUỖI ======================
 ================================================
 {% set list_type = site.report_type.split(',') %} 
 {{data.name|truncate(36, True)}}
+
+================================================
+========================= IF ELSE ==============
+================================================
+
+      {% if data_site_status[arr_index] == 'Finished' %}
+        <span class="badge badge-success">Finished</span>
+      {% else %}
+        <span class="badge badge-warning">UnFinished</span>
+      {% endif %}

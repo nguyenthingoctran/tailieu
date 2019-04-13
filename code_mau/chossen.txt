@@ -1,3 +1,29 @@
+==================================================================================
+============================ CHOSSEN COREUI ======================================
+==================================================================================
+<link href='{{ static ("/vendors/select2/css/select2.min.css")}}' rel="stylesheet">
+<script src='{{ static ("/vendors/select2/js/select2.min.js") }}'></script>
+
+<select class="form-control select2-single" id="select2-1">
+    <option value="">nguyen</option>     // Lưu ý là lưu value
+    <option>thi</option>
+    <option>ngoc</option>
+    <option>tran</option>
+    <option>xinh</option>
+</select>
+
+JS:
+$('#select2-1').select2({
+    theme: 'bootstrap'
+});
+
+==> Lưu ý: Lỗi không search được thì dùng xóa tabindex của modal
+
+==========================================================================
+=================== CHOSEN THƯ VIỆN NGOÀI ================================
+==========================================================================
+
+
 $(".select_property").chosen({no_results_text: "Oops, nothing found!"});  ==> Nếu dùng trong modal thì phải bỏ trong hàm
 
 ==========================================================================
@@ -25,23 +51,3 @@ $(".select_property").chosen({no_results_text: "Oops, nothing found!"});  ==> N�
 	Đặt hàm này trong script của html trang riêng của nó,
     Đặt hàm này trong chính function của nó
 
-==================================================================================
-============================ CHOSSEN COREUI ======================================
-==================================================================================
-<link href='{{ static ("/vendors/select2/css/select2.min.css")}}' rel="stylesheet">
-<script src='{{ static ("/vendors/select2/js/select2.min.js") }}'></script>
-
-<select class="form-control select2-single" id="select2-1">
-    <option value="">nguyen</option>     // Lưu ý là lưu value
-    <option>thi</option>
-    <option>ngoc</option>
-    <option>tran</option>
-    <option>xinh</option>
-</select>
-
-JS:
-$('#select2-1').select2({
-    theme: 'bootstrap'
-});
-
-==> Lưu ý: Lỗi không search được thì dùng xóa tabindex của modal

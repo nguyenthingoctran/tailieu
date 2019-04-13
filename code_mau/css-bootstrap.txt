@@ -1,6 +1,6 @@
 .table-hover // BẢNG HOVER
 
-.text-danger // thay màu
+.text-danger // thay màu chữ
 
 .https://getbootstrap.com/docs/4.1/utilities/display/  // display
 

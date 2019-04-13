@@ -16,33 +16,6 @@ def ajax_page_select_category(request):
         return HttpResponse(result)
         
     return HttpResponse('')
-============================================================================
-
-def ajax_page_create(request):
-  if request.method == 'POST':
-      if request.is_ajax():
-          result = AjaxResponseResult.success.value
-          try:
-              # 1) Lấy các giá trị từ request
-              param_title = request.POST['title']
-
-              print(param_input_file)
-
-              return HttpResponse(result)
-          except Exception as inst:
-              #1. Trường hợp là hàm Ajax thì trả về giá trị AjaxResponseResult = -1
-              result = log.write_log(inst)
-
-              #2. Lấy thông tin chi tiết lỗi (Msg, File name, Line number)
-              exc_type, ms_tb, exc_tb = sys.exc_info()
-              fname = os.path.split(exc_tb.tb_frame.f_code.co_filename)[1]
-              exc_msg = 'File : {0} | Line : {1} | Type : {2}\nError: {3}'.format(fname, exc_tb.tb_lineno,exc_type,ms_tb)
-
-              #4. In ra màn hình console
-              print(exc_msg)
-
-          return HttpResponse(result)
-      return HttpResponse('')
 
 ===========================================================================================
 ============================ DOWNLOAD =====================================================

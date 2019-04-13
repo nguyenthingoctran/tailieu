@@ -1,5 +1,3 @@
-
-
     function add() {
       hide_message("message-add");
       const btn = Ladda.create(document.querySelector('.add-button'));
@@ -7,16 +5,8 @@
 
       // Get data input
       var name = $("#txt_name").val();
-      var size = $("#txt_size").val();
-      var hubspot_list_id = $("select#txt_hubspot_list_id").children("option:selected").val();
-      var hubspot_lp_id = $("select#txt_hubspot_lp_id").children("option:selected").val();
-      var close_type = $("select#close_type").children("option:selected").val();
-      var event_state = $("select#event_state").children("option:selected").val();
-      var date = $("#datepicker").val();
-      var notify_user = $("select#notify_user").children("option:selected").val();
-      var site_id = $("#site_id").val();
 
-      if (name == "" || size == "" || hubspot_list_id == "0" || hubspot_lp_id == undefined || close_type == undefined || event_state == "0" || date == "" || notify_user == "0" ){
+      if (name == ""){
         show_error_message("message-add","Please fill all input");
         btn.stop();
       }else{
@@ -35,17 +25,12 @@
               }else{
                 show_success_message("message-add","Add event successfully");
                 btn.stop();
-                $(".add-button").addClass("disabled");
-                show_loading_bar(loading_bar_id);
-                $("tbody").addClass("d-none");
-                load_data();
               }
             },
             error: function (xhr, status, e) {
             }
       });
       }
-
     }
 
 ====================================================================================

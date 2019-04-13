@@ -1,17 +1,11 @@
+=====================================================================
+=================== HTML ============================================
+=====================================================================
 <table id="tbContact" class="table table-responsive-sm table-striped">
   <thead>
       <tr>
             <th>Num</th>
             <th>Name</th>
-            <th>Email</th>
-            <th stype="width:100px">Campaign</th>
-            <th stype="width:200px">Company name</th>
-            <th stype="width:200px">Phone Number</th>
-            <th stype="width:300px">Annual revenue</th>
-            <th stype="width:300px">Industry_en</th>
-            <th stype="width:300px">Number of employee</th>
-            <th stype="width:200px">State</th>
-            <th stype="width:200px">City</th>
             <th style='width: 80px'>Actions</th>
       </tr>
   </thead>
@@ -19,11 +13,7 @@
     {% for data in list_contact_company_info %}
         <tr class="contact_info">
             <td>{{loop.index}}</td>
-
             <td class = "h6 text-info">{{data.contact.properties.firstname.value + data.contact.properties.lastname.value}} </td>
-            <td class = "h6 text-info">{{data.contact.properties.email.value}}</td>
-            <td class = "h6 text-danger">{{data.company_info.product_type if data.company_info.product_type else ""}}</td>
-            <td class = "h6">{{data.company_info.name if data.company_info.name else ""}}</td>
             <td>
                 <div class = "h6 row text-danger"> {{data.company_info.phone if data.company_info.phone else ""}}</div>
                 <div class = "h6 row text-info"> {{data.contact.properties.phone.value if data.contact.properties.phone else ""}}</div>
@@ -32,3 +22,24 @@
     {% endfor %}  
   </tbody>
 </table>
+
+=====================================================================
+=================== TABLE BUTTON SHOW HOVER =========================
+=====================================================================
+// Html
+<td class="position-relative">{{site.name}}
+    <div class="button-edit position-absolute h-100 px-1" style="top:0; right:0; line-height:45px; background-color:#ececec">
+        <i class="fa fa-times-rectangle-o"></i>
+        <i data-id="{{site.id}}" data-name="{{site.name}}" data-target="#modalEditForm" data-toggle="modal" class="fa fa-edit"></i>
+    </div>
+</td>
+
+
+// Js
+$('#table_data tbody tr td div.button-edit').hide();
+$('#table_data tbody tr td').mouseover(function(){
+    $(this).closest('#table_data tbody tr').find('div.button-edit').show();
+});  
+$('#table_data tbody tr').mouseout(function(){
+    $(this).closest('#table_data tbody tr').find('div.button-edit').hide();
+});

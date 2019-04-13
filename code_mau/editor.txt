@@ -4,13 +4,6 @@
     <script src='{{ static ("/vendors/quill/js/quill.min.js") }}'></script>
     <script src='{{ static ("/js/text-editor.js") }}'></script>
 
-// Thẻ html
-  <div class="card-body px-0">
-    <div id="editor" >
-    
-    </div>          
-  </div>
-
 ///////////////////////////////////////////////////////////
 ==================CKEDITOR
 ///////////////////////////////////////////////////////////

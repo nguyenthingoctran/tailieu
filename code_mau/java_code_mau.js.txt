@@ -1,6 +1,0 @@
-$('input[type="submit"]').attr('disabled','disabled');  // DISABLE NÚT
-
-$('input[type="submit"]').removeAttr('disabled'); // XÓA ATTR
-
-$('#download').css({'pointer-events':'none','opacity':'0.5'}); // Vô hiệu hóa element
-$('#download').css({'pointer-events':'auto','opacity':'1'}); // Kích hoạt

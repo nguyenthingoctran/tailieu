@@ -62,16 +62,6 @@
     }
   });
 
-
-  ==========================================================================================
-    $('#modalEditForm').on('hidden.bs.modal', function (e) {
-    if(addform_is_updated) {
-      load_data();
-    }
-  });
-
-==========================================================================================
-
 ===================================================================================
 $('#myModal').on('hidden.bs.modal', function (e) {
     $(".modal-body").html('');
@@ -82,31 +72,3 @@ $('#myModal').on('hidden.bs.modal', function (e) {
 ===========================================================================================
 ===========================================================================================
 ===========================================================================================
-
-<form >
-    <!-- Content Modal -->
-    <div class="list-group list-group-accent">
-        <!-- Social -->
-        <div class="list-group-item list-group-item-accent-primary list-group-item-primary">Social</div> <br>
-        <div class="row">
-            <div class="col-2">Google+ <span style="color:red">*</span></div>
-            <div class="col-10"><input type="text" class="form-control" id="txt_social_google" placeholder="Google+" ></div>
-        </div> <br>
-        <!-- End Social -->
-
-        <!-- Email -->
-        <div class="list-group-item list-group-item-accent-primary list-group-item-primary">Email</div> <br>
-         
-        <div class="row">
-            <div class="col-2">Click Rate <span style="color:red">*</span></div>
-            <div class="col-10"><input type="text" class="form-control" id="txt_email_click" placeholder="Click Rate"></div>
-        </div> <br>          
-        <!-- End Email -->
-    </div>
-    <!-- End Content Modal -->
-    </div>
-    
-</form>
-
-===========================================================================================
-$("#modalEditForm").modal('hide'); ==> hide popup
