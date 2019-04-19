@@ -1,3 +1,8 @@
+https://getbootstrap.com/docs/4.0/components/modal/
+
+========================================================================================
+================================ HTML ==================================================
+========================================================================================
 <button data-id="{{site_info.id}}" data-toggle="modal" data-target="#modalSettingForm" class="btn btn-sm btn-info" type="button">
   <i class="fa fa-cog"></i>
 </button>
@@ -36,37 +41,14 @@
   //==================================================
   $('#modalSettingForm').on('shown.bs.modal', function (e) {
     $('#modalSettingFormBody').html(get_loading_bar());
-
-    var site_id = $(e.relatedTarget).data('id');
-    $.ajax({
-      type: "POST",
-      url: "/management/site/ajax_settingform",
-      dataType: "html",
-      data : { id : site_id, 'csrfmiddlewaretoken' : '{{ csrf_token }}' },
-      success : function(response) {
-        $('#modalSettingFormBody').html(response);
-        addform_is_updated = false;
-      },
-      error: function(xhr, status, e) {
-        $('#modalSettingFormBody').html('Load form failed.');
-      }
-    });
   });
 
   //==================================================
   // Hide setting modal event
   //==================================================
   $('#modalSettingForm').on('hidden.bs.modal', function (e) {
-    if(addform_is_updated) {
-      load_data();
-    }
+    $('#modalSettingFormBody').html(get_loading_bar());
   });
-
-===================================================================================
-$('#myModal').on('hidden.bs.modal', function (e) {
-    $(".modal-body").html('');
-});  
-===> Lưu ý đặt hàm này trong ready
 
 
 ===========================================================================================
