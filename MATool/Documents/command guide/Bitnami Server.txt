@@ -1,0 +1,20 @@
+============================================================
+===== MySQL ================================================
+============================================================
+https://docs.bitnami.com/virtual-machine/infrastructure/mysql/administration/connect-remotely/
+
+Restart MySQL
+sudo /opt/bitnami/ctlscript.sh restart mysql
+
+Restart Server
+sudo /opt/bitnami/ctlscript.sh restart apache
+
+
+============================================================
+===== Deploy A Django Project ==============================
+============================================================
+https://docs.bitnami.com/oci/infrastructure/django/get-started/deploy-django-project/
+
+Config Virtual host
+/opt/bitnami/apache2/conf/bitnami/bignami.conf
+

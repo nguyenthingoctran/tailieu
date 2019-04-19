@@ -5,14 +5,14 @@ def ajax_page_select_category(request):
   if request.method == 'POST':
 
     if request.is_ajax():
-      result = AjaxResponseResult.success.value
       try:
         #1)Lấy dữ liệu từ request
         param_category = request.POST['category']
         param_site_id = request.POST['site_id']
-
+        
+        return render(request,'apps/sales/test_sort_able.html')
       except Exception as inst:
-        result = log.write_log(inst)
+        result = Log().write_log(inst)
         return HttpResponse(result)
         
     return HttpResponse('')

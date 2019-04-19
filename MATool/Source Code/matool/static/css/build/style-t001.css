@@ -1,0 +1,17 @@
+/*----- Analytics data -----*/
+table.table tr td .item-wrap label {
+  margin-bottom: 2px;
+}
+
+table.table tr td .num-wrap  {
+  height: 15px;
+  display: block;
+  background: #8eddf9;
+}
+
+table.table tr td .num-wrap .num {
+  display: block;
+  background-color: #20a8d8;
+  height: 15px;
+  transition: width 0.8s;
+}

@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+
+{% block main %}
+<div class="card m-4">
+  <div class="card-header">
+    <i class="fa fa-align-justify"></i> <strong>Blog performance</strong>
+  </div>
+  <div class="card-body" id="card_body">
+    
+  </div>
+  <!-- End .card-body -->
+</div>
+<!-- End .card -->
+<script type="text/javascript">
+  
+  $(document).ready(function() {
+    load_site();
+  });
+
+  function load_site() {
+    var detail_url = '/performance/blog';
+    var detail_all_url = '';
+    
+    show_loading_bar('card_body');
+    $.ajax({
+      type: "POST",
+      url: "/common/ajax-get-list-site",
+      dataType: "html",
+      data: { detail_url: detail_url, detail_all_url: detail_all_url, 'csrfmiddlewaretoken': '{{ csrf_token }}' },
+      success: function (response) {
+        $('#card_body').html(response);
+      },
+      error: function (xhr, status, e) {
+
+      }
+    });
+  }
+
+</script>
+{% endblock %}

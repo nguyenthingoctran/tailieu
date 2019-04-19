@@ -1,0 +1,24 @@
+<table id="table_data" class="table table-responsive-sm table-border table-hover table-bordered display nowrap">
+    <thead>
+        <th class="text-center">Post tile</th>
+        <th class="text-center">Category</th>
+        <th class="text-center">Published date</th>
+        <th class="text-center">Publication period(month)</th>
+        <th class="text-center">Organic keyword</th>
+        <th class="text-center">Organic keyword (Search volume)</th>
+        <th class="text-center">Keyword</th>
+        <th class="text-center">Keyword (Search volume)</th>
+        {%for date in list_month_get_value%}
+        <th class="text-center">{{date}}</th>
+        {%endfor%}
+    </thead>
+    <tbody>
+        {%for list_data in list_data_table%}
+            <tr>
+                {%for data in list_data%}
+                <td class="text-center">{{data}}</td>
+                {%endfor%}
+            </tr>
+        {%endfor%}
+    </tbody>
+</table>

@@ -1,0 +1,79 @@
+==========================================================================
+1) Đi đến file lptool
+cd /opt/bitnami/apps/django/django_projects/lptool
+
+======================================================================
+================== CELERY SERVER =====================================
+======================================================================
+
+1) Chạy redis server
+sudo service redis-server start
+
+1.2)Kiểm tra redis server đã khởi động chưa
+redis-cli
+
+2)Chạy beat
+
+--Chạy lệnh kết nối với DB:
+celery -A lptool beat -S django
+
+
+3)Chạy worker
+
+-----Sử dụng lệnh này
+celery -A lptool worker -l info -B
+
+-----Chạy worker lưu celerybeat-schedules vào một chỗ khác
+celery -A lptool worker -l info -B -s /opt/bitnami/apps/django/django_projects/lptool/celerybeat_log/celerybeat-schedules2
+
+celery -A proj worker -l info -n worker2@%h
+
+4)Đường dẫn 2 file cần xóa đi
+/opt/bitnami/apps/django/django_projects/lptool/celerybeat-schedule
+
+/opt/bitnami/apps/django/django_projects/lptool/celerybeat.pid
+
+
+======================================================================
+================== CELERY SERVER CONFIG ==============================
+======================================================================
+1. File cấu hình môi trường
+/etc/conf.d/celery
+
+2. File cấu hình lệnh chạy celerybeat
+/etc/systemd/system/celerybeat.service
+
+3. File cấu hình lệnh chay worker
+/etc/systemd/system/celeryworker.service
+
+4. Đường dẫn lưu log/pid/schedules
+/opt/bitnami/apps/django/django_projects/lptool/celery/beat.pid
+/opt/bitnami/apps/django/django_projects/lptool/celery/beat.log
+/opt/bitnami/apps/django/django_projects/lptool/celery/beat-schedules
+
+======================================================================
+================== LỆNH CHẠY CELERY SERVICE ==========================
+
+I. Restart Server
+sudo /opt/bitnami/ctlscript.sh restart apache
+
+II. Tắt Celery service
+1. Stop worker service
+systemctl stop celeryworker.service
+
+2. Stop beat service
+systemctl stop celerybeat.service
+
+III. Khởi động apache
+1. Start beat service
+systemctl start celerybeat.service
+
+2. Start worker service
+systemctl start celeryworker.service
+
+IV. Xem trạng thái service
+systemctl status celerybeat.service
+systemctl status celeryworker.service
+
+
+

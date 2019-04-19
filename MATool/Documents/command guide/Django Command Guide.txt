@@ -1,0 +1,78 @@
+============================================================
+===== LỆNH THAO TÁC CƠ BẢN TRÊN DJANGO
+============================================================
+1. Install Django
+easy_install django
+
+2. Create Django project
+django-admin startproject [ProjectName]
+
+3. Run project
+python manage.py runserver
+
+4. Create app
+python manage.py startapp [AppName]
+
+5. Rebuild project
+python manage.py migrate
+
+6. Migrate model
+python manage.py makemigrations [AppName]
+
+7. Migrate model (DB)
+python manage.py sqlmigrate [ModalName] 0001
+-> python manage.py migrate
+
+8. Change to Database sell mode
+python manage.py shell
+
+9. Show migrations
+python manage.py showmigrations
+
+10. Clear migrations
+python manage.py migrate --fake [ModelName] zero
+
+11. Create admin user
+python manage.py createsuperuser
+
+12. Install mysqlclient
+pip install mysqlclient
+
+13. Install Hubspot API
+pip install hubspot3
+
+14. Install Request module
+pip install requests
+
+15. Install SSL
+pip install django-sslserver
+INSTALLED_APPS = (...
+"sslserver",
+...
+)
+
+16. Chạy ứng dụng Django 
+python manage.py runsslserver 0.0.0.0:443
+python3 manage.py runsslserver 0.0.0.0:443
+
+
+============================================================
+===== Thư viện Django
+============================================================
+1. Jinja2
+pip install Jinja2
+
+============================================================
+===== SETTING DJANGO
+============================================================
+1. Cấu hình sử dụng MySQL
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'lptool_db',
+        'USER': 'dev',
+        'PASSWORD': 'LeadPlus@123',
+        'HOST': '13.230.31.132',
+        'PORT':'3306',
+    }
+}

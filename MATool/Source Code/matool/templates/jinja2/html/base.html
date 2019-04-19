@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<!--
+* CoreUI - Free Bootstrap Admin Template
+* @version v2.1.10
+* @link https://coreui.io
+* Copyright (c) 2018 creativeLabs Łukasz Holeczek
+* Licensed under MIT (https://coreui.io/license)
+-->
+<html lang="en">
+  <head>
+    <base href="./">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <meta name="description" content="LPTool V1.4">
+    <meta name="author" content="LeadPlus">
+    <meta name="keyword" content="LPTool V1.4">
+    <meta name="robots" content="noindex,nofollow">
+    <title>MATool V1.0</title>
+    <!-- Icons-->
+    <link href='{{ static ("/vendors/@coreui/icons/css/coreui-icons.min.css") }}' rel="stylesheet">
+    <link href='{{ static ("/vendors/flag-icon-css/css/flag-icon.min.css") }}' rel="stylesheet">
+    <link href='{{ static ("/vendors/font-awesome/css/font-awesome.min.css") }}' rel="stylesheet">
+    <link href='{{ static ("/vendors/simple-line-icons/css/simple-line-icons.css") }}' rel="stylesheet">
+    <!-- Main styles for this application-->
+    <link href='{{ static ("/css/build/style-v001.css") }}' rel="stylesheet">
+    <link href='{{ static ("/css/build/style-t001.css") }}?v=3' rel="stylesheet">
+    <link href='{{ static ("/css/common.css") }}?v=14' rel="stylesheet">
+    <link href='{{ static ("/css/chosen.css") }}?v=5' rel="stylesheet">
+    <link href='{{ static ("/css/pie-chart.css") }}?v=1' rel="stylesheet">
+    <link href='{{ static ("/vendors/pace-progress/css/pace.min.css") }}' rel="stylesheet">
+    <link href='{{ static ("/vendors/datatables.net-bs4/css/dataTables.bootstrap4.css")}}' rel="stylesheet">
+    <link href='{{ static ("/vendors/ladda/css/ladda-themeless.min.css")}}' rel="stylesheet">
+    <link href='{{ static ("/css/gijgo.min.css")}}' rel="stylesheet">
+    <link href='{{ static ("/vendors/select2/css/select2.min.css")}}' rel="stylesheet">
+    <link href='{{ static ("/css/amsify.suggestags.css")}}' rel="stylesheet">
+    <link href='{{ static ("/vendors/spinkit/css/spinkit.css") }}' rel="stylesheet">
+    <link href='{{ static ("vendors/quill/css/quill.snow.css") }}' rel="stylesheet">
+
+    <!-- Date range picker -->
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+
+    <!-- Data Table Superman -->
+    <link href='https://cdn.datatables.net/select/1.3.0/css/select.dataTables.min.css' rel="stylesheet">
+    <!-- <link href='https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css' rel="stylesheet"> -->
+    <!-- <link href='https://cdn.datatables.net/buttons/1.5.6/css/buttons.dataTables.min.css' rel="stylesheet"> -->
+    {%block link%}{%endblock%}
+
+    <script src='{{ static ("/vendors/jquery/js/jquery.min.js") }}'></script>
+
+  </head>
+  <body class="app header-fixed sidebar-fixed aside-menu-fixed {% if request.user.is_authenticated %} sidebar-lg-show {% endif %}">
+    {% include 'control/global/header.html' %}
+    <div class="app-body">
+      {% include 'control/global/sidebar.html' %}
+      <main class="main">
+
+      {% if request.user.is_authenticated %}
+        {% block main %}{% endblock %}
+      {% else %}
+        {% include 'control/user/login.html' %}
+      {% endif %}
+
+      </main>
+
+    </div>
+    {% include 'control/global/footer.html' %}
+    <!-- CoreUI and necessary plugins-->
+    <!-- <script src='{{ static ("/vendors/jquery/js/jquery.min.js") }}'></script> -->
+    <script src='{{ static ("/vendors/popper.js/js/popper.min.js") }}'></script>
+    <script src='{{ static ("/vendors/bootstrap/js/bootstrap.min.js") }}'></script>
+    <script src='{{ static ("/vendors/pace-progress/js/pace.min.js") }}'></script>
+    <script src='{{ static ("/vendors/perfect-scrollbar/js/perfect-scrollbar.min.js") }}'></script>
+    <script src='{{ static ("/vendors/@coreui/coreui/js/coreui.min.js") }}'></script>
+    <!-- Plugins and scripts required by this view-->
+    <script src='{{ static ("/vendors/datatables.net/js/jquery.dataTables.js")}}'></script>
+    <script src='{{ static ("/vendors/datatables.net-bs4/js/dataTables.bootstrap4.js")}}'></script>
+    <script src='{{ static ("/js/datatables.js")}}'></script>
+
+    <script src='{{ static ("/vendors/ladda/js/spin.min.js")}}'></script>
+    <script src='{{ static ("/vendors/ladda/js/ladda.min.js")}}'></script>
+    <script src='{{ static ("/vendors/jquery.maskedinput/js/jquery.maskedinput.js")}}'></script>
+
+    <script src='{{ static ("/vendors/chart.js/js/Chart.min.js") }}'></script>
+    <script src='{{ static ("/vendors/@coreui/coreui-plugin-chartjs-custom-tooltips/js/custom-tooltips.min.js") }}'></script>
+    <script src='{{ static ("/vendors/moment/js/moment.min.js")}}'></script>
+    <script src='{{ static ("/vendors/bootstrap-daterangepicker/js/daterangepicker.js") }}' type="text/javascript" class="view-script"></script>
+    <script src='{{ static ("/js/chosen.jquery.min.js") }}?v=16'></script>
+    <script src='{{ static ("/vendors/select2/js/select2.min.js") }}'></script>
+    <script src='{{ static ("/js/advanced-forms.js") }}'></script>
+    <script src='{{ static ("/js/gijgo.min.js") }}'></script>
+    <script src='{{ static ("/js/pie-chart.js") }}'></script>
+    <script src='{{ static ("/js/jquery.amsify.suggestags.js")}}'></script>
+
+    <!-- Calendal -->
+    <script src='{{ static ("/js/calendar_handle.js")}}?v=1'></script>
+    <script src='{{ static ("/js/build/common-v001.js") }}?v=2'></script>
+    <script src='{{ static ("/js/build/common-t001.js") }}?v=2'></script>
+    
+    <!-- Datatable SuperMan -->
+    <script src='https://cdn.datatables.net/buttons/1.5.6/js/dataTables.buttons.min.js'></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js'></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js'></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js'></script>
+    <script src='https://cdn.datatables.net/buttons/1.5.6/js/buttons.flash.min.js'></script>
+    <script src='https://cdn.datatables.net/buttons/1.5.6/js/buttons.html5.min.js'></script>
+    <script src='https://cdn.datatables.net/buttons/1.5.6/js/buttons.print.min.js'></script>
+
+    <script src='https://cdn.datatables.net/select/1.3.0/js/dataTables.select.min.js'></script>
+
+
+    {% block script %}{% endblock %}
+  </body>
+</html>

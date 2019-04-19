@@ -1,0 +1,135 @@
+{% extends 'base.html' %}
+
+
+{% block main %}
+<div class="card m-4">
+  <div class="card-header">
+    <i class="fa fa-align-justify"></i> <strong>Blog performance: {{site_info.name}}</strong>
+  </div>
+  <div class="card-body">
+
+    <!-- Change tabs -->
+    <ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+          <a class="nav-link active show" data-toggle="tab" href="#overview" role="tab" aria-controls="overview" onclick="get_data_tab_overview();" aria-selected="true">Overview</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" data-toggle="tab" href="#ranking" role="tab" aria-controls="ranking" onclick="get_data_tab_ranking();" aria-selected="false">Ranking</a>
+        </li>
+    </ul>
+
+    <!-- Tags content -->
+    <div class="tab-content">
+      <!-- Overview -->
+      <div class="tab-pane active show" id="overview" role="tabpanel">
+          <div class="row">
+            <div class="col-12">
+              <a href="" class="btn btn-info float-right">
+                <i class="fa fa-download"></i>
+                <span>Download CSV</span>
+              </a>
+            </div>
+          </div>        
+        <hr/>
+        <div id="data-overview">
+          <div class="progress-bar">
+            <div class="progress">
+              <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width: 100%"></div>
+            </div>
+          </div>          
+        </div>
+      </div>
+      
+      <!-- Ranking -->
+      <div class="tab-pane" id="ranking" role="tabpanel">
+        <div class="row">
+            <div class="col-12">
+              <a href="" class="btn btn-info float-right">
+                <i class="fa fa-download"></i>
+                <span>Download CSV</span>
+              </a>
+            </div>
+          </div>        
+        <hr/>
+        <div id="data-ranking">
+          <div class="progress-bar">
+            <div class="progress">
+              <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width: 100%"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div> 
+    
+
+  </div>
+  
+  <!-- Input hidden get data -->
+  <input type="hidden" id="site_id" name="site_id" value="{{site_info.id}}">
+</div>
+
+<script type='text/javascript'>
+  var _site_id = '{{site_info.id}}';
+  var _auth_redirect_uri = 'https://{{request.META["HTTP_HOST"]}}/performance/blog/{{site_info.id}}';
+</script>
+
+{#========== INCLUDE HUBSPOT AUTH ==========#}
+
+<script type="text/javascript">
+var is_load_tab_overview = false
+var is_load_tab_ranking = false
+
+$(document).ready(function(){
+  get_data_tab_overview();
+});
+
+function get_data_tab_overview(){
+  // Lấy data
+  var site_id = $("#site_id").val();
+  
+  $.ajax({
+    type: "POST",
+    url: "/performance/blog/ajax-get-data-tab-overview",
+    dataType: "html",
+    data: { 
+      site_id : site_id,
+      'csrfmiddlewaretoken': '{{ csrf_token }}',
+    },
+    success: function (response) {
+      if (response == 0){
+        show_error_message("data-overview","Load data fail");
+      }else{
+        $("#data-overview").html(response);
+      }
+    },
+    error: function (xhr, status, e) {
+    }
+  });  
+}
+
+function get_data_tab_ranking(){
+  // Lấy data
+  var site_id = $("#site_id").val();
+
+  $.ajax({
+    type: "POST",
+    url: "/performance/blog/ajax-get-data-tab-ranking",
+    dataType: "html",
+    data: { 
+      site_id : site_id,
+      'csrfmiddlewaretoken': '{{ csrf_token }}',
+    },
+    success: function (response) {
+      if (response == 0){
+        show_error_message("data-ranking","Load data fail");
+      }else{
+        $("#data-ranking").html(response);
+      }
+    },
+    error: function (xhr, status, e) {
+    }
+  });  
+}
+</script>
+
+{% endblock main %}
