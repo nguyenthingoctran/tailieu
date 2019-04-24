@@ -31,3 +31,33 @@ C2:
 validation_email("txt_internal_email", "internal_email"); 
 --> txt_internal_email : id của input
     internal_email : id của div
+
+
+==================================================================================
+============================== INPUT REQUIRED ====================================
+==================================================================================
+// Đã viết trong common khi dùng không dùng hai hàm này
+// Lưu ý 2 hàm này chỉ là hiển thị và ẩn thông báo lỗi ()
+function validate_input_text(div_id){
+  $(div_id).append("<span class='text-danger error-required'>Please fill out this field. </span>")
+}
+
+function remove_validate_input_text(){
+  $(".error-required").remove();
+}
+
+// CÁCH DÙNG (Tham khảo trang )
+  // HTML: thêm class
+  <div class="col-12 error-requried"></div>
+
+// JS
+  // Validate
+  validate = ''
+  var validate_input = $("input[type='text']").each(function(){
+    if($(this).val() == ""){
+      validate = validate + '0';
+      var div_id = $(this).parent().parent().parent().find('.error-requried');
+      validate_input_text(div_id);
+      btn.stop();
+    }
+  });
