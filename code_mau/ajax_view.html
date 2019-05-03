@@ -5,6 +5,7 @@ def ajax_page_select_category(request):
   if request.method == 'POST':
 
     if request.is_ajax():
+      result = AjaxResponseResult.success.value
       try:
         #1)Lấy dữ liệu từ request
         param_category = request.POST['category']

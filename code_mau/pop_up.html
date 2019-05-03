@@ -19,8 +19,11 @@ https://getbootstrap.com/docs/4.0/components/modal/
         </button>
       </div>
       <div id="modalSettingFormBody" data-siteid="-1" class="modal-body">
-        <div class="progress">
-          <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width: 100%"></div>
+
+      </div>
+      <div class="container p-0">
+        <div class="col-12" id="message">
+
         </div>
       </div>
       <div class="modal-footer">
@@ -51,6 +54,12 @@ https://getbootstrap.com/docs/4.0/components/modal/
   });
 
 
+
+$('#modalSettingBlog').on('hidden.bs.modal', function (e) {
+  show_loading_bar_CoreUI("modalSettingBlogBody");
+  hide_message("message");
+  $("#message").removeClass("invisible");
+});
 ===========================================================================================
 ===========================================================================================
 ===========================================================================================
