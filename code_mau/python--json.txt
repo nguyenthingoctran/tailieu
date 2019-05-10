@@ -1,0 +1,9 @@
+================= View ===================
+    return JsonResponse(data)
+
+
+================== HTML ===================
+    dataType: "json",
+
+	- lấy dữ liệu:
+	response.data_chart
