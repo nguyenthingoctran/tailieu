@@ -14,6 +14,15 @@ url(r'^management$', views.management_index, name='temanagement_indexst2'),
 <!-- ===================================================== -->
 <!-- ====================== View ========================= -->
 <!-- ===================================================== -->
+from django.http import HttpResponse,JsonResponse
+
+from Until_Common_V2.db_helper import db_helper,db_site_query
+from Until_Common_V2.enum import AjaxResponseResult, LoginStatus
+
+
+#Khởi tạo db_helper
+db_controller = db_helper()
+
 def management_index(request):
   return render(request, "apps/customer_analysis/management_index.html")
 
@@ -45,7 +54,7 @@ def management_index(request):
     var detail_url = '/customer-analysis/management';
     var detail_all_url = '';
     
-    show_loading_bar('card_body');
+    show_loading_bar_CoreUI('card_body');
     $.ajax({
       type: "POST",
       url: "/common/ajax-get-list-site",
@@ -72,13 +81,9 @@ url(r'^management/(?P<id>\d+)$', views.management_detail, name='management_detai
 <!-- ===================================================== -->
 <!-- ========================== View ===================== -->
 <!-- ===================================================== -->
-def management_detail(request, id):
+def setting_keyword(request, id):
   #1. Get list site info
-  sql_query_list_site = '''SELECT id,name
-                    FROM management_site
-                    ORDER BY id ASC
-                  '''
-  object_list_site_info_select = db_controller.query(sql_query_list_site)
+  object_list_site_info_select = db_site_query().get_list_site_by_user_id(request.user.id)
 
   #2. Get Site info
   id = int(id)
@@ -98,47 +103,26 @@ def management_detail(request, id):
   data = { 
     'site_info' : site_info, 
     'list_site_info' : object_list_site_info_select, 
-    'page_url' : '/customer-analysis/management'
+    'page_url' : '/setting/'
   }
-  return render(request, 'apps/customer_analysis/management_detail.html', data)
+  return render(request, 'apps/setting/setting_detail.html', data)
 
 <!-- ===================================================== -->
 <!-- ======================== detail ===================== -->
 <!-- ===================================================== -->
 {% extends 'base.html' %}
+
 {% block breadcrumb %}
-<li class="breadcrumb-item"><a href="/customer-analysis/management">Customer analytics</a></li>
+<li class="breadcrumb-item"><a href="/setting">Customer analytics</a></li>
 <li class="breadcrumb-item active">{{site_info.name}}</li>
 {% endblock breadcrumb %}
-{% block aside %}
-{% include 'control/index/aside.html' %}
-{% endblock aside %}
+
 {% block main %}
 <div class="card mx-4">
   <div class="card-header">
     <i class="fa fa-align-justify"></i> <strong>Customer analytics: {{site_info.name}}</strong>
   </div>
   <div class="card-body">
-    <div class="row mb-1">
-      <div class="col-3">
-        <!-- Chọn ngày tháng -->
-        <div id="reportrange"
-          style="background: #fff; cursor: pointer; padding: 5px 10px; border: 1px solid #ccc; width: 100%">
-          <i class="fa fa-calendar"></i>&nbsp; <span></span>
-          <i class="fa fa-caret-down"></i>
-        </div>
-
-      </div>
-      <div class="col-1">
-        <button class="btn btn-primary my-button" type="button"
-          onclick="load_data();">Load Data</button>
-      </div>
-    </div>
-  
-  <!-- Load data detail vào đây -->
-  <div id="data-analytics">
-
-  </div>
 
   </div>
   <!-- End .card-body -->
@@ -147,55 +131,12 @@ def management_detail(request, id):
 
 <script type='text/javascript'>
   var _site_id = '{{site_info.id}}';
-  var _auth_redirect_uri = 'https://{{request.META["HTTP_HOST"]}}/customer-analysis/management/{{site_info.id}}';
+  var _auth_redirect_uri = 'https://{{request.META["HTTP_HOST"]}}/setting/{{site_info.id}}';
 </script>
-
-{#========== INCLUDE HUBSPOT AUTH ==========#}
-{% include 'control/global/calendar.html' %}
 
 <script type="text/javascript">
-  $('#check_date_range_compare').change(function(){
-    is_date_range_compare = $('#check_date_range_compare').prop('checked');
 
-    if(!is_date_range_compare){
-      $('#reportrange_compare').addClass('invisible')
-    }else{
-      $('#reportrange_compare').removeClass('invisible')
-    }
-  });
-
-  //Tạo calendar 
-  $(document).ready(function(){
-    init_calendar("reportrange");
-  })
-
-  function load_data() {
-
-    // Lấy giá trị time
-    var date_1 = get_start_date_and_end_date("reportrange");
-    show_loading_bar_CoreUI("data-analytics");
-    
-    //1) 
-    $.ajax({
-      type: "POST",
-      url: "/customer-analysis/management/ajax-get-data-detail",
-      dataType: "html",
-      data: {
-        start_day: date_1[0],
-        end_day: date_1[1],
-        site_id: '{{site_info.id}}',
-        'csrfmiddlewaretoken': '{{ csrf_token }}'
-      },
-      success: function (response) {
-        $("#data-analytics").html(response);
-      },
-      error: function (xhr, status, e) {
-        
-      }
-    });
-
-  }
 </script>
 
-{% endblock main %}
+{% endblock %}
 
