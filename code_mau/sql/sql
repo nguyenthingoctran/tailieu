@@ -64,3 +64,11 @@ INSERT INTO management_site_cta
  VALUE(7,'footer','[Blog][Footer][NDSB]人材派遣会社様向けスタッフリレーションシップマネジメント for Microsoft Dynamics®');
 
 db_controller.execute(sql_insert_goal)
+
+==============================================================
+================ LOẠI BỎ BẢN SAO (DISTINCT) ==================
+==============================================================
+SELECT distinct date
+FROM dev_matool_db.performance_blog_view
+WHERE site_id = "11"
+ORDER BY date
