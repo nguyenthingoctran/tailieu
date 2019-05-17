@@ -66,5 +66,13 @@ $('#tbl_data').DataTable( {
 Lưu ý:
 + "targets": 'no-sort' ==> tương ứng là class của th đã đặt ở trên
 
+=======================================================
+========== Lỗi table không full hết trang =============
+=======================================================
+$('#example').dataTable( {
+    "autoWidth": false
+});
+
 https://stackoverflow.com/questions/17339564/twitter-bootstrap-buttons-appearing-on-hover-over-the-table-row
 https://codepen.io/kjohnson/pen/klBzo
+
