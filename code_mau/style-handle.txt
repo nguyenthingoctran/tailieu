@@ -1,2 +1,5 @@
-// scroll card
-style="overflow-y:auto;max-height: 300px" 
+          <td class="text-center">
+            <a class="btn btn-success" data-toggle="modal" data-target="#modal_edit_keyword" data-keywork-id="{{list_data.keyword_id}}" title="Edit">
+              <i class="fa fa-edit"></i>
+            </a>  
+          </td>
