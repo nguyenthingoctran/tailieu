@@ -26,12 +26,21 @@
 =====================================================================
 =================== TABLE BUTTON SHOW HOVER =========================
 =====================================================================
-// Html
+// Html 1
 <td class="position-relative">{{site.name}}
     <div class="button-edit position-absolute h-100 px-1" style="top:0; right:0; line-height:45px; background-color:#ececec">
         <i class="fa fa-times-rectangle-o"></i>
         <i data-id="{{site.id}}" data-name="{{site.name}}" data-target="#modalEditForm" data-toggle="modal" class="fa fa-edit"></i>
     </div>
+</td>
+
+// Html 2
+<td class="keyword position-relative">
+	<div class="button-action position-absolute py-0" style="top:2px; right: 0; background: #ececec;">
+		<a href="#" class="btn btn-sm btn-secondary font-weight-bold" style="box-shadow: 1px 1px 1px #7f8c8d" data-toggle="modal" data-target="#modal_edit_keyword" data-keywork-id="{{list_data.keyword_id}}" title="Edit">
+		  Edit
+		</a>
+	</div>
 </td>
 
 
@@ -43,3 +52,5 @@ $('#table_data tbody tr td').mouseover(function(){
 $('#table_data tbody tr').mouseout(function(){
     $(this).closest('#table_data tbody tr').find('div.button-edit').hide();
 });
+
+certificate
