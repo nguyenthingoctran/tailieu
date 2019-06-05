@@ -16,3 +16,11 @@
             $(this).closest("#row-data-setting").find("div#tag-input").css({'pointer-events':'none','opacity':'0.6'});           
         }       
     });
+
+<!-- ======================================================== -->
+<!-- =================== Checkbox đẹp hơn =================== -->
+<!-- ======================================================== -->
+<div class="col-2 custom-control custom-checkbox">
+  <input id="1_5" class="custom-control-input" type="checkbox" name="rank_show" value="1_5" data-rank-name="Up 1-5" checked="">
+  <label class="custom-control-label" for="1_5">1 - 5</label>
+</div>

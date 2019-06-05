@@ -14,8 +14,10 @@
 	</div>
 
 Thêm thẻ vào table*************************************************************************************
+	# Thêm ở th
 	<th style="width: 30px;"><input onclick="check_uncheck_all(this);" type="checkbox" name="checkAll" id="check_all"></th>
 
+	# Thêm ở td
 	<td class="td-check"><input type="checkbox" name="check_all_item" class="checkbox"></td>
 
 LƯU Ý: Chỉ đặt tên id của table là: id='table_data' để sử dụng được check all function
