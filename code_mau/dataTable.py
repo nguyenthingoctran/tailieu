@@ -76,3 +76,15 @@ $('#example').dataTable( {
 https://stackoverflow.com/questions/17339564/twitter-bootstrap-buttons-appearing-on-hover-over-the-table-row
 https://codepen.io/kjohnson/pen/klBzo
 
+
+=======================================================
+===================== Fixed header ====================
+=======================================================
+link
+  <link href='https://cdn.datatables.net/fixedheader/3.1.5/css/fixedHeader.bootstrap4.min.css' rel="stylesheet">
+  <script src='https://cdn.datatables.net/fixedheader/3.1.5/js/dataTables.fixedHeader.min.js'></script>
+
+  fixedHeader: {
+      header: true,
+      headerOffset: $('#fixed').height() # #fixed: là id của div header hiển thị
+  }
