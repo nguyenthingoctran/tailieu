@@ -7,8 +7,29 @@ site_info = object_site_info[0]
 
 ==> Lưu ý: [0]: chính là lấy dòng đầu tiên của của data mà không cần phải lặp
 
+==============================================================
+======================== INNER JOIN ==========================
+==============================================================
+
+SELECT column_name(s)
+FROM table1
+INNER JOIN table2
+ON table1.column_name = table2.column_name;
+
+-- 3 bảng
+SELECT i.id, i.account_id, i.contract_update_id, i.invoice_code, i.charged_date, 
+    i.payment_amount, i.status, i.last_remind_date, i.remind_time,
+    a.id, a.name, 
+    c.account_id, c.package
+FROM invoice_info i
+INNER JOIN account_info a
+ON i.account_id = a.id
+INNER JOIN contract_update c
+ON a.id = c.account_id;
+
 
 ==============================================================
+========================== IN RA =============================
 ==============================================================
 
 sql_query_hub_site = '''SELECT *

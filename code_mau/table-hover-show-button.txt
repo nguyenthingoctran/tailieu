@@ -37,7 +37,7 @@
 // Html 2
 <td class="keyword position-relative">
 	<div class="button-action position-absolute py-0" style="top:2px; right: 0; background: #ececec;">
-		<a href="#" class="btn btn-sm btn-secondary font-weight-bold" style="box-shadow: 1px 1px 1px #7f8c8d" data-toggle="modal" data-target="#modal_edit_keyword" data-keywork-id="{{list_data.keyword_id}}" title="Edit">
+		<a href="#" class="btn-sm btn-secondary font-weight-bold" style="box-shadow: 1px 1px 1px #7f8c8d" data-toggle="modal" data-target="#modal_edit_keyword" data-keywork-id="{{list_data.keyword_id}}" title="Edit">
 		  Edit
 		</a>
 	</div>
@@ -52,5 +52,18 @@ $('#table_data tbody tr td').mouseover(function(){
 $('#table_data tbody tr').mouseout(function(){
     $(this).closest('#table_data tbody tr').find('div.button-edit').hide();
 });
+
+===================== Hàm dùng trong tool ==================================
+hover_table_show_button();
+
+function hover_table_show_button(){
+  $('table tbody tr td div.button-action').hide();
+  $('table tbody tr td').mouseover(function(){
+      $(this).closest('table tbody tr').find('div.button-action').show();
+  });  
+  $('table tbody tr').mouseout(function(){
+      $(this).closest('table tbody tr').find('div.button-action').hide();
+  });  
+}
 
 certificate

@@ -88,3 +88,42 @@ link
       header: true,
       headerOffset: $('#fixed').height() # #fixed: là id của div header hiển thị
   }
+
+# ===============================================================================
+# =============================== TABLE MẪU =====================================
+# ===============================================================================
+
+<table class="table table-responsive-sm table-hover table-sm" >
+  <thead>
+    <th>DATE ISSUED</th>
+    <th>INVOICE CODE</th>
+    <th>INVOICE TIME</th>
+    <th>PAYMENT ACCOUNT</th>
+    <th>STATUS</th>
+  </thead>
+  <tbody>
+    <tr>
+      <td class="position-relative">
+        <span>2019-04-21</span>
+        <!-- Button action -->
+        <div class="button-action position-absolute py-0" style="top:2px; right: 30px; background: #ececec;">
+          <!-- Button download -->
+          <a href="#" class="btn-sm btn-secondary font-weight-bold" 
+                      style="box-shadow: 1px 1px 1px #7f8c8d" 
+                      title="Edit">
+            Download
+          </a>
+          </div>       
+      </td>
+      <td>639256</td>
+      <td>2019/03/22 - 2019/04/21</td>
+      <td>$58,000</td>
+      <td>Paid</td>
+    </tr>
+  </tbody>
+</table>
+
+<script type="text/javascript">
+// JS cho phần hiện, ẩn các nút action khi hover vào từng dòng của table
+hover_table_show_button();
+</script>
