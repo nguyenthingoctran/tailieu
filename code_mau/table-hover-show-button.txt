@@ -43,6 +43,18 @@
 	</div>
 </td>
 
+// Html 3
+<td class="text-left position-relative">
+  <div class="button-edit position-absolute py-0" style="top:3px; right: 2px; background: #ececec; padding-right:30px">
+    <!-- Nút detail -->
+    {%if data.keyword != '-1' %}
+      <a class="btn-sm btn-secondary font-weight-bold" target = '_blank' href="/performance/blog/detail/{{data.blog_id}}" title="Detail" style="box-shadow: 1px 1px 1px #7f8c8d">
+          Detail
+      </a>
+    {%endif%}
+  </div>
+</td>
+
 
 // Js
 $('#table_data tbody tr td div.button-edit').hide();

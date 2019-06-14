@@ -1,4 +1,4 @@
-﻿    function open_input(check_id, input_id){
+    function open_input(check_id, input_id){
         if ($("#"+ check_id).is(":checked")){
             $("#"+ input_id).prop('disabled', false);
         }else{
@@ -24,3 +24,14 @@
   <input id="1_5" class="custom-control-input" type="checkbox" name="rank_show" value="1_5" data-rank-name="Up 1-5" checked="">
   <label class="custom-control-label" for="1_5">1 - 5</label>
 </div>
+
+
+// Khi add keyword mà checked thì address mởi mở ra cho nhập
+var is_checked = $("input.post-office-checked").val();
+$("input.post-office-checked").change(function(){
+  if ($("input.post-office-checked").is(":checked")){
+      $("#textarea-input").prop('disabled', false);
+  }else{
+      $("#textarea-input").prop('disabled', true);
+  }
+});

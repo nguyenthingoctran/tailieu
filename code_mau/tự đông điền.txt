@@ -1,0 +1,7 @@
+<input class="form-control marketing-label validate" type="text" onkeyup="auto_enter(this)">
+
+function auto_enter(e){
+  var txt_label = $(e).val();
+  txt_label = txt_label.toLowerCase().replace(/[_\s]/g, '_').replace(/[&-\/\\#,+()$~%.'":*?<>{}]/g, '')
+  $(e).parent().parent().parent().parent().find(".internal-name").val(txt_label);
+}
