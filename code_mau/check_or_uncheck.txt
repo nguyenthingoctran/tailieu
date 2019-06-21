@@ -20,11 +20,10 @@
 <!-- ======================================================== -->
 <!-- =================== Checkbox đẹp hơn =================== -->
 <!-- ======================================================== -->
-<div class="col-2 custom-control custom-checkbox">
-  <input id="1_5" class="custom-control-input" type="checkbox" name="rank_show" value="1_5" data-rank-name="Up 1-5" checked="">
-  <label class="custom-control-label" for="1_5">1 - 5</label>
-</div>
-
+  <div class="custom-control custom-checkbox">
+    <input type="checkbox" class="custom-control-input" id="customCheck" name="example1">
+    <label class="custom-control-label" for="customCheck">Check this custom checkbox</label>
+  </div>
 
 // Khi add keyword mà checked thì address mởi mở ra cho nhập
 var is_checked = $("input.post-office-checked").val();
