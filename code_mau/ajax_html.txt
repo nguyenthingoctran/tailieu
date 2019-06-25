@@ -21,10 +21,8 @@
             success: function (response) {
               if (response == 0){
                 show_error_message("message-add","Add Fail");
-                btn.stop();
               }else{
                 show_success_message("message-add","Add event successfully");
-                btn.stop();
               }
             },
             error: function (xhr, status, e) {
