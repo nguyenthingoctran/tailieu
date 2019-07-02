@@ -42,11 +42,6 @@ for i in object_sql_query_list_site:
 	print(i['report_type'])
 
 ==============================================================
-================== UPDATE ====================================
-==============================================================
-object_company_info_exist = company_info.objects.filter(name = param_company_name).first()
-
-==============================================================
 ================== DELETE ====================================
 ==============================================================
 
@@ -58,16 +53,6 @@ for id in list_id:
 
 	db_controller.execute(sql_query_delete)
 
-
-==============================================================
-================== SAVE   ====================================
-==============================================================
-object_monthly_data = monthly_data()
-object_monthly_data.mode = key
-object_monthly_data.value = value
-object_monthly_data.date = param_date
-object_monthly_data.site_id = param_site_id
-object_monthly_data.save()
 
 ==============================================================
 === CÓ TRONG TABLE NÀY MÀ KHÔNG CÓ TRONG TABLE KHÁC  =========
@@ -93,3 +78,11 @@ SELECT distinct date
 FROM dev_matool_db.performance_blog_view
 WHERE site_id = "11"
 ORDER BY date
+
+==============================================================
+=================== UPDATE ===================================
+==============================================================
+
+UPDATE table_name
+SET column1 = value1, column2 = value2, ...
+WHERE condition;
