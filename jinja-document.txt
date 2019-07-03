@@ -19,3 +19,22 @@
 ================================================
 contact_list.listId|string
 contact_list.listId|int
+
+
+<div class="row mb-3">
+
+  <div class="col-5 pro_item1">
+    <input type="text" class="form-control" name="txt-chart-title">
+  </div>
+  
+  <div class="col-5 pro_item2">
+    <input type="text" class="form-control" name="txt-chart-title">
+  </div>
+  
+  <!-- Nút xóa một property value -->
+  <div class="col-2">
+    <a class="btn btn-danger" onclick="delete_property_value(this);">
+      <i class="fa fa-trash-o"></i>
+    </a>
+  </div>
+</div>
