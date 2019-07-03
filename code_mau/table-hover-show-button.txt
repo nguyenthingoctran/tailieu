@@ -45,7 +45,7 @@
 
 // Html 3
 <td class="text-left position-relative">
-  <div class="button-edit position-absolute py-0" style="top:3px; right: 2px; background: #ececec; padding-right:30px">
+  <div class="button-edit position-absolute py-0" style="top:3px; right: 2px; background: #ececec; padding-right:30px; padding-left:15px;">
     <!-- Nút detail -->
     {%if data.keyword != '-1' %}
       <a class="btn-sm btn-secondary font-weight-bold" target = '_blank' href="/performance/blog/detail/{{data.blog_id}}" title="Detail" style="box-shadow: 1px 1px 1px #7f8c8d">
@@ -77,5 +77,19 @@ function hover_table_show_button(){
       $(this).closest('table tbody tr').find('div.button-action').hide();
   });  
 }
+  
+====================================================================
 
-certificate
+function show_button_edit_detail(){
+ $('#data_table td.keyword').hover(function() {
+     //hover in
+     if($(this).find('.link').length == 0) {
+       var link = $(this).data('detail');
+       html_element = ''
+       $(this).append('<a class="link" href="'+link+'">Detail</a>');
+     }
+ }, function() {
+   //hover out
+   $(this).find('.link').remove();
+ });
+}
