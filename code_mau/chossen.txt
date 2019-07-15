@@ -10,6 +10,7 @@
     <option>ngoc</option>
     <option>tran</option>
     <option>xinh</option>
+    <option>dep</option>
 </select>
 
 JS:
