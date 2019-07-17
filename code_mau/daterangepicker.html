@@ -1,13 +1,13 @@
 // html
 <div id="reportrange" style="background: #fff; cursor: pointer; padding: 5px 10px; border: 1px solid #ccc; width: 100%">
-    <i class="fa fa-calendar"></i>&nbsp; <span></span>
+    <i class="fa fa-calendar"></i>&nbsp; <span class="calender-input"></span>
     <i class="fa fa-caret-down"></i>      
 </div>
 
 =======================================================
 ================== CÁCH DÙNG ==========================
 =======================================================
-Thư viện nằm ở trang calendar_handle.js
+Thư viện nằm ở trang  taiNguyen/calendar_handle.js
 
 Gọi hàm: 
       init_calendar("reportrange");  
@@ -23,3 +23,10 @@ Lấy start_date, end_date
       Lưu ý:
           - date_1[0] : start_date
           - date_1[1] : end_date
+
+=========================================================
+============ Bắt sự kiện khi thay đổi span ==============
+=========================================================
+$('.calender-input').on('DOMSubtreeModified', function(){
+  console.log("ngoctran");
+})
