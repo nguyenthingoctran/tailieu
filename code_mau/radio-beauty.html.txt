@@ -1,0 +1,29 @@
+<div class="container p-0">
+    <div class="buying-selling-group" id="buying-selling-group" data-toggle="buttons">
+        <label data-status="created" class="btn btn-default buying-selling {% if status == 'created' %}active{% endif %}" >
+            <input type="radio" name="options" id="option1" autocomplete="off" class="invisible">
+            <span class="radio-dot"></span>
+            <span class="buying-selling-word">Created</span>
+        </label>            
+        <label data-status="sent" class="btn btn-default buying-selling {% if status == 'sent' %}active{% endif %}">
+            <input type="radio" name="options" id="option2" autocomplete="off" class="invisible">
+            <span class="radio-dot"></span>
+            <span class="buying-selling-word">Sent&nbsp;&nbsp;&nbsp;&nbsp;</span>
+        </label>
+        <label data-status="download" class="btn btn-default buying-selling {% if status == 'download' %}active{% endif %}" style="width:147px;">
+            <input type="radio" name="options" id="option3" autocomplete="off" class="invisible">
+            <span class="radio-dot"></span>
+            <span class="buying-selling-word">Download</span>
+        </label>
+        <label data-status="charged" class="btn btn-default buying-selling {% if status == 'charged' %}active{% endif %}">
+            <input type="radio" name="options" id="option4" autocomplete="off" class="invisible">
+            <span class="radio-dot"></span>
+            <span class="buying-selling-word">Charged</span>
+        </label>
+    </div>
+</div>
+
+============================================================================================
+==================== Nạp style ở trang taiNguyen/radio-beaty ===============================
+============================================================================================
+    <link rel="stylesheet" href="{{static ('/css/build/style-radio.css')}}" rel="stylesheet">
