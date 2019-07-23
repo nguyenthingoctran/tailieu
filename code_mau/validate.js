@@ -61,3 +61,27 @@ function remove_validate_input_text(){
       btn.stop();
     }
   });
+
+==================================================================================
+=========================== Validate chỉ cho nhập số =============================
+==================================================================================
+============================ HTML ================================================
+<input type="text" class="form-control required" id="txt-phone" onkeyup="enter_your_phone(this);">
+
+============================ JS ==================================================
+function validate_phone(e, insert_after_element){
+  $(".error-phone-number").remove();
+  html_error = "<div class='col-12 error-phone-number p-0'><span class='text-danger error-required'>Your phone is invalid. Please enter only numbers.</span></div>"
+  var text = $(e).val();
+  
+  if (/^[0-9]*$/.test(text) == false){
+    if (insert_after_element == undefined) {
+      $(html_error).insertAfter($(e));
+    }else{
+      $(html_error).insertAfter($(insert_after_element));
+    }
+  }
+  
+  var number_in_text = text.match(/\d+/);
+  $(e).val(number_in_text);   
+}
