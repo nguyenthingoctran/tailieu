@@ -16,3 +16,10 @@ https://coreui.io/docs/components/loading-buttons/
 	3. Hàm chạy js
 		const btn = Ladda.create(document.querySelector('.my-button'));
 		btn.start();
+
+========================================================================================
+=========== Button loading dành cho table ========================================
+========================================================================================
+var myElement = $this;
+const btn = Ladda.create(myElement[0]);
+	btn.start();

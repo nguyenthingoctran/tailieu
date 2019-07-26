@@ -1,2 +1,4 @@
 $('[data-toggle="tooltip"]').tooltip();
 
+data-toggle="tooltip"
+data-tooltip="tooltip"

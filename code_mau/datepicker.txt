@@ -22,3 +22,80 @@ $(document).ready(function(){
 ========================== CORE UI ==============================
 =================================================================
 <input class="form-control" id="contract-end-date" type="date" name="date-input">
+
+
+=================================================================
+==================== Validate Date ==============================
+=================================================================
+<!-- CONTRACT START DATE -->
+<div class="row mb-3">
+  <div class="col-12">
+    <div class="input-group flex-nowrap">
+      <div class="input-group-prepend">
+        <label class="input-group-text form-label" for="contract-start-date">Contract start date *</label>
+      </div>
+      <!-- <input class="form-control required" id="contract-start-date" type="date" name="start-date-input" > -->
+      <div class="input-group date" id="datepicker-start-date">
+        <input id="contract-start-date" type="text" class="form-control validate-date" placeholder="YYYY/MM/DD"><span class="input-group-addon"><i class="glyphicon glyphicon-th"></i></span>
+      </div>
+    </div>
+    <div class="col-12 error-requried"></div>
+  </div>
+</div>
+
+<!-- CONTRACT END DATE -->
+<div class="row mb-3">
+  <div class="col-12">
+    <div class="input-group flex-nowrap">
+      <div class="input-group-prepend">
+        <label class="input-group-text form-label" for="contract-end-date">Contract end date *</label>
+      </div>
+      <!-- <input class="form-control required" id="contract-end-date"   type="date" name="end-date-input" > -->
+      <div class="input-group date" id="datepicker-end-date">
+        <input id="contract-end-date" type="text" class="form-control validate-date" placeholder="YYYY/MM/DD"><span class="input-group-addon"><i class="glyphicon glyphicon-th"></i></span>
+      </div>
+    </div>
+    <div class="col-12 error-requried"></div>
+  </div>
+</div>
+
+============================= JS ==========================================
+  // Validate for contact-start-date contact-end-date
+  var contact_start_date = null; // new Date()
+  var contact_end_date = null; // new Date()
+
+  $('#datepicker-start-date').click(function(){
+    
+    // Sau khi click vào, mới tạo ra datepicker, nhằm xác định lại các giá trị setting
+    $('#datepicker-start-date').datepicker({
+      startDate: new Date("1970/01/01"),
+      endDate: contact_end_date,
+      date: contact_start_date,
+      format: 'yyyy/mm/dd'
+    }).on('changeDate changeMonth changeYear', function(e){
+
+      // Thiết lập giá trị cho biến contact_start_date khi thay đổi ngày tháng năm
+      contact_start_date = new Date($(this).find('> input').val());
+    }).datepicker('show').on('hide', function(){
+
+      // Khi ẩn đi datepicker, hủy luôn datepicker hiện tại
+      $('#datepicker-start-date').datepicker('destroy');
+    });
+
+    return false;
+  });
+
+  $('#datepicker-end-date').click(function(){
+    $('#datepicker-end-date').datepicker({
+      startDate: contact_start_date,
+      date: contact_end_date,
+      format: 'yyyy/mm/dd'
+    }).on('changeDate changeMonth changeYear', function(e){
+      contact_end_date = new Date($(this).find('> input').val());
+    }).datepicker('show').on('hide', function(){
+      $('#datepicker-end-date').datepicker('destroy');
+    });
+
+    return false;
+  });
+  // End validate contact-start-date contact-end-date
