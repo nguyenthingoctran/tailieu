@@ -1,0 +1,4 @@
+import queryString from "query-string";
+
+queryString.parse(this.props.location.search)
+
