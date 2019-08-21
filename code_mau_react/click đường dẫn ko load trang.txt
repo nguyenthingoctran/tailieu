@@ -1,0 +1,3 @@
+onClick={() => {this.props.history.push(`/heatmap/click/${heatmap_id}?device=${this.state.params_on_url.device}`)}}
+
+không chạy lại index.js mà chạy luôn vào App.js ==> chỉ load component

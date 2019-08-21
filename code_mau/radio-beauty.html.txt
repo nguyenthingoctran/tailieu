@@ -27,3 +27,14 @@
 ==================== Nạp style ở trang taiNguyen/radio-beaty ===============================
 ============================================================================================
     <link rel="stylesheet" href="{{static ('/css/build/style-radio.css')}}" rel="stylesheet">
+
+============================================================================================
+==================== Nạp style ở trang taiNguyen/radio-beaty ===============================
+============================================================================================
+
+$("#page-views label").each(function(){
+	$(this).click(function(){
+		$("#page-views label").removeClass("active");
+		$(this).addClass("active");
+	});
+});
