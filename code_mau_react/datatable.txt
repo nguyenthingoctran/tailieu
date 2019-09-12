@@ -1,0 +1,36 @@
+import { GMTable } from "components/controls/index";
+
+/////////////// data ////////////
+
+    var column = [
+      {
+        label: 'Scroll Depth',
+        prop: 'scroll_depth',
+        isKey: true
+      },
+      {
+        label: 'Unique Pageviews',
+        prop: 'unique_pageview',
+        
+      },
+      {
+        label: 'Percent',
+        prop: 'percent',
+        
+      },
+    ];
+
+
+///////// HTML ////////////////
+
+<GMTable
+  className="pl-3"
+  data={this.props.data_table}
+  columns={column}
+  // total={this.state.total}
+  // page={this.state.filter.page}
+  // btnGroup={this.tableName}
+  sizePerPage = '10'
+  // onPageChange={this.handleFilterChange}
+  // onSearchChange={this.handleFilterChange}
+/>
