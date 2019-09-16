@@ -1,0 +1,34 @@
+<Modal show={this.state.showModal} onHide={this.close}>
+    <Modal.Header closeButton>
+        <Modal.Title>Modal heading</Modal.Title>
+    </Modal.Header>
+    <Modal.Body>
+       Modal body
+    </Modal.Body>
+    <Modal.Footer>
+        <Button onClick={this.close}>Close</Button>
+    </Modal.Footer>
+</Modal>
+
+
+Cần khai báo một giá trị state showModal trong hàm khởi tạo để điều khiển việc đóng mở của modal:
+constructor(props) {
+    super(props);
+    this.state = {
+      showModal: true
+    };
+  }
+
+Cần tạo 2 action open và close để thực hiện đóng và mở modal:
+close() {
+    this.setState({ showModal: false });
+  }
+
+  open() {
+    this.setState({ showModal: true });
+  }
+
+Tạo button để mở modal từ trang gốc:
+<Button onClick={this.open} >
+    Launch demo modal
+</Button>

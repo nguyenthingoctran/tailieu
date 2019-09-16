@@ -34,3 +34,43 @@ import { GMTable } from "components/controls/index";
   // onPageChange={this.handleFilterChange}
   // onSearchChange={this.handleFilterChange}
 />
+
+///////////////////////////////////
+{
+  label: "Actions",
+  render : function (){
+    return (
+      <span>
+        <ButtonDetail className="mr-1"/>
+        <ButtonDelete />
+      </span>
+    )
+  }
+}
+
+//////////////////////////////////////////////////////////
+{
+  label: i18next.t("lb_actions"),
+  prop: "actions",
+  className: "action",
+  align: "left",
+  render: function(row) {
+    return (
+      <>
+        {row.is_pending ? 
+          ""
+          : 
+          <ButtonDetail 
+            onClick={() => props.onClickDetails(row)} 
+            disabled={row.disabled ? row.disabled : false} 
+          />
+        }
+        
+        <ButtonDelete
+            onClick={() => props.onClickDelete(row)}
+            disabled={row.disabled ? row.disabled : false}
+          />
+      </>
+    );
+  }
+}
