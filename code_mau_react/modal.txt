@@ -1,15 +1,24 @@
-<Modal show={this.state.showModal} onHide={this.close}>
-    <Modal.Header closeButton>
-        <Modal.Title>Modal heading</Modal.Title>
-    </Modal.Header>
-    <Modal.Body>
-       Modal body
-    </Modal.Body>
-    <Modal.Footer>
-        <Button onClick={this.close}>Close</Button>
-    </Modal.Footer>
-</Modal>
+import { Modal, Button } from "react-bootstrap";
 
+=================================================================================================
+
+        // file Modal
+        <Modal show={this.props.showModal} onHide={this.props.onHide}  size="lg">
+          <Modal.Header closeButton>
+            <Modal.Title>View Data</Modal.Title>
+          </Modal.Header>
+          <Modal.Body>
+            {this.showData()}
+          </Modal.Body>
+          {/* <Modal.Footer>
+            <Button onClick={this.close}>Close</Button>
+          </Modal.Footer> */}
+        </Modal>
+
+        // Nạp vào file chính
+        <ModalViewData showModal={this.state.showModal} onHide={this.close} data_table={data_table} />
+
+==============================================================================================
 
 Cần khai báo một giá trị state showModal trong hàm khởi tạo để điều khiển việc đóng mở của modal:
 constructor(props) {
@@ -19,15 +28,23 @@ constructor(props) {
     };
   }
 
-Cần tạo 2 action open và close để thực hiện đóng và mở modal:
+============================================================================================
+Cần tạo 2 action open và close để thực hiện đóng và mở modal: (Nạp vào file chính)
 close() {
-    this.setState({ showModal: false });
-  }
+  this.setState({
+    ...this.state,
+    showModal: false
+  });
+}
 
-  open() {
-    this.setState({ showModal: true });
-  }
+open() {
+  this.setState({
+    ...this.state,
+    showModal: true
+  });
+}
 
+=============================================================================================
 Tạo button để mở modal từ trang gốc:
 <Button onClick={this.open} >
     Launch demo modal
