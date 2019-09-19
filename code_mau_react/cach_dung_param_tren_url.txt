@@ -7,3 +7,6 @@ biến location, component con không nhận được. ==> muốn lấy
 
 Muốn lấy cả props của component cha
 <ChildComponent {...this.props} />
+
+====================================================================================================================================
+    this.props.history.push(`/analysis/heatmap/${this.props.state.user.site_id}/${this.props.item_id}?device=${device}&type=${this.state.current_type_tab}`);

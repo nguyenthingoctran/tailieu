@@ -66,10 +66,12 @@ import { GMTable } from "components/controls/index";
           />
         }
         
-        <ButtonDelete
+        // props.user_id === this.props.user_id (do không dùng trong class nên ko cần this)
+        {row.user_id === props.user_id ?
+          <ButtonDelete
             onClick={() => props.onClickDelete(row)}
             disabled={row.disabled ? row.disabled : false}
-          />
+          /> : ""}
       </>
     );
   }
