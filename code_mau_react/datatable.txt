@@ -76,3 +76,109 @@ import { GMTable } from "components/controls/index";
     );
   }
 }
+
+===========================================================================
+=========================== TOOLBAR TABLE =================================
+===========================================================================
+constructor(props) {
+
+  this.tableName = props => {
+    return (
+      <Row className="w-100 action-bar">
+        <Col sm="8">
+          <DropdownButton title="Action" variant="light border px-4 mr-2">
+            <Dropdown.Item eventKey="1">Delete</Dropdown.Item>
+            <Dropdown.Item eventKey="2">Duplicate</Dropdown.Item>
+          </DropdownButton>
+          <span>
+            <ExportCSVButton className="btn-light border"><i className="fa glyphicon glyphicon-export fa-download"></i> Excel</ExportCSVButton>
+          </span>
+        </Col>
+        <Col sm="4" className="text-right">
+          <div className="ml-5 mt-2">
+            
+          </div>
+        </Col>
+      </Row>
+    );
+  };
+
+};
+
+
+  render() {
+        return (
+          <>
+            <GMTable
+                btnGroup={this.tableName}
+            />
+          </>
+        );
+    }
+
+===========================================================================
+============================ NÚT TRONG TABLE ==============================
+===========================================================================
+this.state = {
+    columns: [
+      {
+        label: i18next.t("lb_keyword"),
+        sort: true,
+        isKey: true,
+        prop: "key",
+        // width: "320",
+        align: "left",
+        render: function(row, cell){
+          
+          return (
+            <div className="d-flex">
+
+              <div className="content-nearby-button d-inline w-100 pr-2">
+                <span>
+                  {row.key}
+                </span>                  
+              </div>
+
+              <div className="button-in-table">
+                
+                <Dropdown className="d-inline">
+                  <Dropdown.Toggle variant="light btn-sm border" id="dropdown-basic">
+                    More
+                  </Dropdown.Toggle>
+
+                  <Dropdown.Menu>
+                    <Dropdown.Item onClick={() => props.showRegisterKeywordModal(row)}><Trans>lb_register_keyword</Trans></Dropdown.Item>
+                  </Dropdown.Menu>
+                </Dropdown>
+              </div>
+
+            </div>
+          );
+        }
+      },
+
+===========================================================================
+============================ URL STYLE ====================================
+===========================================================================
+RENDER: ===================================================================
+<>
+    <div class="text-url">
+        <a href={data.url_rank} target="_blank">{url_rank}&nbsp;</a>
+    </div>
+    <i className="fa fa-external-link small icon-small-link"></i>
+</>
+
+css: ======================================================================
+.icon-small-link{
+  color: #20a8d8;   
+}
+
+// Style url
+.text-url {
+  position: relative;
+  max-width:286px !important;
+  white-space: nowrap !important;
+  overflow: hidden !important;
+  text-overflow: ellipsis !important;
+  float: left;
+}
