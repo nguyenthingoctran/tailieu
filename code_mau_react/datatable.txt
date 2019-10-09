@@ -1,39 +1,95 @@
 import { GMTable } from "components/controls/index";
 
 /////////////// data ////////////
+Đặt trong constructor 
 
-    var column = [
-      {
-        label: 'Scroll Depth',
-        prop: 'scroll_depth',
-        isKey: true
-      },
-      {
-        label: 'Unique Pageviews',
-        prop: 'unique_pageview',
-        
-      },
-      {
-        label: 'Percent',
-        prop: 'percent',
-        
-      },
-    ];
+        this.table_setting = {
+            columns: [
+                {
+                    label: i18next.t("lb_domain"),
+                    sort: true,
+                    prop: "domain",
+                    width: "320",
+                    align: "left",
+                    render: (data) => {
+                        var text_domain = '';
+                        if (data.domain === this.props.current_site_url) {
+                            text_domain = <>
+                                            <i className="fa fa-home text-primary"></i>&nbsp;
+                                            <span className="text-primary">{data.domain}</span>
+                                        </>
+                        }else {
+                            text_domain = <span>{data.domain}</span>
+                        }
+                        return (
+                            <>
+                                {text_domain}
+                            </>
+                        )
+                    }
+                },
+                {
+                    label: i18next.t("lb_com_level"),
+                    prop: "keywords_count",
+                    width: "180",
+                    align: "left",
+                    render: (data) => {
+                        var percent_comon  = Math.round( (data.keywords_count / this.props.data_overview_rank.length)*100 );
+                        return (
+                            <>
+                                <PercentProgress 
+                                                value={percent_comon}
+                                                label={percent_comon+`%`}/>
+                            </>)
+                    }
+                }
+            ]
+        };
+
+=============================================================================================
+=============================== disable button ==============================================
+=============================================================================================
+
+{row.is_completed ? 
+  <span>
+    <ButtonLink className="text-left" width="400" href="" onClick={() => props.onClickDetails(row)}>{row.item_search_name}&nbsp;
+      <i className="fa fa-external-link-square small" style={{ color: '#69bfd6' }}></i></ButtonLink>
+  </span> : 
+  <span className="text-in-table link-disabled" style={{}}>{row.item_search_name}</span>
+}
+
+
+
+<div className="history-row-setting" style={!row.is_completed ? {opacity: '0.5'} : {}}>
+
+<span className="text-in-table link-disabled" style={{width:'450px'}}>{row.item_search_name}</span>
 
 
 ///////// HTML ////////////////
 
-<GMTable
-  className="pl-3"
-  data={this.props.data_table}
-  columns={column}
-  // total={this.state.total}
-  // page={this.state.filter.page}
-  // btnGroup={this.tableName}
-  sizePerPage = '10'
-  // onPageChange={this.handleFilterChange}
-  // onSearchChange={this.handleFilterChange}
-/>
+  render() {
+        var total_keyword = this.props.data_overview_rank.length;
+
+        console.log(total_keyword);
+
+        return (
+          <div className="m-4">
+            <GMTable
+              data={this.props.data_competitor}
+              columns={this.table_setting.columns}
+              total={this.state.total}
+              page={this.state.filter.page}
+              sortName={this.state.filter.sortName}
+              sortOrder={this.state.filter.sortOrder}
+              sizePerPage={this.state.filter.sizePerPage}
+              onPageChange={this.handleFilterChange}
+              onSearchChange={this.handleFilterChange}
+              selectable={false}
+              prop_key={"domain"}
+            />
+          </div>
+        );
+    }
 
 ///////////////////////////////////
 {
@@ -157,6 +213,32 @@ this.state = {
         }
       },
 
+
+
+
+    <div className="d-flex wrapper-content-and-button" style={{width: '320px'}}>
+
+      <div className="content-nearby-button-1 d-inline w-100 pr-2">
+        <span>
+          {row.key}
+        </span>                  
+      </div>
+
+      <div className="button-in-table-1">
+        
+        <Dropdown className="d-inline">
+          <Dropdown.Toggle variant="light btn-sm border" id="dropdown-basic">
+            More
+          </Dropdown.Toggle>
+
+          <Dropdown.Menu>
+            <Dropdown.Item onClick={() => props.showRegisterKeywordModal(row)}><Trans>lb_register_keyword</Trans></Dropdown.Item>
+          </Dropdown.Menu>
+        </Dropdown>
+      </div>
+
+    </div>
+
 ===========================================================================
 ============================ URL STYLE ====================================
 ===========================================================================
@@ -181,4 +263,17 @@ css: ======================================================================
   overflow: hidden !important;
   text-overflow: ellipsis !important;
   float: left;
+}
+
+===========================================================================
+============================ Ant Table ====================================
+===========================================================================
+import React, {Component} from 'react';
+import GMCoreUITable from './coreui-table';
+import GMAntTable from './ant-table';
+
+export default class GMTable extends Component {
+    render() {
+        return (<GMAntTable {...this.props} />);
+    }
 }

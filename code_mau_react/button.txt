@@ -1,0 +1,2 @@
+Button lớn================================================================================================
+<ButtonSearch type="submit" disabled={this.state.is_loading}><Trans>lb_research_btn</Trans></ButtonSearch>;

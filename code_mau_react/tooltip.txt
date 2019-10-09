@@ -1,0 +1,18 @@
+<OverlayTrigger overlay={ <Tooltip><Trans>lb_status_using</Trans></Tooltip>}>
+  <div className="d-inline-block">
+    <i className="icon-speedometer" style={{fontSize: '15px'}}></i>&nbsp;<span>{this.props.current_checked_items}/{this.props.max_checked_items}</span>
+  </div>
+</OverlayTrigger>
+
+
+
+=========================================================================
+================ Tooltip trong detele ===================================
+=========================================================================
+<OverlayTrigger overlay={ <Tooltip><Trans>lb_delete_disabled_tootltip</Trans></Tooltip>} placement="right">
+	<div className="">
+		<Dropdown.Item href="" disabled>                       
+		  <Trans>lb_delete</Trans>
+		</Dropdown.Item>
+	</div>
+</OverlayTrigger>
