@@ -1,0 +1,6 @@
+i18next.t("lb_keyword")
+
+<Trans>lb_more</Trans>
+
+import i18next from "i18next";
+import { Trans } from "react-i18next";

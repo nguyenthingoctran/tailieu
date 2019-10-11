@@ -1,0 +1,7 @@
+========================= Dropdown Export ===========================
+import { Dropdown } from "react-bootstrap";
+import { DropdownExport } from "components/controls/index";
+
+<DropdownExport>
+	<Dropdown.Item onClick={this.handleExportCSV}><Trans>lb_excel</Trans></Dropdown.Item>
+</DropdownExport>
