@@ -277,3 +277,42 @@ export default class GMTable extends Component {
         return (<GMAntTable {...this.props} />);
     }
 }
+
+===========================================================================
+============================ Number of table ==============================
+===========================================================================
+{
+  label: i18next.t("lb_outlinks"),
+  width: 120,
+  align: "right",
+  className: "number-in-table",
+  prop: "outlinks",
+  sort: true,
+  render: function (data) {
+    return <>
+            <NumberFormat value={data.outlinks.length} displayType={'text'} thousandSeparator={true} renderText={value => <div>{value}</div>} />
+          </>;
+  }
+},
+===========================================================================
+=========================== Filter of table ===============================
+===========================================================================
+{
+  label: i18next.t("lb_indexability"),
+  width: 150,
+  prop: "noindex",
+  filters: [{ text: 'Indexable', value: false }, { text: 'Non-indexable', value: true }],
+  onFilter: (value, record) => record.noindex === value,
+  render: function (data) {
+    return (
+      <>
+        {data.noindex === false ? (
+          <><span className="badge badge-success">Indexable</span></>
+
+        ) : (
+          <><span className="badge badge-danger">Non-indexable</span></>
+        )}
+      </>
+    );
+  }
+},

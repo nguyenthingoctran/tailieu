@@ -1,0 +1,13 @@
+============================================================
+================== Lặp mảng có key, value ==================
+============================================================
+
+const list_status = {
+  200 : 'OK',
+  301 : 'Moved Permanently',
+  404 : 'Not Found'
+}
+
+for (const [key, value] of Object.entries(list_status)) {
+	console.log(key, value)
+}
