@@ -86,6 +86,7 @@ import { GMTable } from "components/controls/index";
               onSearchChange={this.handleFilterChange}
               selectable={false}
               prop_key={"domain"}
+              searchable = {false} 
             />
           </div>
         );

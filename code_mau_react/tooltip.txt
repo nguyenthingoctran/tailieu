@@ -1,3 +1,6 @@
+import { Tabs, Tab, OverlayTrigger, Tooltip, Dropdown } from "react-bootstrap";
+
+
 <OverlayTrigger overlay={ <Tooltip><Trans>lb_status_using</Trans></Tooltip>}>
   <div className="d-inline-block">
     <i className="icon-speedometer" style={{fontSize: '15px'}}></i>&nbsp;<span>{this.props.current_checked_items}/{this.props.max_checked_items}</span>

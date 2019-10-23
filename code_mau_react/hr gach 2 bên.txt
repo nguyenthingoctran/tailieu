@@ -1,0 +1,3 @@
+import i18next from "i18next";
+
+<hr className="hr-text" data-content={i18next.t("lb_detail")} />
