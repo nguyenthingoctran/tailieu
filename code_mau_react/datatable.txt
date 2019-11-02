@@ -282,6 +282,8 @@ export default class GMTable extends Component {
 ===========================================================================
 ============================ Number of table ==============================
 ===========================================================================
+import NumberFormat from 'react-number-format';
+
 {
   label: i18next.t("lb_outlinks"),
   width: 120,
@@ -317,3 +319,41 @@ export default class GMTable extends Component {
     );
   }
 },
+
+===========================================================================
+============================= BTN GROUP ===================================
+===========================================================================
+  this.tableName = props => {
+    return (
+      <Row className="w-100 action-bar">
+        <Col sm="8">
+            <DropdownButton title={i18next.t('lb_action')} data-tooltip="tooltip" variant="light border px-4">
+              {this.props.list_rows_selected.length > 0 ? (
+                <Dropdown.Item onClick={this.props.onDeleteMulRow}><Trans>lb_delete</Trans></Dropdown.Item>
+              ):(
+                <OverlayTrigger overlay={ <Tooltip><Trans>lb_delete_multi_disabled_tootltip</Trans></Tooltip>} placement="right">
+                  <div>
+                    <Dropdown.Item disabled><Trans>lb_delete</Trans></Dropdown.Item>
+                  </div>
+                </OverlayTrigger>
+              )}
+            </DropdownButton>
+        </Col>
+      </Row>
+    );
+  };
+  
+
+<GMTable
+  data={this.props.data}
+  columns={this.state.columns}
+  btnGroup={this.tableName}
+  sizePerPage={this.state.filter.sizePerPage}
+  onPageChange={this.handleFilterChange}
+  onSearchChange={this.handleFilterChange}
+  onRowSelect={this.props.onRowSelect}
+  prop_key={"item_search_id"}
+  disabledCheckbox={this.disabledCheckbox}
+  fixed_header={true}
+  max_height={450}
+/>

@@ -1,0 +1,55 @@
+<div className="card card-kwanalytics">
+  <div className="card-header card-header-kwanalytics">
+    <div className="float-left mr-1">
+      <Trans className="title-card-header-kwanalytics float-left">lb_competing_keywords</Trans>
+    </div>
+
+    <div>({data_detail.data_competitor.data_ranked.length})</div>
+  </div>
+
+  <div className="collapse show" id="collapseExample">
+    <div className="card-body card-body-kwanalytics">
+      <Row>
+        <Col sm={6}>
+          <CTLDetailTable is_completed_competitor={is_completed_competitor} data_ranked={data_detail.data_competitor.data_ranked} current_site_url={getDomainFromUrl(data_detail.current_site_url)} />
+        </Col>
+
+        <Col sm={6}>
+          <CTLCompetitorChart data_ranked={data_detail.data_competitor.data_ranked} is_completed_competitor={is_completed_competitor} />
+        </Col>
+      </Row>
+    </div>
+  </div>
+  {!is_completed_competitor && <CardLoading />}
+</div>
+
+
+====================================================================================================
+
+import { CardV2, CardHeaderV2, CardBodyV2 } from '../../../components/controls';
+
+
+<CardV2>
+    <CardHeaderV2>
+        <Trans className="title-card-header-kwanalytics">lb_organic_search</Trans>
+    </CardHeaderV2>
+    <CardBodyV2>
+        <Row>
+            <Col sm={6} className="text-center">
+                <div className="number-in-card"><NumberFormat value={data_organic_paid.organic.volume} displayType={'text'} thousandSeparator={true} renderText={value => <div>{value}</div>} /></div>
+                <div className="text-for-number-in-card"><Trans>lb_search_volume</Trans></div>
+            </Col>
+
+            <Col sm={6} className="text-center">
+                <div className="number-in-card">{data_organic_paid.organic.number_of_results !== -1?
+                    <NumberFormat value={data_organic_paid.organic.number_of_results} displayType={'text'} thousandSeparator={true} renderText={value => <div>{value}</div>} />
+                    :
+                    <>-</>
+                        }
+                </div>
+                <div className="text-for-number-in-card"><Trans>lb_number_of_result</Trans></div>
+            </Col>
+        </Row>
+    </CardBodyV2>
+    {!is_completed_suggest && <CardLoading />}
+</CardV2>

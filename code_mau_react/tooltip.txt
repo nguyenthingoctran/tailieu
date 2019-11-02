@@ -19,3 +19,11 @@ import { Tabs, Tab, OverlayTrigger, Tooltip, Dropdown } from "react-bootstrap";
 		</Dropdown.Item>
 	</div>
 </OverlayTrigger>
+
+=========================================================================
+================ Tooltip giải nghĩa dùng chung ==========================
+=========================================================================
+
+<OverlayTrigger overlay={<Tooltip>Please drag the slider to the rank you want to research</Tooltip>}>
+  <i class="fa fa-info-circle ml-1 icon-tooltip-explain"></i>
+</OverlayTrigger>
