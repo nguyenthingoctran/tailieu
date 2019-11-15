@@ -27,3 +27,17 @@ import { Tabs, Tab, OverlayTrigger, Tooltip, Dropdown } from "react-bootstrap";
 <OverlayTrigger overlay={<Tooltip>Please drag the slider to the rank you want to research</Tooltip>}>
   <i class="fa fa-info-circle ml-1 icon-tooltip-explain"></i>
 </OverlayTrigger>
+
+
+<OverlayTrigger
+	overlay={
+	  <Tooltip>
+	    <Trans>lb_created_by</Trans>
+	  </Tooltip>
+	}
+>
+	<span className="mr-5">
+	  <i className="fa fa-user mr-1"></i>
+	  {this.props.state.f12v3.data_detail.created_by}
+	</span>
+</OverlayTrigger>

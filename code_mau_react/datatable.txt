@@ -188,15 +188,15 @@ this.state = {
         render: function(row, cell){
           
           return (
-            <div className="d-flex">
+            <div className="d-flex wrapper-content-and-button" style={{width: '320px'}}>
 
-              <div className="content-nearby-button d-inline w-100 pr-2">
+              <div className="content-nearby-button-1 d-inline w-100 pr-2">
                 <span>
                   {row.key}
                 </span>                  
               </div>
 
-              <div className="button-in-table">
+              <div className="button-in-table-1">
                 
                 <Dropdown className="d-inline">
                   <Dropdown.Toggle variant="light btn-sm border" id="dropdown-basic">
@@ -213,32 +213,94 @@ this.state = {
           );
         }
       },
+      
 
 
+<div className="d-flex position-relative">
 
-
-    <div className="d-flex wrapper-content-and-button" style={{width: '320px'}}>
-
-      <div className="content-nearby-button-1 d-inline w-100 pr-2">
-        <span>
-          {row.key}
-        </span>                  
-      </div>
-
-      <div className="button-in-table-1">
-        
-        <Dropdown className="d-inline">
-          <Dropdown.Toggle variant="light btn-sm border" id="dropdown-basic">
-            More
-          </Dropdown.Toggle>
-
-          <Dropdown.Menu>
-            <Dropdown.Item onClick={() => props.showRegisterKeywordModal(row)}><Trans>lb_register_keyword</Trans></Dropdown.Item>
-          </Dropdown.Menu>
-        </Dropdown>
-      </div>
-
+    <div className="content-nearby-button-1 d-inline w-100 height-28 pr-2 text-url">
+        <span>{row.keyword}</span>
     </div>
+
+    <div className="button-in-table-1">
+        <Dropdown className="d-inline">
+            <Dropdown.Toggle variant="light btn-sm border" id="dropdown-basic">
+                <Trans>lb_more</Trans>
+            </Dropdown.Toggle>
+
+            <Dropdown.Menu>
+                <Dropdown.Item onClick={() => this.props.onClickDetail(row)} target="_blank">
+                    <Trans>lb_detail</Trans>
+                </Dropdown.Item>
+                <Dropdown.Item href="" onClick={() => this.props.onClickEdit(row)} disabled={row.disabled ? row.disabled : false}>
+                    <Trans>lb_edit</Trans>
+                </Dropdown.Item>
+                <Dropdown.Item href="" onClick={() => this.props.onClickDelete(row)} disabled={row.disabled ? row.disabled : false}>
+                    <Trans>lb_delete</Trans>
+                </Dropdown.Item>
+            </Dropdown.Menu>
+        </Dropdown>
+    </div>
+</div>
+
+============================================== Nút trong trường hợp nhiều dòng ================================================================
+
+return (
+              <div className="d-flex position-relative">
+
+                <div className="content-nearby-button-1 d-inline w-100 pr-2" >
+
+                  {row.is_completed ? 
+                    <>
+                      <ButtonLink className="text-left" 
+                                  onClick={() => props.onClickDetails(row)}>
+                                  {row.item_search_name.map((item,index) => (<React.Fragment key={index}>
+                                                                                  <div className="d-block text-eclipse" style={{width: '400px'}}>
+                                                                                    <i className="align-middle fa fa-circle text-primary small mr-1" style={{fontSize: '5px'}}></i>
+                                                                                    {item}
+                                                                                  </div>  
+                                                                              </React.Fragment>))}
+                      </ButtonLink>
+                    {/* {row.item_search_name.map((item,index) => (<><span key={index}>{item}</span><br/></>))} */}
+                    </> : 
+                    <span className="text-in-table link-disabled">{row.item_search_name.map((item,index) => (<React.Fragment key={index}><span>{item}</span><br/></React.Fragment>))}</span>
+                  }
+                  
+                </div>
+
+                {row.is_completed ? (
+                  <div className="button-in-table-1 align-items-center h-100">
+                  <Dropdown className="d-inline">
+                    <Dropdown.Toggle variant="light btn-sm border" id="dropdown-basic">
+                      <Trans>lb_more</Trans>
+                    </Dropdown.Toggle>
+
+                    <Dropdown.Menu>
+                      <Dropdown.Item href="" onClick={() => props.onClickDetails(row)} disabled={row.disabled ? row.disabled : false}>                       
+                        <Trans>lb_detail</Trans>
+                      </Dropdown.Item>
+                      {props.user_id === row.user_searched_id ? (
+                      <Dropdown.Item href="" onClick={() => props.onClickDelete(row)} disabled={row.disabled ? row.disabled : false}>                       
+                        <Trans>lb_delete</Trans>
+                      </Dropdown.Item>
+                      ):(
+                        <OverlayTrigger overlay={ <Tooltip><Trans>lb_delete_disabled_tootltip</Trans></Tooltip>} placement="right">
+                          <div className="">
+                            <Dropdown.Item href="" disabled>                       
+                              <Trans>lb_delete</Trans>
+                            </Dropdown.Item>
+                          </div>
+                        </OverlayTrigger>
+                      )}
+                    </Dropdown.Menu>
+                  </Dropdown>
+                </div>
+                ) : (
+                  <RowLoading />
+                )}
+              </div>
+            );
+
 
 ===========================================================================
 ============================ URL STYLE ====================================
@@ -356,4 +418,25 @@ import NumberFormat from 'react-number-format';
   disabledCheckbox={this.disabledCheckbox}
   fixed_header={true}
   max_height={450}
+  searchable = {false} // Không hiển thị box search
+  hide_pagination_on_single={true} // Ẩn phân trang
+  prop_key="item_search_id" // Key
 />
+
+===========================================================================
+======================== Style cho bảng ===================================
+===========================================================================
+
+#CompetitorKeywordsDetail .ant-table{
+  box-shadow: 0 0 5px #e4e7ea;
+}
+
+===========================================================================
+====================== Fix chiều cao của dòng =============================
+===========================================================================
+height-28
+
+===========================================================================
+======================== Tooltip trong table ==========
+===========================================================================
+label: <>{i18next.t('lb_domain')}<OverlayTrigger overlay={<Tooltip><Trans>lb_explain_visibility_competitor</Trans></Tooltip>} placement="right"><div className="d-inline"><i className="fa fa-info-circle icon-tooltip-explain ml-1"></i></div></OverlayTrigger></>,

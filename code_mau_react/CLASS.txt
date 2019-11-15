@@ -1,0 +1,15 @@
+.icon-small-link  // Dùng cho link
+
+.text-url // Dùng cho URL
+.text-eclipse
+.text-eclipse-url
+
+height-28  // Thu nhỏ dòng
+
+.shadow-hover // cho hover
+
+.icon-tooltip-explain // Tooltip nhỏ
+
+.icon-tooltip-explain-lg // Tooltip lớn
+
+.icon-distinct // icon phân biệt
