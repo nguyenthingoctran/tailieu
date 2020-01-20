@@ -176,45 +176,6 @@ constructor(props) {
 ===========================================================================
 ============================ NÚT TRONG TABLE ==============================
 ===========================================================================
-this.state = {
-    columns: [
-      {
-        label: i18next.t("lb_keyword"),
-        sort: true,
-        isKey: true,
-        prop: "key",
-        // width: "320",
-        align: "left",
-        render: function(row, cell){
-          
-          return (
-            <div className="d-flex wrapper-content-and-button" style={{width: '320px'}}>
-
-              <div className="content-nearby-button-1 d-inline w-100 pr-2">
-                <span>
-                  {row.key}
-                </span>                  
-              </div>
-
-              <div className="button-in-table-1">
-                
-                <Dropdown className="d-inline">
-                  <Dropdown.Toggle variant="light btn-sm border" id="dropdown-basic">
-                    More
-                  </Dropdown.Toggle>
-
-                  <Dropdown.Menu>
-                    <Dropdown.Item onClick={() => props.showRegisterKeywordModal(row)}><Trans>lb_register_keyword</Trans></Dropdown.Item>
-                  </Dropdown.Menu>
-                </Dropdown>
-              </div>
-
-            </div>
-          );
-        }
-      },
-      
-
 
 <div className="d-flex position-relative">
 
@@ -388,18 +349,23 @@ import NumberFormat from 'react-number-format';
   this.tableName = props => {
     return (
       <Row className="w-100 action-bar">
-        <Col sm="8">
-            <DropdownButton title={i18next.t('lb_action')} data-tooltip="tooltip" variant="light border px-4">
-              {this.props.list_rows_selected.length > 0 ? (
-                <Dropdown.Item onClick={this.props.onDeleteMulRow}><Trans>lb_delete</Trans></Dropdown.Item>
-              ):(
-                <OverlayTrigger overlay={ <Tooltip><Trans>lb_delete_multi_disabled_tootltip</Trans></Tooltip>} placement="right">
-                  <div>
-                    <Dropdown.Item disabled><Trans>lb_delete</Trans></Dropdown.Item>
-                  </div>
-                </OverlayTrigger>
-              )}
-            </DropdownButton>
+        <Col sm="4">
+          <DropdownButton title={i18next.t('lb_action')} data-tooltip="tooltip" variant="light border px-4" size="sm">
+            <Dropdown.Item disabled><Trans>lb_register</Trans></Dropdown.Item>
+          </DropdownButton >
+        </Col>
+
+        <Col sm="6">
+          <div className="float-right d-none">
+            <ButtonRedirect onClick={() => this.handledebug()} ><Trans>Debug</Trans></ButtonRedirect>
+          </div>
+        </Col>
+
+        <Col sm="2">
+          <DropdownExport className="float-right btn-sm">
+            <Dropdown.Item onClick={() => this.handleExportCSV()} ><Trans>lb_csv</Trans></Dropdown.Item>
+            <Dropdown.Item onClick={() => this.handleExportExcel()} ><Trans>lb_excel</Trans></Dropdown.Item>
+          </DropdownExport>
         </Col>
       </Row>
     );
@@ -440,3 +406,49 @@ height-28
 ======================== Tooltip trong table ==========
 ===========================================================================
 label: <>{i18next.t('lb_domain')}<OverlayTrigger overlay={<Tooltip><Trans>lb_explain_visibility_competitor</Trans></Tooltip>} placement="right"><div className="d-inline"><i className="fa fa-info-circle icon-tooltip-explain ml-1"></i></div></OverlayTrigger></>,
+
+
+C2:
+
+class RankingCompetitor extends Component {
+
+    componentWillReceiveProps(next_props) {
+        const { data_competitor_detail } = next_props.state.f21;
+        const { start_date, end_date } = data_competitor_detail;
+
+        if (start_date !== '' && end_date !== '') {
+            this.columns = [
+                {
+                    label: <TableHeaderCustom text={start_date} tooltip='lb_explain_competitor_detail_start_date' />,
+                    prop: 'rank_start_date',
+                    sort: (a, b) => { if (a !== null && b !== null) return a['rank_start_date'] - b['rank_start_date']; else return -1; },
+                    render: (row) => (
+                        <>
+                            {row.rank_start_date == null ? '-' : row.rank_start_date}
+                        </>
+                    )
+                },
+            ];
+        }
+    }
+
+
+export default connect(
+    mapStateToProps,
+    mapDispatchToProps
+)(RankingCompetitor);
+
+class TableHeaderCustom extends Component {
+    render() {
+        return (
+            <>
+                <span>{this.props.text}</span>
+                <OverlayTrigger overlay={<Tooltip><Trans>{this.props.tooltip}</Trans></Tooltip>} placement="top">
+                    <div className="d-inline">
+                        <i className="fa fa-info-circle icon-tooltip-explain ml-1"></i>
+                    </div>
+                </OverlayTrigger>
+            </>
+        )
+    }
+}

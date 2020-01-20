@@ -13,3 +13,5 @@ height-28  // Thu nhỏ dòng
 .icon-tooltip-explain-lg // Tooltip lớn
 
 .icon-distinct // icon phân biệt
+
+.wall-border // <div className="wall-border"></div> -> Dùng cho | phân cách giữa các thông tin

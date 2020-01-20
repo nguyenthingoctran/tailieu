@@ -1,0 +1,54 @@
+============================================================
+================== Lặp mảng có key, value ==================
+============================================================
+
+const list_status = {
+  200 : 'OK',
+  301 : 'Moved Permanently',
+  404 : 'Not Found'
+}
+
+for (const [key, value] of Object.entries(list_status)) {
+	console.log(key, value)
+}
+
+===============================================================
+
+        return Object.keys(list_item_will_render).map((key, index) => {
+            let _row = {};
+
+            _row['key'] = key;
+            _row['visible_count'] = list_item_will_render[key].appear;
+            _row['used_ratio'] = list_item_will_render[key].usage_rate;
+            _row['impression'] = list_item_will_render[key].importance_level;
+            _row['status'] = keyword_using[key];
+            _row['color'] = this.data_color[index] ? this.data_color[index].color : '#ff3838';
+
+            return _row;
+        })
+
+
+==================== lấy dữ liệu  ==================
+
+        Object.entries(data).map
+
+        ==> https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/entries
+
+============================================================
+============================ Hàm ===========================
+============================================================
+
+.toLocaleString()  // thêm "," trong số lớn
+
+============= tính total một mảng ===================
+array.reduce((a, b) => a + b)
+
+============= Làm tròn chữ số thập phân =============
+- Là string 
+	parseFloat("123.456").toFixed(2);
+
+- Là số
+	var numb = 123.23454;
+	numb = numb.toFixed(2);
+
+=====================================================

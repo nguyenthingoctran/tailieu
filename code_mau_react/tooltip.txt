@@ -1,3 +1,5 @@
+
+
 import { Tabs, Tab, OverlayTrigger, Tooltip, Dropdown } from "react-bootstrap";
 
 
@@ -41,3 +43,42 @@ import { Tabs, Tab, OverlayTrigger, Tooltip, Dropdown } from "react-bootstrap";
 	  {this.props.state.f12v3.data_detail.created_by}
 	</span>
 </OverlayTrigger>
+
+
+=========================================================================
+================ Tooltip giải nghĩa trong table =========================
+=========================================================================
+{
+    // label: i18next.t('lb_new'),
+    label: <TableHeaderCustom text="New" tooltip={`lb_explain_new_in_top_${props.top_index}`} top_index={props.top_index} have_top_in_label={true}/>,
+    prop: 'new',
+    sort: true,
+    align: 'right',
+    className: 'number-in-table',
+    render: (row) => (
+        <>
+            {row.new != 0 ? (
+                <a target="_blank" href={`/keyword/ranking/${props.site_id}/competitor/detail?start_date=${props.date_range[0]}&end_date=${props.date_range[1]}&domain=${row.domain}&top=count_top${props.top_index}&type_top=new`}>{row.new}</a>
+            ) : (
+                    <span>{row.new}</span>
+                )}
+        </>
+    )
+},
+
+class TableHeaderCustom extends Component {
+    render() {
+
+        return (
+            <>
+                <span>{this.props.text}</span>
+                {this.props.have_top_in_label ? <span className="ml-1">{this.props.top_index}</span> : ""}
+                <OverlayTrigger overlay={<Tooltip><Trans>{this.props.tooltip}</Trans></Tooltip>} placement="top">
+                    <div className="d-inline">
+                        <i className="fa fa-info-circle icon-tooltip-explain ml-1"></i>
+                    </div>
+                </OverlayTrigger>
+            </>
+        )
+    }
+}

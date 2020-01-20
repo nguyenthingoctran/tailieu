@@ -4,3 +4,12 @@ i18next.t("lb_keyword")
 
 import i18next from "i18next";
 import { Trans } from "react-i18next";
+
+
+=========================================================================
+================ Các cách sử dụng thẻ <Trans> ===========================
+=========================================================================
+text={<Trans></Trans>}
+
+placeholder={i18next.t("lb_username")}
+label: i18next.t('lb_kw_in_top')
