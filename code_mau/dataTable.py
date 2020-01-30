@@ -36,6 +36,9 @@ Lưu ý table phải có div (card-body) bọc ngoài.
 5.1 Thêm class vào th muốn bỏ icon sx
      <th class="no-sort" class="checkAll"><input id="checkAll" type="checkbox" value=""></th>
 
+============================================
+================ DataTable =================
+============================================
 5.2 Js
 $('#datatable-coreui').DataTable( {
   "order": [],
@@ -127,3 +130,18 @@ link
 // JS cho phần hiện, ẩn các nút action khi hover vào từng dòng của table
 hover_table_show_button();
 </script>
+
+
+=========================================================
+===================== scroll ============================
+=========================================================
+<table id="datatable-coreui" class="table table-striped table-bordered table-hover datatable display nowrap">
+
+$('#datatable-coreui').DataTable( {
+  "order": [],
+  "scrollX": true,
+  "columnDefs": [ {
+    "targets": 'no-sort',
+    "orderable": false,
+  } ]
+} );
