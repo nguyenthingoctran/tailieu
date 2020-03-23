@@ -1,3 +1,7 @@
+<div class="text-eclipse" data-toggle="tooltip" title="{{lp_info.url}}">
+	<a href="{{lp_info.url}}">{{lp_info.name}}</a>
+</div>
+
 $('[data-toggle="tooltip"]').tooltip();
 
 data-toggle="tooltip"

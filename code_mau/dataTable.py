@@ -62,7 +62,7 @@ $('#tbl_data').DataTable( {
   "columnDefs": [ {
     "targets": 'no-sort',
     "orderable": false,
-    
+    "ordering": false // Xóa hoàn toàn các order sort
   } ]
 } );
 
