@@ -145,3 +145,13 @@ $('#datatable-coreui').DataTable( {
     "orderable": false,
   } ]
 } );
+
+=========================================================
+===============-====== next trang =======================
+=========================================================
+Khi next trang không chạy popover thi chạy lại poperver trong hàm này
+
+  $('#table_cta').on('draw.dt', function () {
+      show_popover();
+      console.log("draw")
+  });
