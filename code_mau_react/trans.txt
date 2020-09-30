@@ -13,3 +13,9 @@ text={<Trans></Trans>}
 
 placeholder={i18next.t("lb_username")}
 label: i18next.t('lb_kw_in_top')
+
+
+pointFormat: '<tr><th colspan="2"><h6>{point.name}</h6></th></tr>' +
+                    `<tr><th>${i18next.t('lb_keyword_in_top')}:</th><td>{point.x}</td></tr>` +
+                    '<tr><th>Average Position:</th><td>{point.y}</td></tr>'+
+                    '<tr><th>Visibility:</th><td>{point.z}%</td></tr>',
