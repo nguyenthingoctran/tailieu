@@ -41,3 +41,48 @@ def test(request):
   layout = alert_email.sent_alert_email_by_site_id(site_id,created_date)
 
   return HttpResponse(layout)
+
+=====================================================================================================
+================================= EMAIL Growme core v2 =====================================
+
+def sent_token(request):
+  token = __get_token_2fa(request.user.id)
+  if type(token) == str :
+    data = {
+        'user_name' : request.user.username,
+        'token' : token,
+        'url_confirm' : 'https://semplan.com',
+    }
+    body = render_to_string('email/verify_2fa.html',data)
+    send_mail(
+        'Two-Factor Authentication',
+        '',
+        settings.EMAIL_HOST_USER ,
+        [request.user.email],
+        html_message = body,
+    )
+  return token
+
+
+
+def debug_email(request):
+  token = 'ngoctrantoken'
+  data = {
+      'user_name' : 'ngoc tran',
+      'token' : token,
+      'url_confirm' : 'https://semplan.com',
+  }
+  body = render_to_string('email/verify_2fa.html',data)
+  send_mail(
+      'Two-Factor Authentication',
+      '',
+      settings.EMAIL_HOST_USER ,
+      ['tran@leadplus.net'],
+      html_message = body,
+  )
+  return 
+  
+
+
+  # Debug email
+   url(r'^debug-email/$', views.debug_email, name='debug_email'),

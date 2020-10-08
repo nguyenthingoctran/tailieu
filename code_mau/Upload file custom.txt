@@ -1,0 +1,27 @@
+<div class="col-9">
+  <div class="input-group">
+    <div class="input-group-prepend ">
+      <label class="input-group-text form-label" for="type-name">CSVファイル <span class="text-danger small">*</span></label>
+    </div>
+    <!-- End .input-group-prepend -->
+    <div class="custom-file">
+      <input type="file" class="custom-file-input" id="file_csv"  accept=".csv">
+      <label class="custom-file-label" for="file_csv">Choose file</label>
+    </div>
+
+    <!-- End .mt-3 -->
+  </div>
+  <!-- Emnd .input-group -->
+</div>
+
+
+
+============================================
+======== Khi upload thì add name vào =======
+============================================
+
+$('#file_review').on('change',function(){
+    //get the file name
+    var fileName = this.files[0].name;
+    $(this).next('.custom-file-label').html(fileName);
+})

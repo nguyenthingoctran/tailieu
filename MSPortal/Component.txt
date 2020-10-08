@@ -1,0 +1,82 @@
+Tham khảo component F.1.1 
+
+{% extends 'base/base.html' %}
+
+{% block breadcrumb %}
+<li class="breadcrumb-item active"><span>Customers</span></li>
+{% endblock %}
+
+{% block main %}
+
+<div class="container">
+  <h1 class="pt-4 text-center font-weight-bold text-primary">
+    Customers
+  </h1>
+</div>
+
+<div class="row mx-3 position-relative">
+  <div class="col-12 custom-datatable-toolbar">
+    <a class="btn btn-light border btn-sm" href="{{url('customer_create')}}"><i class="fa fa-plus mr-1"></i> Create
+      Customer</a>
+  </div>
+
+  <div class="col-12 mt-3">
+    <table id="table_lp" class="table table-not-in-card table-wrapper table-hover">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Tool URL</th>
+          <th>Created Date</th>
+          <th>Last Updated</th>
+          <th>Active</th>
+          <th class="text-nowrap">Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for customer in list_customers %}
+        <tr>
+          <td><a href="{{url('customer_detail',args=(customer.pk,))}}">{{customer.name}}</a></td>
+          <td><a href="{{customer.tool_url}}" target="_blank">{{customer.tool_url}}</a></td>
+          <td>{{customer.created_date.strftime('%Y-%m-%d')}}</td>
+          <td>{{customer.last_updated.strftime('%Y-%m-%d')}}</td>
+          <td>
+            {% if customer.is_active == True %}
+            <span class="text-success"><i class="fa fa-check mr-1"></i></span>
+            {% else %}
+            <span class="text-danger"><i class="fa fa-close mr-1"></i></span>
+            {% endif %}
+
+          </td>
+          <td class="text-nowrap">
+            <div class="dropdown">
+              <button class="btn-light border dropdown-toggle btn-sm dropdown-in-table" type="button"
+                id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                More
+              </button>
+              <div class="dropdown-menu " aria-labelledby="dropdownMenuButton">
+                <a class="dropdown-item" href="{{url('customer_update',args=(customer.pk,))}}"><i
+                    class="fa fa-edit mr-1"></i>Update</a>
+                <a class="dropdown-item text-danger" href="{{url('customer_delete',args=(customer.pk,))}}"><i
+                    class="fa fa-trash mr-1 text-danger"></i>Delete</a>
+              </div>
+            </div>
+          </td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+</div>
+
+{% endblock main %}
+
+{% block script %}
+<script type="text/javascript">
+  $(document).ready(function () {
+
+    var table = $('#table_lp').DataTable(get_option_datatable())
+
+    show_sort_datatable(table)
+  });
+</script>
+{% endblock %}
