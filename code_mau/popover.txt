@@ -1,0 +1,9 @@
+- Bootrap popover
+
+============= HTML ===============
+<img src="{{partner.logo}}" alt="Logo" class="logo-in-table" data-toggle="popover" data-content="<img src={{partner.logo}} width='300px'/>" data-html='true'/>
+
+============= JS =================
+$('[data-toggle="popover"]').popover({
+  trigger: 'hover',
+})

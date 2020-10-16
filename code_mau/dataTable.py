@@ -155,3 +155,16 @@ Khi next trang không chạy popover thi chạy lại poperver trong hàm này
       show_popover();
       console.log("draw")
   });
+
+=========================================================
+================== DAta table mới =======================
+=========================================================
+var option_addition = {
+    "drawCallback": function (settings) {
+      show_popover();
+    }
+  }
+
+var table = $('#datatable-coreui').DataTable(get_option_datatable(option_addition))
+
+show_sort_datatable(table)
