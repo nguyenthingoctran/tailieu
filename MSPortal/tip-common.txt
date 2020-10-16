@@ -1,7 +1,39 @@
 ====================================================================================
 ================ Thêm loading vào form - Django Crispy Form ========================
 ====================================================================================
+Form cuar django
 
 $('form').submit(function() {
     disable_element($('.card'))
 });
+
+
+====================================================================================
+================ Loading ở list khi tạo thêm mới - anything ========================
+====================================================================================
+Thêm class này "custom-loading"
+Tham khảo hàm chạy ở "templates\popup\popup_create.html"
+
+
+
+=======================================================
+===================== Table ===========================
+=======================================================
+<div class="row mx-3 position-relative custom-loading">
+  <div class="col-12 custom-datatable-toolbar">
+    <button data-toggle="modal" data-target="#modalCreatePartner" class="btn btn-light border btn-sm" type="button" margin="100px"
+        data-toggle="modal" 
+        data-target="#modalCreatePartner" 
+        data-list-form="{{list_form}}"
+        data-dict-form="{{dict_form}}"
+        data-list-partner="{{list_partner_info}}"
+        id="modal-create"
+      >Create</button> 
+
+      <select class="form-control form-control-toolbar form-control-sm" id="select-site">
+        <option>-- Select Site --</option>
+        <option>Site 1</option>
+        <option>Site 2</option>
+      </select>
+  </div>
+</div>

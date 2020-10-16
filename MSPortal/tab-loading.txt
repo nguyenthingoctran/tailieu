@@ -1,0 +1,22 @@
+// ===========================================
+// ============ Funtion tham khảo ============
+// ===========================================
+function click_tab_show_loading (selector_click, variable, selector_show_loading) {
+	selector_click.click(function(){
+	  if (variable == false){
+	    variable = true
+	    disable_element(selector_show_loading);
+	  }
+	});
+}
+
+// ===========================================
+// ================ Sử dụng ==================
+// ===========================================
+click_tab_show_loading($(".nav-monthly-report-pptx"), _loading_monthly_report_pptx = false, $("#screen-report-management-index"))
+
+// ===========================================
+// ================== Tip ====================
+// ===========================================
+Gọi thêm hàm này ở success và error ajax để dừng loading
+	enable_element(_element_loading)
