@@ -1,0 +1,68 @@
+==============================================================================================
+============================= standard ====================================
+==============================================================================================
+<div class="dropdown d-inline">
+  <button class="btn-light border dropdown-toggle btn-sm" type="button"
+    id="dropdownAction" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    Action
+  </button>
+  <div class="dropdown-menu pointer" aria-labelledby="dropdownAction">
+    <button data-toggle="modal" class="dropdown-item text-danger" data-target="#modalDeleteBulkCustomer">
+      <i class="fa fa-trash mr-1 text-danger"></i>Delete multiple
+    </button>
+  </div>
+</div>
+
+==============================================================================================
+============================== có tooltip ==========================================
+==============================================================================================
+
+<div class="dropdown-menu pointer" aria-labelledby="dropdownAction">
+
+  <div data-toggle="tooltip" title="Please select at least one item.">
+    <button class="dropdown-item text-danger button-delete-multiple" data-toggle="modal"
+      data-target="#modalDeleteBulkCustomer" disabled>
+      <i class="fa fa-trash mr-1 text-danger"></i>Delete multiple
+    </button>  
+  </div>
+  
+  <div data-toggle="tooltip" title="Please select at least one item.">
+    <button class="dropdown-item text-danger button-delete-multiple-test2" data-toggle="modal"
+      data-target="#modalDeleteBulkCustomer" disabled>
+      <i class="fa fa-trash mr-1 text-danger"></i>Delete multiple test2
+    </button>  
+  </div>
+  
+</div>
+
+// Sử dụng hàm này
+action_multiple([$(".button-delete-multiple"),$(".button-delete-multiple-test2")])
+
+// Đặt vào common
+function action_multiple(list_button){
+  var is_check = 0;
+  $("input[name='check_all_item']").change(function () {
+
+    // Check has checkboxs is check ?
+    var this_is_check = $(this).is(":checked");
+    if (this_is_check == true) {
+      is_check = is_check + 1;
+    } else {
+      is_check = is_check - 1;
+    }
+
+    // Style for css  button
+    if (is_check > 0) {
+      list_button.forEach(element => {
+        element.prop("disabled", false)
+        element.parent().attr('data-original-title', '')
+      });     
+    } else {
+      list_button.forEach(element => {
+        element.prop("disabled", true)
+        element.parent().attr('data-original-title', 'Please select at least one item.')
+      });
+    }
+
+  });
+}

@@ -27,6 +27,16 @@
         <button data-toggle="modal" data-target="#modalCreatePartner" class="btn btn-light border btn-sm" type="button"
           margin="100px" data-toggle="modal" data-target="#modalCreatePartner" data-list-form="{{list_form}}"
           data-dict-form="{{dict_form}}" data-list-partner="{{list_partner_info}}" id="modal-create">Create</button>
+
+          <button data-toggle="modal" 
+                data-target="#modalSettingReportPPTX" 
+                class="btn btn-light border btn-sm" 
+                type="button"
+                margin="100px" 
+                data-toggle="modal" 
+                id="modal-create">
+                <i class="icon-settings mr-1"></i>Setting Report
+          </button>
       </div>
     </div>
 
@@ -98,3 +108,43 @@
     </table>
   </div>
 </div>
+
+
+
+
+
+=========================================
+Call DataTable
+=========================================
+var option_addition = {
+    "drawCallback": function (settings) {
+      show_popover();
+    }
+  }
+
+var table = $('#datatable-coreui').DataTable(get_option_datatable(option_addition))
+
+show_sort_datatable(table)
+
+=========================================
+Get Scroll DataTable
+=========================================
+- Đặt hàm này ở common
+
+  function get_scroll_table(max_width){
+    var window_width = window.innerWidth;
+    scrollX = false;
+    if (window_width < max_width) {
+      scrollX = true;
+    }
+
+    return scrollX
+   
+  }
+
+var scrollX = get_scroll_table(1530)
+
+========================================
+Table Loading
+========================================
+- Thêm class table-loading vào div muốn load lại trang

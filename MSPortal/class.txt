@@ -1,2 +1,14 @@
-Button nhỏ trong table: button-in-table
-Dropdown nhỏ trong table: small-button-in-table
+* Dropdown nhỏ trong table: small-button-in-table
+
+* Table loading : table-loading
+<div class="row mx-3 position-relative table-loading">
+  <div class="col-12 custom-datatable-toolbar">
+    <div class="row">
+    </div>
+  </div>
+</div>
+
+* ... : text-ellipsis
+
+* Title ellipsis: title-ellipsis
+<td class="title-ellipsis">{{seminar.lp_title}}</td>

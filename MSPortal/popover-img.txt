@@ -1,0 +1,1 @@
+<img src="{{site.logo}}" height="15" data-toggle="popover" data-html='true' data-content="<img src='{{site.logo}}' style='max-width: 400px'/>">

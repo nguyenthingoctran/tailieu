@@ -1,0 +1,97 @@
+/* 
+
+COLORS:
+light blue : #8e9efc
+medium blue : #5a73fc
+dark blue : #1c3eff
+
+*/
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Lato', sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.7;
+  color: #777777;
+  padding: 30px;
+}
+
+header{
+  background-image: linear-gradient(to right bottom, rgba(142, 158, 252, .8), rgba(28, 62, 255, .8)), url('../img/background1.jpg');
+  background-size: cover;
+  background-position: top;
+  position: relative;
+  height: 95vh;
+  clip-path: ellipse(75% 77% at 52% 23%);
+}
+
+.text-box{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+.logo{
+  height: 70px;
+}
+
+.logo-box{
+  position: absolute;
+  top: 30px;
+  left: 30px;
+}
+
+.heading-primary{
+  color: #fff;
+  text-transform: uppercase;
+  margin-bottom: 60px;
+}
+
+.heading-primary_main{
+  display: block;
+  font-size: 62px;
+  font-weight: 400;
+  letter-spacing: 15px;
+}
+
+.heading-primary_sub{
+  display: block;
+  font-size: 20px;
+  font-weight: 700;
+  letter-spacing: 18px;
+}
+
+.btn,
+.btn:link,
+.btn:visited{
+  text-transform: uppercase;
+  text-decoration: none;
+  padding: 15px 40px;
+  display: inline-block;
+  border-radius: 100px;
+  font-size: 16px;
+}
+
+.btn-white{
+  color: #777777;
+  background-color: #fff;
+}
+
+.btn:hover{
+  transform: translateY(-3px);
+  box-shadow: 0 5px 20px rgba(0, 0, 0, .2);
+}
+
+.btn:active{
+  outline: none;
+  transform: translateY(-1px);
+  box-shadow: 0 5px 10px rgba(0, 0, 0, .2);
+}

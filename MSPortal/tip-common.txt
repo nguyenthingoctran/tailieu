@@ -37,3 +37,13 @@ Tham khảo hàm chạy ở "templates\popup\popup_create.html"
       </select>
   </div>
 </div>
+
+=======================================================
+========= Vừa disable vừa sử dụng tooltip ============
+=======================================================
+
+<div class="dropdown-menu pointer" aria-labelledby="dropdownAction" data-toggle="tooltip" title="Please select at least one item.">
+  <button class="dropdown-item text-danger" data-toggle="modal" data-target="#modalDeleteBulkCustomer" disabled>
+    <i class="fa fa-trash mr-1 text-danger"></i>Delete multiple
+  </button>
+</div>

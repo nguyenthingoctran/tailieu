@@ -1,0 +1,17 @@
+  function show_date_format(id_selector){
+    var _html_input_start_date = '<div id="'+id_selector+'" class="input-group date" data-date-format="yyyy-mm-dd">' +
+                                  '<input class="form-control custom-datepicker-style" type="text" readonly />' +
+                                  '<span class="input-group-addon"><i class="fa fa-calendar"></i></span>' +
+                                '</div>'
+
+    $("#"+id_selector).replaceWith(_html_input_start_date)
+
+    $("#"+id_selector).datepicker({
+      autoclose: true,
+      todayHighlight: true
+    }).datepicker('update', new Date());
+  }
+  
+
+  show_date_format("id_start_date")
+  show_date_format("id_end_date", disable=true)

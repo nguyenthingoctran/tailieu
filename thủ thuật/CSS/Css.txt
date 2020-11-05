@@ -1,0 +1,4 @@
+---------------------------------------------------------------------------
+Sử dụng nhiều thành phần có thuộc tính absoluted trong div sử dụng relative
+---------------------------------------------------------------------------
+Hãy set height cho div wrapper (div sử dụng relative)
