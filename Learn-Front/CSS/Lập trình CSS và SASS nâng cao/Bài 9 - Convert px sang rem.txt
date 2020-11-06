@@ -1,0 +1,30 @@
+- Sử dụng "rem" để responsive dễ dàng hơn
+px element = rem element * root font size của browser  
+
+- Chuyển tất cả các font-size từ 'px' -> 'rem'
+
+Giải thích: Khi cho thẻ "html" = "10px" -> tất các font-size nằm trong thẻ "html" phải chuyển từ "px" sang "rem"
+
+Hãy sử dụng bootstrap để có code chuẩn hơn
+
+======================================================
+====== Sử dụng thuộc tính "inherit" trong CSS ========
+======================================================
+16px * 62.5% = 10px
+
+- box-sizing không đi theo % nên ta phải ép buộc thuộc tính ta có thể kế thừa thì ta sử dụng thuộc tính "inherit"
+	*, *::before, *::after{
+	  margin: 0;
+	  padding: 0;
+	  box-sizing: inherit;
+	}
+
+	body {
+	  font-family: 'Lato', sans-serif;
+	  font-weight: 400;
+	  font-size: 1.6rem;
+	  line-height: 1.7;
+	  color: #777777;
+	  padding: 30px;
+	  box-sizing: border-box;
+	}

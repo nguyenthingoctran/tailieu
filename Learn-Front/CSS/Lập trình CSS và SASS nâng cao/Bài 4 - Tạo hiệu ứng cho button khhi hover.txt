@@ -1,1 +1,43 @@
-Tìm hiều về "CSS Pseudo-classes"
+===========================================
+==== Tìm hiều về "CSS Pseudo-classes" =====
+===========================================
+https://www.w3schools.com/css/css_pseudo_classes.asp
+
+Ví dụ:
+.btn,
+.btn:link,
+.btn:visited{
+  text-transform: uppercase;
+  text-decoration: none;
+  padding: 15px 40px;
+  display: inline-block;
+  border-radius: 100px;
+  font-size: 16px;
+  position: relative;
+}
+
+.btn::after{
+  content: "";
+  display: inline-block;
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  /* Css cho button after giống hệt button gốc */
+  border-radius: 100px;
+  /* after nằm dưới button */
+  z-index: -1;  
+   /* Hãy để transition vào thấy sự chuyển động */
+  transition: all .4s;  
+}
+
+.btn-white::after{
+  background-color: #fff;
+}
+
+/* Xử lý button sau khi hover */
+.btn:hover::after{
+  transform: scaleX(1.4) scaleY(1.6);
+  opacity: 0;
+}

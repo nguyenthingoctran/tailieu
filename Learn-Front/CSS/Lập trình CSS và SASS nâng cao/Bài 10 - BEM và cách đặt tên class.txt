@@ -1,0 +1,11 @@
+=============================================
+============= Quy tắc đặt tên ===============
+=============================================
+BEM: Block Element Modifier: 
+Block: tên của component - mô tả tổng thể của component đó
+Element: dùng đặt tên các component của thành phần đó từ bổ trợ cho component block
+Modifier: các dạng biến thể khác của block hoặc element
+Ví dụ: .heading-primary__main => heading-primary: Block, heading: element
+
+https://www.youtube.com/watch?v=qJ-sx1nkSxo&list=PL33lvabfss1wstoZNI8szds9s0ESVbuqs&index=11
+10:20
