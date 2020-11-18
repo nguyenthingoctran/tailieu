@@ -1,0 +1,5 @@
+<header> là block vì nó đứng riêng rẽ và tồn tại độc lập => tạo class "header" cho nó
+
+"logo-box", "text-box": là element vì nó chỉ xuất hiện trong block header, phụ thuộc vào header => đổi tên thành "block element". Ví dụ: header__logo-box
+
+"heading-primary" là một block, đứng độc lập và ta có thể tái sử dụng, không phụ thuuộc các block header, .... Ví dụ: "heading-primary--main" theo quy tắc "block-modifier"

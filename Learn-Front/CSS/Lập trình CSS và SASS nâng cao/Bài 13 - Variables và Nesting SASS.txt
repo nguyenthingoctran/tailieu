@@ -1,0 +1,44 @@
+=======================================
+================ Biến =================
+=======================================
+
+$margin-nav: 30px;
+$bg-color-nav: #aaa111;
+
+nav{
+  margin: $margin-nav;
+  background-color: $bg-color-nav;
+}
+
+=========================================
+====== Sử dụng kết hợp BEM và SASS ======
+=========================================
+<li class="list"><a class="list__link" href="#">Dashboard</a></li>
+
+.list {
+  margin: 10px;
+  &__link{
+    color: red;
+    text-decoration: none;
+  }
+}
+
+&: có nghĩa là ".list"
+
+=============================================
+=== Khai báo các property cho các element ===
+=============================================
+Khai báo các property cho các element cho HTML khi kết hợp giữa BEM và SASS
+
+.block{ 
+	&__element1{
+		&--modifier{
+
+		}
+	}
+	&__element1{
+		&--modifier{
+		
+		}
+	}
+}

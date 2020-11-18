@@ -7,5 +7,15 @@ Element: dùng đặt tên các component của thành phần đó từ bổ tr�
 Modifier: các dạng biến thể khác của block hoặc element
 Ví dụ: .heading-primary__main => heading-primary: Block, heading: element
 
-https://www.youtube.com/watch?v=qJ-sx1nkSxo&list=PL33lvabfss1wstoZNI8szds9s0ESVbuqs&index=11
-10:20
+=============================================
+============== Mô hình tổ chức ==============
+=============================================
+7 folder ở đây chia thành từng mảng:
+
+1. Base/ (chứa các setting ban đầu)
+2. Components/ (chứa các bộ phận nhỏ dễ tái sử dụng như button, card, ...)
+3. Layout/ (chứa các footer, navbar, ...)
+4. Pages/ (chứa tên các page nếu project web của bạn có nhiều page khác nhau vd: home, login, ...)
+5. Abdtracts/ (chứa animation, các function, mixin khi sử dụng sass sẽ được đề cập kĩ hơn khi chúng ta làm quen với sass)
+6. Themes/ (các mẫu có sẵn)
+7. Vendors/ (code CSS bên ngoài như bootstrap)

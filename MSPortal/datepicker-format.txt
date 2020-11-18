@@ -1,16 +1,23 @@
-  function show_date_format(id_selector){
-    var _html_input_start_date = '<div id="'+id_selector+'" class="input-group date" data-date-format="yyyy-mm-dd">' +
-                                  '<input class="form-control custom-datepicker-style" type="text" readonly />' +
-                                  '<span class="input-group-addon"><i class="fa fa-calendar"></i></span>' +
-                                '</div>'
-
-    $("#"+id_selector).replaceWith(_html_input_start_date)
-
-    $("#"+id_selector).datepicker({
-      autoclose: true,
-      todayHighlight: true
-    }).datepicker('update', new Date());
+function show_date_format(id_selector, disable=false){
+  if (disable == false){
+    var _html_input_start_date = '<div id="div-'+id_selector+'" class="input-group date" data-date-format="yyyy-mm-dd">' +
+    '<input id="'+id_selector+'" class="form-control custom-datepicker-style" type="text" readonly value="yyyy-mm-dd" />' +
+    '<span class="input-group-addon"><i class="fa fa-calendar"></i></span>' +
+    '</div>'
+  }else{
+    var _html_input_start_date = '<div id="div-'+id_selector+'" class="input-group date pointer-disable" data-date-format="yyyy-mm-dd">' +
+    '<input id="'+id_selector+'" class="form-control custom-datepicker-style" type="text" readonly value="yyyy-mm-dd" />' +
+    '<span class="input-group-addon"><i class="fa fa-calendar"></i></span>' +
+    '</div>'
   }
+
+  $("#"+id_selector).replaceWith(_html_input_start_date)
+
+  $("#div-"+id_selector).datepicker({
+    autoclose: true,
+    todayHighlight: true
+  });
+}
   
 
   show_date_format("id_start_date")

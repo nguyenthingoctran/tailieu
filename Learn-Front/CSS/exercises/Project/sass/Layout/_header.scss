@@ -1,0 +1,48 @@
+.header{
+  background-image: linear-gradient(to right bottom, rgba($color-primary-light, .8), rgba($color-primary-dark, .8)), url('../img/background1.jpg');
+  background-size: cover;
+  background-position: top;
+  position: relative;
+  height: 95vh;
+  clip-path: ellipse(75% 77% at 52% 23%);
+
+  &__text-box{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+  }
+
+  &__logo{
+    height: 70px;
+  }
+
+  &__logo-box{
+    position: absolute;
+    top: 30px;
+    left: 30px;
+  }
+
+  &-primary{
+    color: $color-white;
+    text-transform: uppercase;
+    margin-bottom: 60px;
+
+    &--main{
+      display: block;
+      font-size: 6.2rem;
+      font-weight: 400;
+      letter-spacing: 15px;
+      animation: moveInLeft 1s ease-out;
+    }
+
+    &--sub{
+      display: block;
+      font-size: 2rem;
+      font-weight: 700;
+      letter-spacing: 18px;
+      animation: moveInRight 1s ease-out;
+    }
+  }
+}

@@ -1,0 +1,69 @@
+===============================================
+==================== Mixins ===================
+===============================================
+Mixins được dùng lại 1 đoạn code được lặp đi lặp lại nhiều lần
+Ví dụ:
+
+=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=
+=*=*=*=*=* Không tham số =*=*=*=*=*
+=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=
+
+@mixin CSSlink{
+  color: red;
+  text-decoration: none;
+}
+
+.list {
+  margin: 10px;
+  &__link{
+    @include CSSlink
+  }
+}
+
+=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=
+=*=*=*=*=*=*= Có tham số =*=*=*=*=*
+=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=
+
+@mixin CSSlink($color, $status){
+  color: $color;
+  text-decoration: $status;
+}
+
+.list {
+  margin: 10px;
+  &__link{
+    @include CSSlink(red, none)
+  }
+}
+Lưu ý: Truyền đủ tham số và thứ tự
+
+===============================================
+=================== FUNTIONS ==================
+===============================================
+Dùng để khai báo các giá trị của property với các công thức toán học, thường sử dụng cho số đo (width, margin, padding)
+
+Ví dụ:
+@function calMargin($a, $b){
+  @return $a*$b;
+}
+
+.list {
+  margin: calMargin(2,5)*1px;
+}
+
+===============================================
+==================== EXTENDS ==================
+===============================================
+%CSSlink{
+  color: red;
+  text-decoration: none;
+}
+
+.list {
+  margin: calMargin(2,5)*1px;
+  &__link{
+    @extend %CSSlink
+  }
+}
+
+Sự khác nhau giữa Mixins và extends đó là sử dụng extends code được complite ngắn gọn hơn và không bị lặp lại, còn mixins thì copy lặp đi lặp lại đoạn code mà nó chứa. Khi đã biết dùng extends thì không dùng mixins nữa
