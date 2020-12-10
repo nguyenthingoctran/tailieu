@@ -1,0 +1,97 @@
+Kendo UI Dropdown select
+
+<!-- Folder thumb -->
+<div class="row mt-3">
+ 
+
+  <div class="col-6">
+    <div id="example">
+        <div id="cap-view" class="demo-section k-content">
+            <label>Folder thumb</label>
+            <input id="treeview_thumb" style="width: 100%;" onclick="filterTypeOnChanged();"/>
+        </div>
+        <button id="getValue" class="k-button">Get values</button>
+
+        <input id="value" value="1" class="k-textbox" style="width: 40px; margin: 0;" /> <button id="setValue" class="k-button">Select by value</button>
+        <script>
+            $(document).ready(function () {
+
+              var data = [
+                {
+                    id: 1, text: "Furniture", items: [
+                        { id: 2, text: "Tables & chairs" },
+                        { id: 3, text: "Sofas" },
+                        { id: 4, text: "Occasional furnitures" },
+                        { id: 5, text: "Childrens furniture" },
+                        { id: 6, text: "Beds" }
+                    ]
+                },
+                {
+                    id: 7, text: "Decor", items: [
+                        { id: 8, text: "Bed linen" },
+                        { id: 9, text: "Throws" },
+                        { id: 10, text: "Curtains & blinds" },
+                        { id: 11, text: "Rugs" },
+                        { id: 12, text: "Carpets" }
+                    ]
+                },
+                {
+                    id: 13, text: "Storage", items: [
+                        { id: 14, text: "Wall shelving" },
+                        { id: 15, text: "Kids storage" },
+                        { id: 16, text: "Multimedia storage" },
+                        { id: 17, text: "Floor shelving" },
+                        { id: 18, text: "Toilet roll holders" },
+                        { id: 19, text: "Storage jars" },
+                        { id: 20, text: "Drawers" },
+                        { id: 21, text: "Boxes" }
+                    ]
+                }
+            ];
+    
+            // create kendoDropDownTree from input HTML element
+            var tv = $("#treeview_thumb").kendoDropDownTree({
+                placeholder: "Select folder thumb...",
+                dataTextField: "text",
+                dataValueField: "id",
+                filter: "startswith",
+                dataSource: data
+            });
+
+            var dropdowntree = $("#treeview_thumb").data("kendoDropDownTree");
+            // Đổ dữ liệu
+            dropdowntree.value(6);
+
+            // Lấy dữ liệu
+            $("#treeview_thumb").data("kendoDropDownTree").value()
+
+            // Cái này ko đúng
+            $("#getValue").click(function () {
+                console.log("uid : " + dropdowntree.value().uid + " Text : " + dropdowntree.value().text);
+            });
+
+            });
+        </script>
+    </div>
+  </div>
+
+</div>
+
+
+Xử lý chuỗi 
+
+[{&#39;id&#39;: 2438142203, &#39;full_path&#39;: &#39;/Image&#39;, &#39;name&#39;: &#39;Image&#39;, &#39;child&#39;: {&#39;CTA&#39;: {&#39;id&#39;: 3593723068, &#39;name&#39;: &#39;CTA&#39;, &#39;full_path&#39;: &#39;/Image/CTA&#39;, &#39;child&#39;: {}}, &#39;Template&#39;: {&#39;id&#39;: 5286362617, &#39;name&#39;: &#39;Template&#39;, &#39;full_path&#39;: &#39;/Image/Template&#39;, &#39;child&#39;: {&#39;Library&#39;: {&#39;id&#39;: 5416623847, &#39;name&#39;: &#39;Library&#39;, &#39;full_path&#39;: &#39;/Image/Template/Library&#39;, &#39;child&#39;: {}}}}, &#39;vcube&#39;: {&#39;id&#39;: 6057872574, &#39;name&#39;: &#39;vcube&#39;, &#39;full_path&#39;: &#39;/Image/vcube&#39;, &#39;child&#39;: {}}, &#39;simple&#39;: {&#39;id&#39;: 6092887644, &#39;name&#39;: &#39;simple&#39;, &#39;full_path&#39;: &#39;/Image/simple&#39;]
+
+// Lấy list data folder
+Sử dụng hàm này: var list_folder = convert_string_to_array(list_data_folder_custom);
+
+
+Code tham khảo
+var list_data_folder = "{{list_data_folder}}"
+
+$(document).ready(function(){
+  var new_list_folder = list_data_folder.replaceAll("&#39;","'")
+  // console.log(new_list_folder, "list_data_folder");
+  var convert_oject = eval("[" + new_list_folder + "];")  // Convert string thành mảng nhiều chiều
+  console.log(convert_oject, "list_data_folder");
+});

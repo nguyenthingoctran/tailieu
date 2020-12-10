@@ -86,6 +86,8 @@ Nếu bạn có font-size mặc định là 16px => 1.5rem khi render ra browse 
 ===================== Lưu ý về đơn vị ======================
 ============================================================
 
+- Mặc định trình duyệt có font-size: 16px ~ 100% => 10px ~ 62.5%
+
 Ví dụ:
 
 	html, body{

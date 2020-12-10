@@ -1,0 +1,8 @@
+// Xóa hết các css thừa theo kiểu không hợp
+@mixin clearfix {
+  &::after{
+    content: "";
+    display: table;
+    clear: both;
+  }
+}
