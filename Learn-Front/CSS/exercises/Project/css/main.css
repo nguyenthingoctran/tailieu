@@ -217,6 +217,11 @@ body {
   clip-path: ellipse(70% 50% at 50% 50%);
   margin-top: -20rem; }
 
+.section-courses {
+  background-color: #f7f7f7;
+  padding: 25rem 0 10rem 0;
+  margin-top: -20rem; }
+
 .u-center-text {
   text-align: center !important; }
 
@@ -271,3 +276,74 @@ body {
   .skill-box:hover {
     cursor: pointer;
     transform: translateY(-1.5rem) scale(1.03); }
+
+.card {
+  perspective: 100rem;
+  position: relative;
+  height: 45rem; }
+  .card__side {
+    color: white;
+    font-size: 2rem;
+    height: 45rem;
+    transition: all .8s ease;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    backface-visibility: hidden;
+    box-shadow: 0 1.5rem 4rem rgba(0, 0, 0, 0.15);
+    border-radius: 5rem;
+    overflow: hidden; }
+    .card__side--front {
+      background-color: #fff; }
+    .card__side--back {
+      background-color: green;
+      transform: rotateY(180deg); }
+  .card__picture {
+    background-size: cover;
+    background-blend-mode: screen;
+    height: 23rem;
+    clip-path: ellipse(80% 70% at 50% 30%); }
+    .card__picture--1 {
+      background-image: linear-gradient(to right, #ffb900, #ff7730), url("../img/invoice1.jpg"); }
+    .card__picture--2 {
+      background-image: linear-gradient(to right, #8e9efc, #1c3eff), url("../img/invoice2.jpg"); }
+    .card__picture--3 {
+      background-image: linear-gradient(to right, #55c57a, #28b485), url("../img/invoice3.jpg"); }
+  .card__heading {
+    font-size: 2.8rem;
+    font-weight: 300;
+    text-align: right;
+    text-transform: uppercase;
+    color: #fff;
+    position: absolute;
+    top: 12rem;
+    right: 2rem;
+    width: 75%; }
+  .card__heading-span {
+    border-radius: 5rem;
+    padding: 1rem 1.5rem;
+    -webkit-box-decoration-break: clone; }
+    .card__heading-span--1 {
+      background-image: linear-gradient(to right bottom, rgba(255, 185, 0, 0.85), rgba(255, 119, 48, 0.85)); }
+    .card__heading-span--2 {
+      background-image: linear-gradient(to right bottom, rgba(142, 158, 252, 0.85), rgba(28, 62, 255, 0.85)); }
+    .card__heading-span--3 {
+      background-image: linear-gradient(to right bottom, rgba(85, 197, 122, 0.85), rgba(40, 180, 133, 0.85)); }
+  .card__details {
+    padding: 3rem;
+    color: #777777; }
+    .card__details ul {
+      list-style: none;
+      width: 70%;
+      margin: 0 auto; }
+      .card__details ul li {
+        text-align: center;
+        font-size: 1.5rem;
+        padding: 1rem; }
+        .card__details ul li:not(:last-child) {
+          border-bottom: 1px solid #dbdbdb; }
+  .card:hover .card__side--front {
+    transform: rotateY(-180deg); }
+  .card:hover .card__side--back {
+    transform: rotateY(0); }

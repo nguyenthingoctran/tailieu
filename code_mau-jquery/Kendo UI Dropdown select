@@ -95,3 +95,4 @@ $(document).ready(function(){
   var convert_oject = eval("[" + new_list_folder + "];")  // Convert string thành mảng nhiều chiều
   console.log(convert_oject, "list_data_folder");
 });
+
