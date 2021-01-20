@@ -62,6 +62,15 @@
     /* Mới đầu không muốn button không xuất hiện sẵn trên header cho đến khi animation được chạy */
     animation-fill-mode: backwards;
   }
+
+  &--blue{
+    background-color: $color-primary;
+    color: $color-white;
+    
+    &::after{
+      background-color: $color-primary;
+    }
+  }
 }
 
 .btn-text{

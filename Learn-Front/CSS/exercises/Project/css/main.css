@@ -118,6 +118,12 @@ body {
   /* Mới đầu không muốn button không xuất hiện sẵn trên header cho đến khi animation được chạy */
   animation-fill-mode: backwards; }
 
+.btn--blue {
+  background-color: #5a73fc;
+  color: #fff; }
+  .btn--blue::after {
+    background-color: #5a73fc; }
+
 .btn-text {
   transition: all .2s; }
   .btn-text:link, .btn-text:visited {
@@ -222,6 +228,10 @@ body {
   padding: 25rem 0 10rem 0;
   margin-top: -20rem; }
 
+.section-testimonials {
+  position: relative;
+  padding: 5rem 0; }
+
 .u-center-text {
   text-align: center !important; }
 
@@ -299,6 +309,12 @@ body {
     .card__side--back {
       background-color: green;
       transform: rotateY(180deg); }
+      .card__side--back-1 {
+        background-image: linear-gradient(to right, #ffb900, #ff7730); }
+      .card__side--back-2 {
+        background-image: linear-gradient(to right, #8e9efc, #1c3eff); }
+      .card__side--back-3 {
+        background-image: linear-gradient(to right, #55c57a, #28b485); }
   .card__picture {
     background-size: cover;
     background-blend-mode: screen;
@@ -343,7 +359,35 @@ body {
         padding: 1rem; }
         .card__details ul li:not(:last-child) {
           border-bottom: 1px solid #dbdbdb; }
+  .card__cta {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    width: 90%; }
+  .card__price-box {
+    text-align: center;
+    color: #fff;
+    margin-bottom: 8rem; }
+  .card__price-only {
+    font-size: 1.4rem;
+    text-transform: uppercase; }
+  .card__price-value {
+    font-size: 6rem;
+    font-weight: 100;
+    margin-bottom: 5rem; }
   .card:hover .card__side--front {
     transform: rotateY(-180deg); }
   .card:hover .card__side--back {
     transform: rotateY(0); }
+
+.testimonial {
+  width: 80%;
+  padding: 6rem;
+  margin-bottom: 2rem;
+  margin: 0 auto;
+  box-shadow: 0 3rem 6rem rgba(0, 0, 0, 0.15);
+  font-size: 1.6rem;
+  border-radius: 100rem;
+  background-color: rgba(255, 255, 255, 0.1); }
