@@ -1,8 +1,0 @@
-      <li class="nav-item">
-        <a class="nav-link float-left" href="/cms/page">
-          <div class="row">
-            <div class="col-1"><i class="nav-icon cui-circle-check"></i></div>
-            <div class="col-10">Create landing page/ thank page</div>
-          </div>
-        </a>
-      </li>

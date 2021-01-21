@@ -1,0 +1,3 @@
+- invisible: 
+class invisible trong boostrap : chỉ không cho hiển thị nhưng vẫn giữ chỗ
+display: none : không cho hiển thị và không giữ chỗ

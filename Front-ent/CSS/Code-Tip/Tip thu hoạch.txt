@@ -1,0 +1,5 @@
+- Làm nhòe hình: sử dụng transform trong CSS
+
+- Chỉnh margin lên xuống thì hãy dùng absoluted + top 
+
+- Chỉnh chữ đậm hơn thì trong text-shadow đặt màu đậm hơn trước

@@ -1,0 +1,2 @@
+- Bootstrap - thuộc tính data-
+https://getbootstrap.com/docs/3.4/javascript/ 
