@@ -1,19 +1,22 @@
 .card{
+  @include respond(tab-port){
+    height: auto;
+  }
   perspective: 100rem; // khi tạo hiệu ứng quay sẽ nhìn thấy không gian gần xa của element
   position: relative;
-  height: 45rem;
+  height: auto;
   &__side{
     color: white;
     font-size: 2rem;
     height: 45rem;
     transition: all .8s ease;
-    position: absolute;
+    position: relative;
     top: 0;
     left: 0;
     width: 100%; 
     backface-visibility: hidden; // giấu phần phía dưới của element đi
     box-shadow: 0 1.5rem 4rem rgba($color-black, .15);
-    border-radius: 5rem;
+    border-radius: 5rem 5rem 0rem 0rem;
     overflow: hidden; // những phần tràn ra ngoài thì ẩn đi - hình trong element này tràn ra ngoài nên ẩn đi
 
     &--front{
@@ -22,7 +25,8 @@
 
     &--back{
       background-color: green;
-      transform: rotateY(180deg); // cho back quay lại 180 độ
+      transform: rotateY(0); // cho back quay lại 180 độ
+      border-radius: 0rem 0rem 5rem 5rem;
 
       &-1{
         background-image: linear-gradient(to right, $color-secondary-light, $color-secondary-dark)
@@ -122,18 +126,19 @@
   }
 
   &__cta{
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    position: relative;
+    top: 0;
+    left: 0;
+    transform: translate(0);
     text-align: center;
-    width: 90%;
+    padding: 4rem;
+    width: 100%;
   }
 
   &__price-box{
     text-align: center;
     color: $color-white;
-    margin-bottom: 8rem;
+    margin-bottom: 3rem;
   }
 
   &__price-only{
@@ -148,7 +153,7 @@
   }
 
   &:hover &__side--front{
-    transform: rotateY(-180deg);
+    transform: rotateY(0);
   }
 
   &:hover &__side--back{

@@ -9,3 +9,8 @@ var check_href = arr.pop();
 
 // NaN
 Khi check == NaN thì dùng !NaN
+
+// Lấy style của một element
+<!-- <script type="text/javascript">
+  var element = document.querySelector(".line-shadow-white").style.background = 'url("file:///E:/Growme-core/SourceCode/static/js_create_thumb_templates/img/slide.png") repeat scroll 0% 0% / cover padding-box border-box, url("file:///E:/Growme-core/SourceCode/static/js_create_thumb_templates/img/slide-line.png") repeat scroll 0% 0% / cover padding-box border-box, rgba(192, 192, 192, 0.08) none repeat scroll 0% 0% / cover padding-box border-box';
+</script> -->

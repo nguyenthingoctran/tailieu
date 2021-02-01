@@ -1,6 +1,13 @@
 .composition{
   position: relative;
   &__photo{
+    @include respond(tab-port){
+      float: left;
+      position: relative;
+      width: 33.3333%;
+      box-shadow: 0 1.5rem 3rem rgba($color-black, .2);
+      margin-bottom: 3rem;
+    }
     width: 50%;
     box-shadow: 0 1.5rem 4rem rgba($color: $color-black, $alpha: .4);
     border-radius: .2rem;
@@ -10,16 +17,31 @@
     transition: all .2s;
 
     &--p1{
+      @include respond(tab-port){
+        top: 0;
+        transform: scale(1.1);
+      }
       left: 0;
       top: -2rem;
     }
 
     &--p2{
+      @include respond(tab-port){
+        top: -1rem;
+        transform: scale(1.2);
+        right: 0;
+        z-index: 12;
+      }
       right: 2rem;
       top: 2rem;
     }
 
     &--p3{
+      @include respond(tab-port){
+        top: 0;
+        transform: scale(1.1);
+        left: 0;
+      }
       left: 10%;
       top: 10rem; 
     }

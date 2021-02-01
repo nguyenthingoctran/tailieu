@@ -1,10 +1,19 @@
 .header{
+  @media(min-resolution: 192dpi) and (max-width: 900px){
+    background-image: linear-gradient(to right bottom, rgba($color-primary-light, .8), rgba($color-primary-dark, .8)),
+    url("../img/background1.jpg");
+  }
   background-image: linear-gradient(to right bottom, rgba($color-primary-light, .8), rgba($color-primary-dark, .8)), url('../img/background1.jpg');
   background-size: cover;
   background-position: top;
   position: relative;
   height: 95vh;
   clip-path: ellipse(75% 77% at 52% 23%);
+  @include respond (phone){
+    width: 100%;
+    display: inline-block;
+    clip-path: ellipse(60% 50% at 50% 20%);
+  }
 
   &__text-box{
     position: absolute;
@@ -16,6 +25,9 @@
 
   &__logo{
     height: 70px;
+    @include respond (phone){
+      max-height: 20px;
+    }
   }
 
   &__logo-box{
@@ -35,6 +47,11 @@
       font-weight: 400;
       letter-spacing: 15px;
       animation: moveInLeft 1s ease-out;
+
+      @include respond(phone){
+        letter-spacing: 1rem;
+        font-size: 5rem;
+      }
     }
 
     &--sub{
@@ -43,6 +60,10 @@
       font-weight: 700;
       letter-spacing: 18px;
       animation: moveInRight 1s ease-out;
+
+      @include respond(phone){
+        letter-spacing: .5rem;
+      }
     }
   }
 }
