@@ -1,0 +1,106 @@
+1. Cài đặt:
+pip3 install pipenv
+
+2. Run:
+pipenv shell
+
+3. Mở visual - code: 
+code .
+
+4. Install app django-rest
+pipenv install django djangorestframework django-rest-knox
+
+5. Create Project:
+django-admin startproject project_name_here
+
+6. Choose enviroment:
+Into the VS and Click "Ctrl + Shift + P":
+And Chosse: "Python: Select Interpreter". And then click right in that and chosse "Python 3.7.1 64-bit ('learnByMovie1.4': pipenv)"
+
+7. Start App:
+python manage.py startapp users
+
+8. Setting app
+- In "learnByMovie\learnByMovie\settings.py" 
+- at: "INSTALLED_APPS" add:
+	{
+		'users',
+	    'rest_framework'
+	}
+
+9. Connect database: Do yourself
+
+10. Create modal
+- At "learnByMovie\users\models.py"
+	class Users(models.Model):
+	    name = models.CharField(max_length=100)
+	    email = models.EmailField(max_length=100, unique=True)
+	    message = models.CharField(max_length=500, blank=True)
+	    create_at = models.DateTimeField(auto_now_add=True)
+
+11. Create migration
+- Run cmd: python manage.py makemigrations users
+- And: python manage.py migrate
+
+12. Serializers
+- Create database
+- Create file "learnByMovie\users\serializers.py"
+		from rest_framework import serializers
+		from users.models import Users
+
+		class UsersSerializer(serializers.ModelSerializer):
+		    class Meta:
+		        model = Users
+		        fields = '__all__'
+
+13. Create file api.py
+- "learnByMovie\users\api.py"
+		from users.models import Users
+		from rest_framework import viewsets, permissions
+		from .serializers import UsersSerializer
+
+		class UsersViewSet(viewsets.ModelViewSet):
+		    queryset = Users.objects.all()
+		    permission_classes = [
+		        permissions.AllowAny
+		    ]
+		    serializer_class = UsersSerializer
+
+14. Change URL file
+- "learnByMovie\learnByMovie\urls.py"
+		from django.contrib import admin
+		from django.urls import path, include
+
+		urlpatterns = [
+		    path('', include('users.urls')),
+		]
+
+15. URL user
+- "learnByMovie\users\urls.py"
+		from rest_framework import routers
+		from .api import UsersViewSet
+
+		router = routers.DefaultRouter()
+		router.register('api/users', UsersViewSet, 'users')
+
+		urlpatterns = router.urls
+
+16. Run server
+python manage.py runserver
+
+17. Run on Postman
+- Paste URL "http://127.0.0.1:8000/api/users/" and choose method "GET" -> Enter
+- Paste URL "http://127.0.0.1:8000/api/users/" and choose method "POST". Tab "Headers" -> Key: "Content-Type", Value: "application/json". Tab "Body" -> Chosse: "raw", JSON. You create json:
+	{
+	    "name": "Tran Nguyen",
+	    "email": "tran@gmail.com",
+	    "message": "Please contact Tran"
+	}
+click "Send".
+- Don't forget add "/" in the last of url
+
+18. Get back URL "GET"
+And Click "Send" => you have 2 json has been created.
+- If you want filter Json. So you add URL "http://127.0.0.1:8000/api/users/1"
+
+19. If you want to delete json -> Choose method "DELETE", enter your URL "http://127.0.0.1:8000/api/users/1" => send => So you detele user have id = 1

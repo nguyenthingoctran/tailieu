@@ -1,0 +1,4 @@
+- Install packages "ES7 React/Redux/GraphQL/React-Native snippets"
+	+ Use shortcut key: 
+		* Basic React: "rce + TAB" : create "export class Form extends Component"
+		* React have: "rcf + TAB" : create "export default function Dashboard()"

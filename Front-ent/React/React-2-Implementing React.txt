@@ -1,0 +1,194 @@
+1. Access URL: https://www.valentinog.com/blog/drf/#Django_REST_with_React_Django_and_React_together
+
+2. Create app "frontent"
+
+3. Create folder component:
+mkdir -p ./frontend/src/components
+mkdir -p ./frontend/static/frontend
+mkdir -p ./frontend/templates/frontend
+
+4. Install webpack
+- cd .. : Out to origin folder
+- npm init -y
+- npm i -D webpack
+- npm i -D webpack webpack-cli
+- npm i -D @babel/core babel-loader @babel/preset-env @babel/preset-react --save-dev
+- npm install --save-dev babel-plugin-transform-class-properties
+- npm i react react-dom prop-types
+
+5. Create file ".babelrc"
+	{
+	    "presets": ["@babel/preset-env", "@babel/preset-react"],
+	    "plugins": ["transform-class-properties"]
+	}
+
+6. Create file "webpack.config.js"
+	module.exports = {
+	    module: {
+	        rules: [
+	            {
+	                test: /\.js$/,
+	                exclude: /node_modules/,
+	                use: {
+	                    loader: "babel-loader"
+	                }
+	            }
+	        ]
+	    }
+	}
+
+7. Access "package.json" and edit:
+  "scripts": {
+    "dev": "webpack --mode development ./learnByMovie/frontend/src/index.js -o ./learnByMovie/frontend/static/frontend",
+    "build": "webpack --mode production ./learnByMovie/frontend/src/index.js -o ./learnByMovie/frontend/static/frontend"
+  },
+
+8. Create file "learnByMovie1.4\learnByMovie\frontend\src\index.js"
+	import app from './components/App';
+
+9. Create file "learnByMovie\frontend\src\components\App.js"
+	import React, {Component} from 'react';
+	import ReactDOM from 'react-dom';
+
+	class App extends Component {
+	    render() {
+	        return <h1>React App</h1>
+	    }
+	}
+
+	ReactDOM.render(<App />, document.getElementById('app'));
+
+10. Create "learnByMovie\frontend\templates\frontend\index.html"
+	<!DOCTYPE html>
+	<html>
+	    <head>
+	        <meta charset="utf-8">
+	        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+	        <title>Lead Manager</title>
+	        <meta name="description" content="">
+	        <meta name="viewport" content="width=device-width, initial-scale=1">
+	        <link rel="stylesheet" href="">
+	    </head>
+	    <body>        
+	        <div id="app"></div>
+	        {% load static %}
+	        <script src="{% static 'frontend/main.js' %}"></script>
+	    </body>
+	</html>
+
+11. Add link bootstrap
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>
+
+12. Inside "learnByMovie\frontend\views.py"
+	def index(request):
+	    return render(request, 'frontend/index.html')
+
+13. Inside "learnByMovie\learnByMovie\urls.py"
+	urlpatterns = [
+	    path('', include('frontend.urls')),
+	    path('', include('users.urls'))
+	]
+
+14. Setting:
+INSTALLED_APPS = [
+	...,
+    'frontend'
+]
+
+14. Terminal
+	Origin folder: ls
+	Runserver: python manage.py runserver
+
+15. Create "learnByMovie\frontend\src\components\layout\Header.js"
+
+16. Install package in Visual Studio : "ES7 React/Redux/GraphQL/React-Native snippets"
+
+17. Create "learnByMovie\frontend\src\components\layout\Header.js"
+	import React, { Component } from 'react'
+
+	export class Header extends Component {
+	    render() {
+	        return (
+	            <nav className="navbar navbar-expand-sm navbar-light bg-light">
+	            <div className="container-fluid">
+	                <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+	                <span className="navbar-toggler-icon"></span>
+	                </button>
+	                <div className="collapse navbar-collapse" id="navbarTogglerDemo01">
+	                <a className="navbar-brand" href="#">Lead Manager</a>
+	                <ul className="navbar-nav me-auto mb-2 mb-lg-0">
+
+	                </ul>
+	                </div>
+	            </div>
+	            </nav>
+	        )
+	    }
+	}
+
+	export default Header
+
+18. Inside "learnByMovie\frontend\src\components\App.js"
+
+	import Header from './layout/Header'
+
+	render() {
+	    return (
+	        <Header />
+	    )
+	}
+
+19. Edit package.json (for auto edit)
+
+	Add "--watch" in code line
+	"dev": "webpack --mode development --watch ./learnByMovie/frontend/src/index.js -o ./learnByMovie/frontend/static/frontend"
+
+	Run: npm run watch
+	Test: Open hidden Tab for looking 
+
+20. Create file 
+
+	"learnByMovie\frontend\src\components\users\Dashboard.js"
+		import React, { Fragment } from 'react';
+		import Form from './Form';
+		import Lead, { Users } from './Users';
+
+		export default function Dashboard() {
+		    return (
+		        <div>
+		            <Fragment>
+		                <Form />
+		                <Users />
+		            </Fragment>
+		        </div>
+		    )
+		}
+
+	"learnByMovie\frontend\src\components\users\Form.js"
+		return (
+            <div>
+                <h1>Add Lead Form</h1>
+            </div>
+        )
+
+	"learnByMovie\frontend\src\components\users\Users.js"
+		<div>
+	        <h1>Users list</h1>
+	    </div>
+
+21. Edit file "App.js"
+	import Header from './layout/Header';
+	import Dashboard from './users/Dashboard';
+
+	return (
+        <Fragment>
+            <Header />
+            <div className="container">
+                <Dashboard />
+            </div>
+        </Fragment>
+    )
+
+22. Install package in Visual Studio "Prettier - Code formatter"
+	Go to Setting -> Search "format on save" -> Choose "Format a file on save"
