@@ -1,0 +1,118 @@
+1. Install Redux
+npm i redux react-redux redux-thunk redux-devtools-extension
+- And run: npm run dev
+
+2. Create file "learnByMovie\frontend\src\store.js"
+	import { createStore, applyMiddleware } from "redux";
+	import { composeWithDevTools } from "redux-devtools-extension";
+	import thunk from "redux-thunk";
+	import rootReducer from "./reducers";
+
+	const initialState = {};
+
+	const middleware = [thunk];
+
+	const store = createStore(
+	    rootReducer,
+	    initialState,
+	    composeWithDevTools(applyMiddleware(...middleware))
+	);
+
+	export default store;
+
+3. Create folder "learnByMovie\frontend\src\reducers"
+And file "learnByMovie\frontend\src\reducers\index.js"
+	import { combineReducers } from "redux";
+	export default combineReducers({});
+
+4. Inside "learnByMovie\frontend\src\components\App.js"
+	import { Provider } from 'react-redux';
+	import store from '../store';
+
+	- Add <Provider> tab wrap anything 
+	...
+	return (
+            <Provider>
+                <Fragment>
+                    <Header />
+                    <div className="container">
+                        <Dashboard />
+                    </div>
+                </Fragment>
+            </Provider>
+        )
+
+    - Go to the "Redux" tab in your browers and check have redux appear
+
+5. Create file "learnByMovie\frontend\src\reducers\users.js"
+import { GET_USERS } from "../actions/types.js"
+
+6. Create folder: "learnByMovie\frontend\src\actions"
+- And file "learnByMovie\frontend\src\actions\types.js"
+	export const GET_USERS = "GET_USERS"
+
+7. Go back "learnByMovie\frontend\src\reducers\users.js"
+	import { GET_USERS } from "../actions/types.js"
+
+	const initialState = {
+	    users: []
+	}
+
+	export default function(state = initialState, action){
+	    switch(action.type) {
+	        case GET_USERS:
+	            return {
+	                ...state,
+	                users: action.payload
+	            }
+	        default:
+	            return state;
+	    }
+	}
+
+8. Create "learnByMovie\frontend\src\actions\users.js"
+
+9. Install 
+npm i axios
+- Install again: npm run dev
+
+10. Access "learnByMovie\frontend\src\actions\users.js";
+import axios from 'axios';
+
+import { GET_USERS } from './types';
+
+export const getUsers = () => dispatch => {
+    axios
+        .get("./api/users")
+        .then(res => {
+            dispatch({
+                type: GET_USERS,
+                payload: res.data
+            });
+        })
+        .catch(err => console.log(err));
+}
+
+11. Go back "learnByMovie\frontend\src\components\users\Users.js"
+	import PropTypes from 'prop-types';
+	import { getUsers } from '../../actions/users';
+
+	export class Users extends Component {
+
+	    static propTypes = {
+	        leads: PropTypes.array.isRequired
+	    }
+
+	    componentDidMount() {
+	        this.props.getUsers();
+	    }
+
+	    render ...
+
+    }
+
+	const mapStateToProps = state => ({
+	    leads: state.users.users
+	});
+
+	export default connect(mapStateToProps, { getUsers })(Users)

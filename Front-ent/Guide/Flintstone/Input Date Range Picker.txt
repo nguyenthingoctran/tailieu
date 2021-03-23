@@ -1,0 +1,17 @@
+Import link CSS
+<link href="/static/library/css/bootstrap-datetimepicker.min.css" rel="stylesheet" type="text/css"/>
+<link href="/static/library/css/daterangepicker.css" rel="stylesheet" type="text/css"/>
+
+Import link JS
+<script type="text/javascript" src="/static/library/js/moment-with-locales.min.js"></script>
+<script src="/static/library/js/daterangepicker.js"></script>
+
+HTML
+<input class="form-control input-daterange-datepicker" type="text" name="daterange" value="01/01/2016 - 01/31/2016"/>
+
+JS
+$('.input-daterange-datepicker').daterangepicker({
+   buttonClasses: ['btn', 'btn-sm'],
+   applyClass: 'btn-info',
+   ancelClass: 'btn-default'
+});

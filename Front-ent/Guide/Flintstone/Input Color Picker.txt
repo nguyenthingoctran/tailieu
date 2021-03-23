@@ -1,0 +1,15 @@
+============================================
+============ Input Color Picker ============
+============================================
+
+- Import link CSS
+<link href="/static/library/css/bootstrap-colorpicker.min.css" rel="stylesheet" type="text/css"/>
+
+- Import link JS
+<script src="/static/library/js/bootstrap-colorpicker.min.js"></script>
+
+- HTML
+<input  type="text" class="colorpicker form-control" value="#5367ce" />
+
+- JS
+$('.colorpicker').colorpicker();

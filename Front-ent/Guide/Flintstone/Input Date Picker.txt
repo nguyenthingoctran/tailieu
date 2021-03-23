@@ -1,0 +1,30 @@
+============ Import link CSS
+<link href="/static/library/css/bootstrap-datetimepicker.min.css" rel="stylesheet" type="text/css"/>
+
+============ Import link JS
+<script type="text/javascript" src="/static/library/js/moment-with-locales.min.js"></script>
+<script type="text/javascript" src="/static/library/js/bootstrap-datetimepicker.min.js"></script>
+
+============ HTML
+<div class="form-group mb-25">
+  <label class="control-label mb-10 text-left">Date Time Pick</label>
+  <div class='input-group date' id='datetimepicker1'>
+    {% render_field form.input_date_time_picker class="form-control" %}
+    <span class="input-group-addon">
+      <span class="fa fa-calendar"></span>
+    </span>
+  </div>
+</div>
+
+============ JS
+$('#datetimepicker1').datetimepicker({
+    useCurrent: false,
+    icons: {
+                  time: "fa fa-clock-o",
+                  date: "fa fa-calendar",
+                  up: "fa fa-arrow-up",
+                  down: "fa fa-arrow-down"
+              },
+  }).on('dp.show', function() {
+  if($(this).data("DateTimePicker").date() === null)
+    $(this).data("DateTimePicker").date(moment());
