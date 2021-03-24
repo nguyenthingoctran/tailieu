@@ -32,7 +32,7 @@ And file "learnByMovie\frontend\src\reducers\index.js"
 	- Add <Provider> tab wrap anything 
 	...
 	return (
-            <Provider>
+            <Provider store={store}>
                 <Fragment>
                     <Header />
                     <div className="container">
