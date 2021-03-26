@@ -168,3 +168,34 @@ var option_addition = {
 var table = $('#datatable-coreui').DataTable(get_option_datatable(option_addition))
 
 show_sort_datatable(table)
+
+
+
+========================================================
+============ DATATABLE AND CUSTOM BIUTTON ==============
+========================================================
+
+  <div class="row mx-0 position-relative custom-loading ">
+    <div class="col-12 custom-datatable-toolbar p-0">
+      <div class="">
+        <a class='btn-sm btn-light btn-sm border' href = "/keyword-extract/v1/export-csv?item_search_id={{item_search_id}}">
+          <i class="fa fa-download"></i> 
+          Download CSV</a>      
+      </div>      
+    </div>
+
+    <div class="col-12 p-0">
+      <table class="table table-keyword-extract table-not-in-card table-wrapper" id="table_detail_keyword" >
+        <thead>
+          <tr>
+            <th> No.</th>
+          </tr>
+        </thead>
+        <tbody id="body-detail">
+          <tr>
+            <td>{{loop.index}} </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
