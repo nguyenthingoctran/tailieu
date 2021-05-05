@@ -2,3 +2,16 @@
 	+ Use shortcut key: 
 		* Basic React: "rce + TAB" : create "export class Form extends Component"
 		* React have: "rcf + TAB" : create "export default function Dashboard()"
+
+
+===================================================================
+==================== Can't load png file ==========================
+===================================================================
+npm install --save-dev file-loader
+{
+    test: /\.(jpe?g|png|gif|svg)$/i, 
+    loader: 'file-loader',
+    options: {
+      name: '/public/icons/[name].[ext]'
+    }
+}

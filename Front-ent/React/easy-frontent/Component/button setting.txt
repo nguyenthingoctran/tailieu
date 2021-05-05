@@ -1,0 +1,17 @@
+<div className="text-center position-relative">
+  <span
+    className="h1 font-weight-bold text-capitalize"
+    style={{ color: "#2f353a" }}
+  >
+    <Trans>lb_title_heading_analytics</Trans>
+  </span>
+
+  <span
+    className="position-absolute"
+    style={{ top: "-15px", right: "10px" }}
+  >
+    <ButtonSetting onClick={this.handleOpenSettingModal}>
+      <Trans>lb_settings</Trans>
+    </ButtonSetting>
+  </span>
+</div>

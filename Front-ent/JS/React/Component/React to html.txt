@@ -1,9 +1,0 @@
-npm install react-html-parser
-
-import ReactHtmlParser from 'react-html-parser';
-class HtmlComponent extends React.Component {
-  render() {
-    const html = '<div>Example HTML string</div>';
-    return <div>{ ReactHtmlParser(html) }</div>;
-  }
-}

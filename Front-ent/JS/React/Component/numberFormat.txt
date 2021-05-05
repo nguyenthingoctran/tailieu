@@ -1,2 +1,0 @@
-import NumberFormat from 'react-number-format';
-<NumberFormat value={total_traffic} displayType={'text'} thousandSeparator={true} renderText={value => <div>{value}</div>} />

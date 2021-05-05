@@ -1,0 +1,84 @@
+
+
+import { Tabs, Tab, OverlayTrigger, Tooltip, Dropdown } from "react-bootstrap";
+
+
+<OverlayTrigger overlay={ <Tooltip><Trans>lb_status_using</Trans></Tooltip>}>
+  <div className="d-inline-block">
+    <i className="icon-speedometer" style={{fontSize: '15px'}}></i>&nbsp;<span>{this.props.current_checked_items}/{this.props.max_checked_items}</span>
+  </div>
+</OverlayTrigger>
+
+
+
+=========================================================================
+================ Tooltip trong detele ===================================
+=========================================================================
+<OverlayTrigger overlay={ <Tooltip><Trans>lb_delete_disabled_tootltip</Trans></Tooltip>} placement="right">
+	<div className="">
+		<Dropdown.Item href="" disabled>                       
+		  <Trans>lb_delete</Trans>
+		</Dropdown.Item>
+	</div>
+</OverlayTrigger>
+
+=========================================================================
+================ Tooltip giải nghĩa dùng chung ==========================
+=========================================================================
+
+<OverlayTrigger overlay={<Tooltip>Please drag the slider to the rank you want to research</Tooltip>}>
+  <i class="fa fa-info-circle ml-1 icon-tooltip-explain"></i>
+</OverlayTrigger>
+
+
+<OverlayTrigger
+	overlay={
+	  <Tooltip>
+	    <Trans>lb_created_by</Trans>
+	  </Tooltip>
+	}
+>
+	<span className="mr-5">
+	  <i className="fa fa-user mr-1"></i>
+	  {this.props.state.f12v3.data_detail.created_by}
+	</span>
+</OverlayTrigger>
+
+
+=========================================================================
+================ Tooltip giải nghĩa trong table =========================
+=========================================================================
+{
+    // label: i18next.t('lb_new'),
+    label: <TableHeaderCustom text="New" tooltip={`lb_explain_new_in_top_${props.top_index}`} top_index={props.top_index} have_top_in_label={true}/>,
+    prop: 'new',
+    sort: true,
+    align: 'right',
+    className: 'number-in-table',
+    render: (row) => (
+        <>
+            {row.new != 0 ? (
+                <a target="_blank" href={`/keyword/ranking/${props.site_id}/competitor/detail?start_date=${props.date_range[0]}&end_date=${props.date_range[1]}&domain=${row.domain}&top=count_top${props.top_index}&type_top=new`}>{row.new}</a>
+            ) : (
+                    <span>{row.new}</span>
+                )}
+        </>
+    )
+},
+
+class TableHeaderCustom extends Component {
+    render() {
+
+        return (
+            <>
+                <span>{this.props.text}</span>
+                {this.props.have_top_in_label ? <span className="ml-1">{this.props.top_index}</span> : ""}
+                <OverlayTrigger overlay={<Tooltip><Trans>{this.props.tooltip}</Trans></Tooltip>} placement="top">
+                    <div className="d-inline">
+                        <i className="fa fa-info-circle icon-tooltip-explain ml-1"></i>
+                    </div>
+                </OverlayTrigger>
+            </>
+        )
+    }
+}

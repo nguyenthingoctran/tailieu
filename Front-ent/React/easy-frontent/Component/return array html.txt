@@ -1,0 +1,22 @@
+================================================================================================
+======================================== html ==================================================
+================================================================================================
+  var element_percent = [
+    <h5 className='position-absolute' style={{ borderBottom: '1px dashed #5c6873', top: 'calc(100% - 24px)', zIndex: 1, width: '100%' }}>
+      <span className='badge badge-secondary'> 0% </span>
+    </h5>
+  ];
+  if (list_data_draw_percent.length > 0) {
+
+    element_percent = list_data_draw_percent.map((value, index) => {
+      var percent = value.percent;
+      var top = value.top;
+      return (<h5 key={index} className='position-absolute' style={{ borderBottom: '1px dashed #5c6873', top: 'calc('+ `${top}` +' - 24px)', zIndex: 1, width: '100%' }}>
+        <span className='badge badge-secondary'> {percent} </span></h5>)
+    });
+  }
+
+================================================================================================
+==================================== Cách dùng =================================================
+================================================================================================
+{element_percent.map(item => item)}

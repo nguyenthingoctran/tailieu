@@ -1,0 +1,24 @@
+Khi tạo component mới thì tạo ở nhánh commom
+
+///////////////////////////////////////////////////////////////////////////////
+////////////////////////////// Thêm html //////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////
+
+import React, { Component } from "react";
+import { Button } from "reactstrap";
+import { Trans } from 'react-i18next';
+
+export default class NormalButtonRegister extends Component {
+  render() {
+    const { className, color, onClick, disabled, ...rest} = this.props;
+    return (
+      <Button className="mr-1" color="success" onClick={onClick} disabled={disabled}>{this.props.children}</Button>
+    );
+  }
+}
+
+///////////////////////////////////////////////////////////////////////////////
+/////////////============== Thêm vào file root =============== ////////////////
+///////////////////////////////////////////////////////////////////////////////
+
+Thêm E:\Growme-1\SourceCode\growme\frontend\src\components\controls\index.js

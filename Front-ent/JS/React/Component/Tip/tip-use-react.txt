@@ -1,5 +1,0 @@
-======================= Cách tạo fle js ===========================
-Tạo file : frontent > src > js > http-status.js
-
-Vào src > App.js 
-import "./js/http-status"

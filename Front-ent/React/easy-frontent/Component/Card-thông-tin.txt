@@ -1,0 +1,131 @@
+<div className="card card-kwanalytics">
+  <div className="card-header card-header-kwanalytics">
+    <div className="float-left mr-1">
+      <Trans className="title-card-header-kwanalytics float-left">lb_competing_keywords</Trans>
+    </div>
+
+    <div>({data_detail.data_competitor.data_ranked.length})</div>
+  </div>
+
+  <div className="collapse show" id="collapseExample">
+    <div className="card-body card-body-kwanalytics">
+      <Row>
+        <Col sm={6}>
+          <CTLDetailTable is_completed_competitor={is_completed_competitor} data_ranked={data_detail.data_competitor.data_ranked} current_site_url={getDomainFromUrl(data_detail.current_site_url)} />
+        </Col>
+
+        <Col sm={6}>
+          <CTLCompetitorChart data_ranked={data_detail.data_competitor.data_ranked} is_completed_competitor={is_completed_competitor} />
+        </Col>
+      </Row>
+    </div>
+  </div>
+  {!is_completed_competitor && <CardLoading />}
+</div>
+
+
+====================================================================================================
+
+import { CardV2, CardHeaderV2, CardBodyV, ButtonRedirect } from 'components/controls/index';
+
+
+<CardV2>
+    <CardHeaderV2>
+        <Trans className="title-card-header-kwanalytics">lb_organic_search</Trans>
+        <OverlayTrigger overlay={<Tooltip>{box_des}</Tooltip>} placement="top">
+            <i className="fa fa-info-circle ml-1 icon-tooltip-explain"></i>
+        </OverlayTrigger>
+    </CardHeaderV2>
+    <CardBodyV2>
+        <Row>
+            <Col sm={6} className="text-center">
+                <div className="number-in-card"><NumberFormat value={data_organic_paid.organic.volume} displayType={'text'} thousandSeparator={true} renderText={value => <div>{value}</div>} /></div>
+                <div className="text-for-number-in-card"><Trans>lb_search_volume</Trans></div>
+            </Col>
+
+            <Col sm={6} className="text-center">
+                <div className="number-in-card">{data_organic_paid.organic.number_of_results !== -1?
+                    <NumberFormat value={data_organic_paid.organic.number_of_results} displayType={'text'} thousandSeparator={true} renderText={value => <div>{value}</div>} />
+                    :
+                    <>-</>
+                        }
+                </div>
+                <div className="text-for-number-in-card"><Trans>lb_number_of_result</Trans></div>
+            </Col>
+        </Row>
+    </CardBodyV2>
+    {!is_completed_suggest && <CardLoading />}
+</CardV2>
+
+====================================================================================================
+====================================================================================================
+
+<CardV2 className="h-100">
+    <CardHeaderV2>
+        <Trans className="title-card-header-kwanalytics">lb_related_keyword</Trans>&nbsp;
+        {
+            total_related !== undefined?
+            <span className="text-xl-left k-s-index">
+                (<NumberFormat value={total_related} displayType={'text'} thousandSeparator={true} renderText={value => <span>{value}</span>} />)
+            </span> :""
+        }
+    </CardHeaderV2>
+
+    <CardBodyV2>
+            <div style={{ paddingBottom: "20px" }}>
+                <GMTable
+                    columns={this.columns}
+                    data={data_related}
+                    selectable={false}
+                    searchable={false}
+                    hide_pagination_on_single={true}
+                />
+            </div>
+
+            {/* Action View more và export */}
+            <div className="button-bottom-in-card">
+                <DropdownExport className="mr-3 btn-sm">
+                    <Dropdown.Item onClick={() => { this.handleExport("csv", data_related); }}><Trans>lb_csv</Trans></Dropdown.Item>
+                    <Dropdown.Item onClick={() => { this.handleExport("excel", data_related); }}><Trans>lb_excel</Trans></Dropdown.Item>
+                </DropdownExport>
+
+                <ButtonRedirect onClick={this.handleViewMore}><Trans>lb_view_more</Trans></ButtonRedirect>
+            </div>
+        </CardBodyV2>
+    {!is_completed_related && <CardLoading />}
+</CardV2>
+
+
+====================================================================================================
+====================================================================================================
+
+
+<CardV2 className="h-100">
+  <CardHeaderV2>
+    <Trans className="title-card-header-kwanalytics">{this.props.lb_header}</Trans>
+    <OverlayTrigger overlay={<Tooltip><Trans>{this.props.lb_desc}</Trans></Tooltip>} placement="top">
+        <i className="fa fa-info-circle ml-1 icon-tooltip-explain"></i>
+    </OverlayTrigger>
+  </CardHeaderV2>
+
+  <CardBodyV2>
+    <div style={{ paddingBottom: "20px" }}>
+      <GMTable
+        columns={columns}
+        data={data}
+        selectable={false}
+        searchable={false}
+        prop_key="index"
+        sizePerPage={false}
+        hide_pagination_on_single={true}
+      />
+    </div>
+    
+    <div className="button-bottom-in-card">
+      {/* <a href={this.props.url_redirect} className='btn btn-light border btn-sm' target="_blank">ランクの高いキーワードを確認 (390個) <i class="icons cui-chevron-right small"></i></a> */}
+      <a href={this.props.url_redirect} className='btn btn-light border btn-sm' target="_blank">View all 390 keywords <i className="icons cui-chevron-right small"></i></a>
+    </div>
+    
+  </CardBodyV2>
+
+</CardV2>

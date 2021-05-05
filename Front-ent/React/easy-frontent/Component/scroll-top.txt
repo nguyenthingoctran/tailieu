@@ -1,0 +1,29 @@
+////////////////////////////////////////////////////////////
+Scroll nhấn nút thì scroll lên đầu
+
+  constructor(props) {
+    super(props);
+    this.myRef = React.createRef()
+  }
+
+   componentDidUpdate() {
+    this.myRef.current.scrollTo(0, 0);
+  }  
+
+
+  <div ref={this.myRef} > 
+    {element_scroll}
+  </div>
+
+
+//////////////////////////////////////////////////////////////
+//    Scroll xuống dưới nhấn nút thì trang scroll lên đầu
+//////////////////////////////////////////////////////////////
+
+========================================= Tài liệu tham khảo:
+https://www.npmjs.com/package/react-scroll-up
+
+=============== Đặt component này vào trong div muốn di chuyển 
+<ScrollToTop showUnder={160}>
+  <span>UP</span>
+</ScrollToTop>

@@ -1,1 +1,54 @@
 http://jsfiddle.net/BasRN/
+
+  series: [{
+    name: 'Offline',
+    data: [5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5],
+    color: '#93ec85'
+  }, {
+    name: 'Seminar',
+    data: [2, 2, 3, 2, 1,  5, 3, 4, 7, 2, 3, 4, 5],
+    color: '#7db6e9'
+  },
+  {
+    name: 'Email',
+    data: [2, 2, 3, 2, 1,  5, 3, 4, 7, 2, 3, 4, 5],
+    color: '#434348'
+  }
+
+
+  <i class="fa fa-tasks fa-lg mt-4"></i>
+
+
+  <div class="row mx-3 position-relative">
+    <div class="col-12 custom-datatable-toolbar">
+      <div class="row">
+        <div class="col-2">
+
+
+          <!--
+              <select class="form-control form-control-toolbar form-control-sm ml-2" id="id_site" >
+            <option value="-1">-- Site --</option>
+            {% for site in list_site%}
+            <option value="{{site.pk}}" {{ "selected" if request.GET.get('site') == site.pk|string }}>{{site.name}}
+            </option>
+            {% endfor %}
+          </select>
+          -->
+
+          
+        </div>
+
+        <div class="col-3" style="padding-top: 6px;">
+            <input type="month" id="start_date" name="start_date" class="mr-3"
+            min="{{range_time.end_date[:7]}}" value="{{range_time.start_date}}">
+            
+            <button  onclick="download();" id="btnLoadReport" class="btn btn-light border btn-sm"  >Download</button>
+        </div>
+
+        <div class="col-7">
+        </div>
+      </div>
+    </div>
+
+    
+  </div>

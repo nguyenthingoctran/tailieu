@@ -1,0 +1,9 @@
+Button lớn================================================================================================
+<ButtonSearch type="submit" disabled={this.state.is_loading}><Trans>lb_research_btn</Trans></ButtonSearch>;
+
+
+
+Button register nhỏ ======================================================================================
+<ButtonPlus onClick={this.handleOpenModalRegister} color="success" className="mb-2 float-right">
+    <Trans>lb_register_keyword</Trans>
+</ButtonPlus>

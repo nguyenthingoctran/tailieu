@@ -1,0 +1,454 @@
+import { GMTable } from "components/controls/index";
+
+/////////////// data ////////////
+Đặt trong constructor 
+
+        this.table_setting = {
+            columns: [
+                {
+                    label: i18next.t("lb_domain"),
+                    sort: true,
+                    prop: "domain",
+                    width: "320",
+                    align: "left",
+                    render: (data) => {
+                        var text_domain = '';
+                        if (data.domain === this.props.current_site_url) {
+                            text_domain = <>
+                                            <i className="fa fa-home text-primary"></i>&nbsp;
+                                            <span className="text-primary">{data.domain}</span>
+                                        </>
+                        }else {
+                            text_domain = <span>{data.domain}</span>
+                        }
+                        return (
+                            <>
+                                {text_domain}
+                            </>
+                        )
+                    }
+                },
+                {
+                    label: i18next.t("lb_com_level"),
+                    prop: "keywords_count",
+                    width: "180",
+                    align: "left",
+                    render: (data) => {
+                        var percent_comon  = Math.round( (data.keywords_count / this.props.data_overview_rank.length)*100 );
+                        return (
+                            <>
+                                <PercentProgress 
+                                                value={percent_comon}
+                                                label={percent_comon+`%`}/>
+                            </>)
+                    }
+                }
+            ]
+        };
+
+=============================================================================================
+=============================== disable button ==============================================
+=============================================================================================
+
+{row.is_completed ? 
+  <span>
+    <ButtonLink className="text-left" width="400" href="" onClick={() => props.onClickDetails(row)}>{row.item_search_name}&nbsp;
+      <i className="fa fa-external-link-square small" style={{ color: '#69bfd6' }}></i></ButtonLink>
+  </span> : 
+  <span className="text-in-table link-disabled" style={{}}>{row.item_search_name}</span>
+}
+
+
+
+<div className="history-row-setting" style={!row.is_completed ? {opacity: '0.5'} : {}}>
+
+<span className="text-in-table link-disabled" style={{width:'450px'}}>{row.item_search_name}</span>
+
+
+///////// HTML ////////////////
+
+  render() {
+        var total_keyword = this.props.data_overview_rank.length;
+
+        console.log(total_keyword);
+
+        return (
+          <div className="m-4">
+            <GMTable
+              data={this.props.data_competitor}
+              columns={this.table_setting.columns}
+              total={this.state.total}
+              page={this.state.filter.page}
+              sortName={this.state.filter.sortName}
+              sortOrder={this.state.filter.sortOrder}
+              sizePerPage={this.state.filter.sizePerPage}
+              onPageChange={this.handleFilterChange}
+              onSearchChange={this.handleFilterChange}
+              selectable={false}
+              prop_key={"domain"}
+              searchable = {false} 
+            />
+          </div>
+        );
+    }
+
+///////////////////////////////////
+{
+  label: "Actions",
+  render : function (){
+    return (
+      <span>
+        <ButtonDetail className="mr-1"/>
+        <ButtonDelete />
+      </span>
+    )
+  }
+}
+
+//////////////////////////////////////////////////////////
+{
+  label: i18next.t("lb_actions"),
+  prop: "actions",
+  className: "action",
+  align: "left",
+  render: function(row) {
+    return (
+      <>
+        {row.is_pending ? 
+          ""
+          : 
+          <ButtonDetail 
+            onClick={() => props.onClickDetails(row)} 
+            disabled={row.disabled ? row.disabled : false} 
+          />
+        }
+        
+        // props.user_id === this.props.user_id (do không dùng trong class nên ko cần this)
+        {row.user_id === props.user_id ?
+          <ButtonDelete
+            onClick={() => props.onClickDelete(row)}
+            disabled={row.disabled ? row.disabled : false}
+          /> : ""}
+      </>
+    );
+  }
+}
+
+===========================================================================
+=========================== TOOLBAR TABLE =================================
+===========================================================================
+constructor(props) {
+
+  this.tableName = props => {
+    return (
+      <Row className="w-100 action-bar">
+        <Col sm="8">
+          <DropdownButton title="Action" variant="light border px-4 mr-2">
+            <Dropdown.Item eventKey="1">Delete</Dropdown.Item>
+            <Dropdown.Item eventKey="2">Duplicate</Dropdown.Item>
+          </DropdownButton>
+          <span>
+            <ExportCSVButton className="btn-light border"><i className="fa glyphicon glyphicon-export fa-download"></i> Excel</ExportCSVButton>
+          </span>
+        </Col>
+        <Col sm="4" className="text-right">
+          <div className="ml-5 mt-2">
+            
+          </div>
+        </Col>
+      </Row>
+    );
+  };
+
+};
+
+
+  render() {
+        return (
+          <>
+            <GMTable
+                btnGroup={this.tableName}
+            />
+          </>
+        );
+    }
+
+===========================================================================
+============================ NÚT TRONG TABLE ==============================
+===========================================================================
+
+<div className="d-flex position-relative">
+
+    <div className="content-nearby-button-1 d-inline w-100 height-28 pr-2 text-url">
+        <span>{row.keyword}</span>
+    </div>
+
+    <div className="button-in-table-1">
+        <Dropdown className="d-inline">
+            <Dropdown.Toggle variant="light btn-sm border" id="dropdown-basic">
+                <Trans>lb_more</Trans>
+            </Dropdown.Toggle>
+
+            <Dropdown.Menu>
+                <Dropdown.Item onClick={() => this.props.onClickDetail(row)} target="_blank">
+                    <Trans>lb_detail</Trans>
+                </Dropdown.Item>
+                <Dropdown.Item href="" onClick={() => this.props.onClickEdit(row)} disabled={row.disabled ? row.disabled : false}>
+                    <Trans>lb_edit</Trans>
+                </Dropdown.Item>
+                <Dropdown.Item href="" onClick={() => this.props.onClickDelete(row)} disabled={row.disabled ? row.disabled : false}>
+                    <Trans>lb_delete</Trans>
+                </Dropdown.Item>
+            </Dropdown.Menu>
+        </Dropdown>
+    </div>
+</div>
+
+============================================== Nút trong trường hợp nhiều dòng ================================================================
+
+return (
+              <div className="d-flex position-relative">
+
+                <div className="content-nearby-button-1 d-inline w-100 pr-2" >
+
+                  {row.is_completed ? 
+                    <>
+                      <ButtonLink className="text-left" 
+                                  onClick={() => props.onClickDetails(row)}>
+                                  {row.item_search_name.map((item,index) => (<React.Fragment key={index}>
+                                                                                  <div className="d-block text-eclipse" style={{width: '400px'}}>
+                                                                                    <i className="align-middle fa fa-circle text-primary small mr-1" style={{fontSize: '5px'}}></i>
+                                                                                    {item}
+                                                                                  </div>  
+                                                                              </React.Fragment>))}
+                      </ButtonLink>
+                    {/* {row.item_search_name.map((item,index) => (<><span key={index}>{item}</span><br/></>))} */}
+                    </> : 
+                    <span className="text-in-table link-disabled">{row.item_search_name.map((item,index) => (<React.Fragment key={index}><span>{item}</span><br/></React.Fragment>))}</span>
+                  }
+                  
+                </div>
+
+                {row.is_completed ? (
+                  <div className="button-in-table-1 align-items-center h-100">
+                  <Dropdown className="d-inline">
+                    <Dropdown.Toggle variant="light btn-sm border" id="dropdown-basic">
+                      <Trans>lb_more</Trans>
+                    </Dropdown.Toggle>
+
+                    <Dropdown.Menu>
+                      <Dropdown.Item href="" onClick={() => props.onClickDetails(row)} disabled={row.disabled ? row.disabled : false}>                       
+                        <Trans>lb_detail</Trans>
+                      </Dropdown.Item>
+                      {props.user_id === row.user_searched_id ? (
+                      <Dropdown.Item href="" onClick={() => props.onClickDelete(row)} disabled={row.disabled ? row.disabled : false}>                       
+                        <Trans>lb_delete</Trans>
+                      </Dropdown.Item>
+                      ):(
+                        <OverlayTrigger overlay={ <Tooltip><Trans>lb_delete_disabled_tootltip</Trans></Tooltip>} placement="right">
+                          <div className="">
+                            <Dropdown.Item href="" disabled>                       
+                              <Trans>lb_delete</Trans>
+                            </Dropdown.Item>
+                          </div>
+                        </OverlayTrigger>
+                      )}
+                    </Dropdown.Menu>
+                  </Dropdown>
+                </div>
+                ) : (
+                  <RowLoading />
+                )}
+              </div>
+            );
+
+
+===========================================================================
+============================ URL STYLE ====================================
+===========================================================================
+RENDER: ===================================================================
+<>
+    <div class="text-url">
+        <a href={data.url_rank} target="_blank">{url_rank}&nbsp;</a>
+    </div>
+    <i className="fa fa-external-link small icon-small-link"></i>
+</>
+
+css: ======================================================================
+.icon-small-link{
+  color: #20a8d8;   
+}
+
+// Style url
+.text-url {
+  position: relative;
+  max-width:286px !important;
+  white-space: nowrap !important;
+  overflow: hidden !important;
+  text-overflow: ellipsis !important;
+  float: left;
+}
+
+===========================================================================
+============================ Ant Table ====================================
+===========================================================================
+import React, {Component} from 'react';
+import GMCoreUITable from './coreui-table';
+import GMAntTable from './ant-table';
+
+export default class GMTable extends Component {
+    render() {
+        return (<GMAntTable {...this.props} />);
+    }
+}
+
+===========================================================================
+============================ Number of table ==============================
+===========================================================================
+import NumberFormat from 'react-number-format';
+
+{
+  label: i18next.t("lb_outlinks"),
+  width: 120,
+  align: "right",
+  className: "number-in-table",
+  prop: "outlinks",
+  sort: true,
+  render: function (data) {
+    return <>
+            <NumberFormat value={data.outlinks.length} displayType={'text'} thousandSeparator={true} renderText={value => <div>{value}</div>} />
+          </>;
+  }
+},
+===========================================================================
+=========================== Filter of table ===============================
+===========================================================================
+{
+  label: i18next.t("lb_indexability"),
+  width: 150,
+  prop: "noindex",
+  filters: [{ text: 'Indexable', value: false }, { text: 'Non-indexable', value: true }],
+  onFilter: (value, record) => record.noindex === value,
+  render: function (data) {
+    return (
+      <>
+        {data.noindex === false ? (
+          <><span className="badge badge-success">Indexable</span></>
+
+        ) : (
+          <><span className="badge badge-danger">Non-indexable</span></>
+        )}
+      </>
+    );
+  }
+},
+
+===========================================================================
+============================= BTN GROUP ===================================
+===========================================================================
+  this.tableName = props => {
+    return (
+      <Row className="w-100 action-bar">
+        <Col sm="4">
+          <DropdownButton title={i18next.t('lb_action')} data-tooltip="tooltip" variant="light border px-4" size="sm">
+            <Dropdown.Item disabled><Trans>lb_register</Trans></Dropdown.Item>
+          </DropdownButton >
+        </Col>
+
+        <Col sm="6">
+          <div className="float-right d-none">
+            <ButtonRedirect onClick={() => this.handledebug()} ><Trans>Debug</Trans></ButtonRedirect>
+          </div>
+        </Col>
+
+        <Col sm="2">
+          <DropdownExport className="float-right btn-sm">
+            <Dropdown.Item onClick={() => this.handleExportCSV()} ><Trans>lb_csv</Trans></Dropdown.Item>
+            <Dropdown.Item onClick={() => this.handleExportExcel()} ><Trans>lb_excel</Trans></Dropdown.Item>
+          </DropdownExport>
+        </Col>
+      </Row>
+    );
+  };
+  
+
+<GMTable
+  data={this.props.data}
+  columns={this.state.columns}
+  btnGroup={this.tableName}
+  sizePerPage={this.state.filter.sizePerPage}
+  onPageChange={this.handleFilterChange}
+  onSearchChange={this.handleFilterChange}
+  onRowSelect={this.props.onRowSelect}
+  prop_key={"item_search_id"}
+  disabledCheckbox={this.disabledCheckbox}
+  fixed_header={true}
+  max_height={450}
+  searchable = {false} // Không hiển thị box search
+  hide_pagination_on_single={true} // Ẩn phân trang
+  prop_key="item_search_id" // Key
+/>
+
+===========================================================================
+======================== Style cho bảng ===================================
+===========================================================================
+
+#CompetitorKeywordsDetail .ant-table{
+  box-shadow: 0 0 5px #e4e7ea;
+}
+
+===========================================================================
+====================== Fix chiều cao của dòng =============================
+===========================================================================
+height-28
+
+===========================================================================
+======================== Tooltip trong table ==========
+===========================================================================
+label: <>{i18next.t('lb_domain')}<OverlayTrigger overlay={<Tooltip><Trans>lb_explain_visibility_competitor</Trans></Tooltip>} placement="right"><div className="d-inline"><i className="fa fa-info-circle icon-tooltip-explain ml-1"></i></div></OverlayTrigger></>,
+
+
+C2:
+
+class RankingCompetitor extends Component {
+
+    componentWillReceiveProps(next_props) {
+        const { data_competitor_detail } = next_props.state.f21;
+        const { start_date, end_date } = data_competitor_detail;
+
+        if (start_date !== '' && end_date !== '') {
+            this.columns = [
+                {
+                    label: <TableHeaderCustom text={start_date} tooltip='lb_explain_competitor_detail_start_date' />,
+                    prop: 'rank_start_date',
+                    sort: (a, b) => { if (a !== null && b !== null) return a['rank_start_date'] - b['rank_start_date']; else return -1; },
+                    render: (row) => (
+                        <>
+                            {row.rank_start_date == null ? '-' : row.rank_start_date}
+                        </>
+                    )
+                },
+            ];
+        }
+    }
+
+
+export default connect(
+    mapStateToProps,
+    mapDispatchToProps
+)(RankingCompetitor);
+
+class TableHeaderCustom extends Component {
+    render() {
+        return (
+            <>
+                <span>{this.props.text}</span>
+                <OverlayTrigger overlay={<Tooltip><Trans>{this.props.tooltip}</Trans></Tooltip>} placement="top">
+                    <div className="d-inline">
+                        <i className="fa fa-info-circle icon-tooltip-explain ml-1"></i>
+                    </div>
+                </OverlayTrigger>
+            </>
+        )
+    }
+}

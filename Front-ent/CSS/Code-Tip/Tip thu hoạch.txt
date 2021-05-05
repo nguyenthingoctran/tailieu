@@ -3,3 +3,11 @@
 - Chỉnh margin lên xuống thì hãy dùng absoluted + top 
 
 - Chỉnh chữ đậm hơn thì trong text-shadow đặt màu đậm hơn trước
+
+- Div full height:
+height: 100vh;
+
+- Image center:
+display: block;
+margin-left: auto;
+margin-right: auto;
