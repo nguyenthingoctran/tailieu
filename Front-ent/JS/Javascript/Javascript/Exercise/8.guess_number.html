@@ -8,10 +8,11 @@
   <style>
     #wraper{
       width: 800px;
-      height: 685px;
+      height: 745px;
       border: 1px solid #6c5ce7;
       margin: auto;
       border-radius: 10px;
+      position: relative;
     }
 
     #number-result{
@@ -63,6 +64,46 @@
       margin-top: 50px;
       text-align: center;
     }
+
+    #message{
+      font-size: 100px;
+      text-align: center;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 100%;
+    }
+
+    #message span{
+      padding: 30px;
+      background: rgba(236, 240, 241,0.5);
+    }
+
+    .good-work{
+      color:#7fff00;
+    }
+
+    .not-matched{
+      color: rgba(231, 76, 60,1.0)
+    }
+
+    #reset{
+      border: none;
+      background: #6c5ce7;
+      width: 740px;
+      color: #fff;
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+      font-size: 20px;
+      padding: 15px 0;
+      cursor: pointer;
+    }
+
+    #reset:hover{
+      box-shadow: 0 0 5px rgb(88, 88, 88);
+    }
   </style>
 </head>
 <body>
@@ -74,9 +115,15 @@
     <div id="wrap-btn">
 
     </div>
-    <button id="button-letsgo">Let's Go</button>
+    <button id="button-letsgo" onclick="lets_go();">Let's Go</button>
 
     <div id="list-btn">
+
+    </div>
+
+    <button id="reset" onclick="reset();">Reset</button>
+
+    <div id="message">
 
     </div>
   </div>
@@ -85,6 +132,9 @@
 <script>
   var element_list_btn = document.getElementById("list-btn")
   var element_node = element_list_btn.childNodes[0]
+
+  var element_number_result = document.getElementById("number-result");
+  var element_node_number_result = element_number_result.childNodes[0];
 
   var list_btn = []
   for ( var i=1; i<=20; i++ ){
@@ -101,12 +151,47 @@
   
   var btn_active = 0
   function choose_number(i){
-    btn_active = i
-    var e = document.querySelector(`.btn-click-${btn_active}`);
-    document.querySelector(`.btn-click-${btn_active}`).classList.remove("active")
+
+    // Remove class active
+    if ( btn_active != 0 ){
+      var e = document.querySelector(`.btn-click-${btn_active}`);
+      document.querySelector(`.btn-click-${btn_active}`).classList.remove("active");
+    }
+
+    // Add class active
+    btn_active = i;
     document.querySelector(`.btn-click-${i}`).classList.add("active")
     document.getElementById('button-letsgo').style.opacity = 1
     document.getElementById('button-letsgo').disabled = false
+    
+  }
+
+  function lets_go(){
+    var number_user_choose = btn_active;
+    var number_random = Math.floor(Math.random() * 20) + 1;
+
+    var run_number = 1;
+    setInterval(function(){
+      if ( run_number <= number_random - 1 ){
+        run_number += 1;
+        element_node_number_result.data = run_number;
+      }
+
+      if (run_number == number_random){
+        var element_message = document.getElementById("message");
+        if (number_user_choose == number_random){
+          element_message.innerHTML = "<span class='good-work fadeOut'>Good Work!!!</span>";
+        }else{
+          element_message.innerHTML = "<span class='not-matched fadeOut'>Not matched</span>";
+        }       
+      }
+
+    }, 100)
+    
+  }
+
+  function reset(){
+    location.reload();
   }
 
 </script>
