@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title></title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="css/style.css" rel="stylesheet">
+  </head>
+  <body>
+  
+  </body>
+  <script>
+    function add_the_front_and_back(str){
+      if ( str ){
+        var first_letter = str[0]
+        return first_letter + str + first_letter
+      }else{
+        return "Please your string at least contain 1 character"
+      }
+    }
+
+    console.log(add_the_front_and_back('javascript'));
+  </script>
+</html>

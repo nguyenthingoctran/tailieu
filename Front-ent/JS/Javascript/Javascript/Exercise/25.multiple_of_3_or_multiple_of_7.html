@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title></title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="css/style.css" rel="stylesheet">
+  </head>
+  <body>
+  
+  </body>
+  <script>
+    function multiple(number){
+      if ( number % 3 == 0 && number % 7 == 0 ){
+        return number + " is multiple of 3 and 7";
+      }else if ( number % 3 == 0 ){
+        return number + " is multiple of 3"
+      }else if ( number % 7 == 0 ){
+        return number + " is multiple of 7"
+      }
+    }
+
+    console.log(multiple(9))
+  </script>
+</html>

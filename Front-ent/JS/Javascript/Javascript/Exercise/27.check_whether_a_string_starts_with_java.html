@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title></title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="css/style.css" rel="stylesheet">
+  </head>
+  <body>
+  
+  </body>
+  <script>
+    function check_java(string){
+      var start_string = string.substring(0, 4);
+      if (string.length < 4){
+        if (string && start_string === "Java"){
+          return true
+        }else{
+          return false
+        }  
+      }else{
+        return "Please enter character more"
+      }   
+    }
+
+    console.log(check_java("Javasscript"))
+  </script>
+</html>
