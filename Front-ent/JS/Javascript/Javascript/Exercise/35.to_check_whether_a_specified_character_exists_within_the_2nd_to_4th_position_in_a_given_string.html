@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title></title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="css/style.css" rel="stylesheet">
+  </head>
+  <body>
+  
+  </body>
+  <script>
+    function specified_character_exists(str, char){
+      for (var i = 1; i <= 3; i++){
+        if(str[i] == char){
+          return true
+        }else{
+          return false
+        }
+      }
+    }
+    console.log(specified_character_exists("Python", "y"))
+    console.log(specified_character_exists("JavaScript", "a"))
+    console.log(specified_character_exists("Console", "o"))
+    console.log(specified_character_exists("Console", "C"))
+    console.log(specified_character_exists("Console", "e"))
+    console.log(specified_character_exists("JavaScript", "S"))
+  </script>
+</html>
