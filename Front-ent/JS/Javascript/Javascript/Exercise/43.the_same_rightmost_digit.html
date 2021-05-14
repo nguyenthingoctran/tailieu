@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title></title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="css/style.css" rel="stylesheet">
+  </head>
+  <body>
+  
+  </body>
+  <script>
+    function the_same_rightmost(n1, n2, n3){
+      var n1_10 = n1 % 10;
+      var n2_10 = n2 % 10;
+      var n3_10 = n3 % 10;
+      console.log(n1_10)
+      console.log(n2_10)
+      console.log(n3_10)
+      return (n1 % 10 === n2 % 10) || (n2 % 10 === n3 % 10) || (n1 % 10 === n3 % 10 )
+    }
+
+    console.log(the_same_rightmost(320, 235, 350))
+    // console.log(the_same_rightmost(102,302,2))
+    // console.log(the_same_rightmost(20,22,45))
+  </script>
+</html>
