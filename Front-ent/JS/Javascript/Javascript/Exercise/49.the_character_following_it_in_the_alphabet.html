@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title></title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="css/style.css" rel="stylesheet">
+  </head>
+  <body>
+  
+  </body>
+  <script>
+      function the_character_following(str){
+        var result_string = ''
+        for ( index in str ){
+          var current_character = str[index];
+          var current_charCode = current_character.charCodeAt()
+          var next_current_charCode = current_charCode + 1;
+          var result = String.fromCharCode(next_current_charCode)
+          result_string = result_string + result
+        }
+        return result_string
+        
+      }
+
+      console.log(the_character_following('abcd'));
+  </script>
+</html>

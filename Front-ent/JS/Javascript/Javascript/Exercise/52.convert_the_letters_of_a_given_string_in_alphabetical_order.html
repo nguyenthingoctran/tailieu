@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title></title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="css/style.css" rel="stylesheet">
+  </head>
+  <body>
+  
+  </body>
+  <script>
+    function convert(str){
+      var list_code = []
+      for ( var i = 0; i < str.length; i++ ){
+        var code = str[i].charCodeAt();
+        list_code.push(code)
+      }
+
+      var sort_list_code = list_code.sort();
+      
+      // for ( var i = 0; i < sort_list_code.length; i++ ){
+      //   var new_char = String.fromCharCode(sort_list_code[i]);
+      //   console.log(new_char, "new_char")
+      // }
+
+      return sort_list_code
+
+    }
+
+    console.log(convert('Python'))
+  </script>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title></title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="css/style.css" rel="stylesheet">
+  </head>
+  <body>
+  
+  </body>
+  <script>
+    function is_15(n1, n2){
+      var sum = n1 + n2;
+      var difference12 = n1 - n2;
+      var difference21 = n2 - n1;
+
+      var abs = Math.abs(n1 - n2);
+
+      if ( n1 == 15 || n2 == 15 || sum == 15 || difference12 == 15 ){
+        return true
+      }else{
+        return false
+      }
+    }
+
+    console.log(is_15(15, 9))
+    console.log(is_15(25, 15))
+    console.log(is_15(7, 8))
+    console.log(is_15(25, 10))
+    console.log(is_15(5, 9))
+    console.log(is_15(7, 9))
+    console.log(is_15(9, 25))
+  </script>
+</html>
