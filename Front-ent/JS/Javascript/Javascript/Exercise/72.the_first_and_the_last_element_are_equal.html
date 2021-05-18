@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title></title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="css/style.css" rel="stylesheet">
+  </head>
+  <body>
+  
+  </body>
+  <script>
+    function equal(array){
+      var first = array[0];
+      var last = array[array.length - 1]
+
+      if (first == last){
+        return true
+      }else{
+        return false
+      }
+    }
+
+    console.log(equal([10, 20, 30]))
+    console.log(equal([10, 20, 30, 10]))
+    console.log(equal([20, 20, 20]))
+  </script>
+</html>

@@ -17,14 +17,17 @@
         list_code.push(code)
       }
 
-      var sort_list_code = list_code.sort();
+      var sort_list_code = list_code.sort(function(a, b){
+        return a - b
+      });
       
-      // for ( var i = 0; i < sort_list_code.length; i++ ){
-      //   var new_char = String.fromCharCode(sort_list_code[i]);
-      //   console.log(new_char, "new_char")
-      // }
+      var result = ''
+      for ( var i = 0; i < sort_list_code.length; i++ ){
+        var new_char = String.fromCharCode(sort_list_code[i]);
+        result = result + new_char
+      }
 
-      return sort_list_code
+      return result
 
     }
 

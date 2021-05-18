@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title></title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="css/style.css" rel="stylesheet">
+  </head>
+  <body>
+  
+  </body>
+  <script>
+    function concatenate(s1, s2){
+      var length_standard = 0;
+      var length_1 = s1.length;
+      var length_2 = s2.length;
+
+      if ( length_1 < length_2 ){
+        length_standard = length_1;
+        s2 = s2.substring(s2.length - length_standard)
+      }else{
+        length_standard = length_2;
+        s1 = s1.substring(s1.length - length_standard);
+      }
+
+      return s1 + s2
+
+    }
+
+    console.log(concatenate("Python", "JS"));
+    console.log(concatenate("ab", "cdef"));
+  </script>
+</html>
