@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title></title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="css/style.css" rel="stylesheet">
+  </head>
+  <body>
+  
+  </body>
+
+  <script>
+    function replace_each_character_of_a_given_string(str){
+
+      var result = ''
+      for ( e in str ){
+
+        if (str[e].charCodeAt() == 122){
+          result = result + "a"
+        }else{
+          result = result + String.fromCharCode(str[e].charCodeAt() + 1);
+        }
+
+      }
+
+      return result;
+      
+    }
+
+    console.log(replace_each_character_of_a_given_string('kzimkhanhz'))
+  </script>
+</html>
