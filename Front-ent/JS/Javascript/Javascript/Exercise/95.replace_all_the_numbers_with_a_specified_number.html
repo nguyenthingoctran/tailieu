@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title></title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="css/style.css" rel="stylesheet">
+  </head>
+  <body>
+  
+  </body>
+  <script>
+    function replace_all_the_numbers(array, number_1, number_2){
+      var new_array = []
+      for ( item in array ){
+        if ( array[item] == number_1 ){
+          new_array.push(number_2)
+        }else{
+          new_array.push(array[item])
+        }
+      }
+
+      return new_array
+    }
+
+    console.log(replace_all_the_numbers([1,2,2,3,2,5,4], 2, 6))
+  </script>
+</html>

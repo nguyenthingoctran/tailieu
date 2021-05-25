@@ -199,3 +199,27 @@ show_sort_datatable(table)
       </table>
     </div>
   </div>
+
+======================================================
+==== DATATABLE SCROLL AND FIXED HEADER - COLUMN ======
+======================================================
+
+    $(document).ready(function() {
+    var table = $('#table_data').DataTable( {
+            scrollY:        "700px",
+            scrollX:        true,
+            scrollCollapse: true,
+            paging:         false,
+            sorted: false,
+            "ordering": false, // SORT
+            "bSort": false,    // SORT
+            fixedColumns:   {
+                leftColumns: 4
+            },
+            "language": {
+            "search":""
+          },
+        } );
+        $(".dataTables_filter input").css({ "height": "28px", "width": "200px", "border": "1px solid #dddddd" });
+        $(".dataTables_filter input[type='search']").attr('placeholder', 'Search...');
+    } );
