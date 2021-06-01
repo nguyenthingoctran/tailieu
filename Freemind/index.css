@@ -1,0 +1,39 @@
+@font-face{
+	font-family: Montserrat;
+	src: url('./font/Montserrat.ttf');
+}
+
+body{
+	background: #E5E5E5;
+}
+
+#header{
+	position: relative;
+	width: 554px;
+	height: 180px;
+	display: inline-block;
+	background: #FAFAFA;
+	border-radius: 10px 10px 0px 0px;
+	border-bottom: 4px solid #41454D;
+}
+
+#icon-x{
+	position: absolute;
+right: 5.49px;
+top: 7.47px;
+}
+
+#img-freemind{
+	margin-top: 23px;
+    margin-left: 128px;	
+}
+
+#send-cv{
+	font-family: Montserrat, sans-serif;
+	font-style: normal;
+	font-weight: 600;
+	font-size: 21px;
+	display: inline-block;
+	margin-top: 14px;
+	margin-left: 106px;
+}
