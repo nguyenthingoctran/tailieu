@@ -7,35 +7,49 @@
     <link href="index.css" rel="stylesheet">
   </head>
   <body>
-  	<!-- Header -->
-    <div id="header">
-    	<img id="icon-x" src="./img/X.png" />
-    	<img id="img-freemind" src="./img/bg.png" />
-    	<span id="send-cv">Hãy gửi CV của bạn cho chúng tôi</span>
-    </div>
 
-    <!-- Body -->
-    <div id="body">
-    	<div class="row">
-    		<div class="col-left"><div class="label">Tên của bạn</div></div>
-    		<div class="col-right"><input class=""/></div>
-    	</div>
-    	<div class="row">
-    		<div class="col-left"><div class="label">Số điện thoại</div></div>
-    		<div class="col-right"><input class=""/></div>
-    	</div>
-    	<div class="row">
-    		<div class="col-left"><div class="label">Kinh nghiệm làm việc</div></div>
-    		<div class="col-right">
-    			<input class=""/>
-    			<div><img src="./img/Vector.png" /><span>Đính kèm hình ảnh</span></div>
-    		</div>
-    	</div>
-    	<div class="row">
-    		<div class="col-left"><div class="label">Email</div></div>
-    		<div class="col-right"><input class=""/></div>
-    	</div>
-    	<button></button>
+    <div id="wrapper">
+        
+      	<!-- Header -->
+        <div id="header">
+        	<img id="icon-x" src="./img/X.png" />
+        	<img id="img-freemind" src="./img/bg.png" />
+        	<span id="send-cv">Hãy gửi CV của bạn cho chúng tôi</span>
+        </div>
+
+        <!-- Body -->
+        <div id="contend">
+        	<div class="row">
+        		<div class="col-left"><div class="label">Tên của bạn</div></div>
+        		<div class="col-right"><input class="input-fm" placeholder="Ví dụ: Nguyễn Văn A" /></div>
+        	</div>
+        	<div class="row">
+        		<div class="col-left"><div class="label">Số điện thoại</div></div>
+        		<div class="col-right"><input class="input-fm" placeholder="số điện thoại liên lạc"/></div>
+        	</div>
+            <div class="row">
+                <div class="col-left"><div class="label">Vị trí</div></div>
+                <div class="col-right">
+                    <select class="input-fm select-fm" name="select-location">
+                        <option value="1">Junior Ecommerce Web Developer</option>
+                    </select> 
+                </div>
+            </div>
+        	<div class="row">
+        		<div class="col-left"><div class="label">Kinh nghiệm <br/>làm việc</div></div>
+        		<div class="col-right">
+        			<textarea class="input-fm border" name="" rows="4" cols="50" style="width: 360px; height: 140px; margin-bottom: 6px;">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard d scrambled it to make a type specimen book.         
+                    </textarea>
+        			<div id="attract"><img id="icon-vector" src="./img/Vector.png" /><span id="attact-img">Đính kèm hình ảnh</span></div>
+        		</div>
+        	</div>
+        	<div class="row">
+        		<div class="col-left"><div class="label">Email</div></div>
+        		<div class="col-right"><input class="input-fm border" placeholder="Ex: contact@freemind.vn" /></div>
+        	</div>
+        	<button id="button-send-cv">GỬI CV cho Freemind</button>
+        </div>
+
     </div>
   </body>
 </html>

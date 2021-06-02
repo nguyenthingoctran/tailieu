@@ -1,6 +1,6 @@
 @font-face{
 	font-family: Montserrat;
-	src: url('./font/Montserrat.ttf');
+	src: url('./font/Montserrat-Regular.ttf');
 }
 
 body{
@@ -10,7 +10,7 @@ body{
 #header{
 	position: relative;
 	width: 554px;
-	height: 180px;
+	height: 176px;
 	display: inline-block;
 	background: #FAFAFA;
 	border-radius: 10px 10px 0px 0px;
@@ -19,8 +19,8 @@ body{
 
 #icon-x{
 	position: absolute;
-right: 5.49px;
-top: 7.47px;
+	right: 5.49px;
+	top: 7.47px;
 }
 
 #img-freemind{
@@ -34,6 +34,103 @@ top: 7.47px;
 	font-weight: 600;
 	font-size: 21px;
 	display: inline-block;
-	margin-top: 14px;
+	margin-top: 11px;
 	margin-left: 106px;
+}
+
+#wrapper{
+	position: absolute;
+	width: 554px;
+	height: 694px;
+
+	background: #FAFAFA;
+	box-shadow: 0px 0px 33px rgba(0, 0, 0, 0.3);
+	border-radius: 10px;
+}
+
+#contend{
+	padding-left: 40px;
+    padding-right: 40px;
+    padding-top: 38px;
+}
+
+.label{
+	position: absolute;
+	width: 82px;
+	height: 40px;
+	font-family: Montserrat, sans-serif;
+	font-style: normal;
+	font-weight: 600;
+	font-size: 13px;
+	line-height: 16px;
+	display: flex;
+	align-items: center;
+	color: #1F2125;
+	white-space: nowrap;
+}
+
+.input-fm{
+	width: 360px;
+	height: 40px;
+	margin-left: 115px;
+	background: #FFFFFF;
+	margin-bottom:9px;
+	border: none;
+	padding-left: 10px;
+	font-family: Montserrat, sans-serif;
+}
+
+.select-fm{
+	width: 372px;
+	background: url('./img/Chevron down.png') no-repeat right #fff;
+	-webkit-appearance: none;
+	background-position-x: 338px;
+}
+
+#attract{
+	margin-left: 115px;
+	margin-bottom: 5px;
+}
+
+#icon-vector{
+	width: 15.04px;
+	height: 16px;
+}
+
+#attact-img{
+	position: absolute;
+	width: 250px;
+	height: 16px;
+	margin-left: 2.36px;
+	margin-top: 2px;
+	font-family: Montserrat, sans-serif;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 10px;
+	line-height: 140.4%;
+	display: inline-block;
+	align-items: center;
+	color: #1F2125;
+}
+
+#button-send-cv{
+	font-family: Montserrat, sans-serif;
+	position: absolute;
+	width: 320px;
+	height: 40px;
+	background: rgba(29, 172, 203, 0.68);
+	border-radius: 3px;
+	font-style: normal;
+	font-weight: 600;
+	font-size: 13px;
+	line-height: 127%;
+	color: #FFFFFF;
+	border: none;
+	margin: auto;
+	margin-top: 10px;
+	margin-left: 77px;
+}
+
+.border{
+	border: 1px solid #D1D7E0;
 }
