@@ -223,3 +223,28 @@ show_sort_datatable(table)
         $(".dataTables_filter input").css({ "height": "28px", "width": "200px", "border": "1px solid #dddddd" });
         $(".dataTables_filter input[type='search']").attr('placeholder', 'Search...');
     } );
+
+==========================================================================
+======================== ERROR DATATABLE IN A TAB ========================
+==========================================================================
+
+  $(document).ready(function(){
+      var table_details = $('#table-summary').DataTable( {
+              // scrollY:        "700px",
+              scrollX:        true,
+              scrollCollapse: true,
+              paging:         false,
+              sorted: false,
+              "ordering": false,
+              "bSort": false,
+              fixedColumns:   {
+                  leftColumns: 2
+              },
+              searching: false,
+          } );    
+    
+    $('a[data-toggle="tab"]').on('shown.bs.tab', function(e){
+      $($.fn.dataTable.tables(true)).DataTable()
+          .columns.adjust();
+    });
+  })
