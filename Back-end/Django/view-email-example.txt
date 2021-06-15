@@ -1,0 +1,88 @@
+def test(request):
+  #1)Dữ liệu
+  param_site_id = request.GET.get('site_id',None)
+  param_created_date = request.GET.get('created_date',None)
+  param_email = request.GET.get('email',None)
+
+  # param_site_id = 1
+  # param_created_date = '2020-03-01'
+  # param_email = 'tran@leadplus'
+
+  #2)Layout 
+  to = 'tuan@leadplus.net'
+  cc = param_email
+  layout = draw_daily_report_layout.daily_report_layout(param_site_id,created_date=param_created_date)
+  Email().send_email(to, cc,layout)
+
+  #3)Gửi email
+  return HttpResponse(layout) 
+
+======================================================================================================
+
+def test2(request): 
+  #1)Dữ liệu
+  site_id = 1
+
+  #2)Xử lý
+  layout = draw_daily_report_layout.debug_daily_report_layout(site_id)
+  cc = 'tran@leadplus.net'
+  # Email().send_email(cc,layout)
+  return HttpResponse(layout)
+
+=====================================================================================================
+
+def test(request):
+  #1)Dữ liệu
+  #1)Request
+  site_id = 1
+  created_date = '2020-12-05'
+
+  #2)Xử lý
+  layout = alert_email.sent_alert_email_by_site_id(site_id,created_date)
+
+  return HttpResponse(layout)
+
+=====================================================================================================
+================================= EMAIL Growme core v2 =====================================
+
+def sent_token(request):
+  token = __get_token_2fa(request.user.id)
+  if type(token) == str :
+    data = {
+        'user_name' : request.user.username,
+        'token' : token,
+        'url_confirm' : 'https://semplan.com',
+    }
+    body = render_to_string('email/verify_2fa.html',data)
+    send_mail(
+        'Two-Factor Authentication',
+        '',
+        settings.EMAIL_HOST_USER ,
+        [request.user.email],
+        html_message = body,
+    )
+  return token
+
+
+
+def debug_email(request):
+  token = 'ngoctrantoken'
+  data = {
+      'user_name' : 'ngoc tran',
+      'token' : token,
+      'url_confirm' : 'https://semplan.com',
+  }
+  body = render_to_string('email/verify_2fa.html',data)
+  send_mail(
+      'Two-Factor Authentication',
+      '',
+      settings.EMAIL_HOST_USER ,
+      ['tran@leadplus.net'],
+      html_message = body,
+  )
+  return 
+  
+
+
+  # Debug email
+   url(r'^debug-email/$', views.debug_email, name='debug_email'),
