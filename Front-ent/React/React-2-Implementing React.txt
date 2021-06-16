@@ -1,6 +1,6 @@
 1. Access URL: https://www.valentinog.com/blog/drf/#Django_REST_with_React_Django_and_React_together
 
-2. Create app "frontent"
+2. Create app "frontend"
 
 3. Create folder component:
 mkdir -p ./frontend/src/components

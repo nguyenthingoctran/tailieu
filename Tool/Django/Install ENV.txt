@@ -1,0 +1,4 @@
+- Create folder origanal_folder/env
+
+- Run 
+python -m venv djangoenv  
