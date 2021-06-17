@@ -39,9 +39,10 @@ mkdir -p ./frontend/templates/frontend
 
 7. Access "package.json" and edit:
   "scripts": {
-    "dev": "webpack --mode development ./learnByMovie/frontend/src/index.js -o ./learnByMovie/frontend/static/frontend",
+    "dev": "webpack --mode development --watch ./learnByMovie/frontend/src/index.js -o ./learnByMovie/frontend/static/frontend",
     "build": "webpack --mode production ./learnByMovie/frontend/src/index.js -o ./learnByMovie/frontend/static/frontend"
   },
+  ----->> Add "--watch" to listen auto
 
 8. Create file "learnByMovie1.4\learnByMovie\frontend\src\index.js"
 	import app from './components/App';
@@ -99,6 +100,36 @@ INSTALLED_APPS = [
 14. Terminal
 	Origin folder: ls
 	Runserver: python manage.py runserver
+
+*** ADD ***
+14.1 Route
+	14.1.1 Install: npm install node-sass --save-dev
+
+	14.1.2 At "App.js"
+	// Import
+	import {
+		BrowserRouter as Router,
+		Switch,
+		Route,
+		Link
+	} from "react-router-dom";
+
+	// HTML
+	<Router>
+        <Switch>
+            <Route path="/test">
+                <HomePage/>
+            </Route>
+            <Route path="/authentication/login-form">
+                <LoginForm />
+            </Route>
+        </Switch>
+    </Router>
+
+
+======================================================================================================================================
+======================================================= END ==========================================================================
+======================================================================================================================================
 
 15. Create "learnByMovie\frontend\src\components\layout\Header.js"
 
