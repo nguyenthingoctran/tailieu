@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]>      <html class="no-js"> <!--<![endif]-->
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="">
+    </head>
+    <body>
+        <!--[if lt IE 7]>
+            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+        
+        <script>
+            function third_number(array){
+                var number_1 = array[0];
+                var number_2 = array[1];
+                var number_3 = array[2];
+
+                var third_number = null;
+
+                if (number_1 != number_2 && number_2 != number_3 && number_1 != number_3){
+                    return "Three numbers are unequal."
+                }else{
+                    if ( number_1 == number_2 ){
+                        return number_3
+                    }
+
+                    if ( number_2 == number_3 ){
+                        return number_1
+                    }
+
+                    return number_2
+                }
+            }
+
+            console.log(third_number([1,2,2]))
+            console.log(third_number([1,1,2]))
+            console.log(third_number([1,2,3]))
+        </script>
+    </body>
+</html>

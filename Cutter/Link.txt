@@ -1,0 +1,185 @@
+https://gist.github.com/adamar/a4c573c724f647d7fdcfce5a0f1638d9
+https://medium.com/@adriennedomingus/sending-notifications-to-a-django-application-using-websockets-d576e5e5acdf
+https://websockets.readthedocs.io/en/stable/
+
+Chat:
+https://devcenter.heroku.com/articles/python-websockets
+
+khóa học:
+http://msita.udn.vn/do-hoa/khoa-hoc-design-ui-ux/
+
+shopify draggable
+https://codepen.io/DanielSharkov/pen/bayXwW
+
+https://phppot.com/demo/trello-like-drag-and-drop-cards-for-project-management-software/
+https://phppot.com/php/trello-like-drag-and-drop-cards-for-project-management-software/
+https://codepen.io/kezako/pen/qdLBE
+
+https://github.com/web-pal/react-trello-board
+
+https://rcdexta.com/react-trello/?selectedKind=Basic%20Functions&selectedStory=Infinite%20Scrolling&full=0&addons=0&stories=1&panelRight=0
+
+https://codeaholicguy.com/2016/03/01/hoc-reactjs-trong-15-phut-phan-1/
+Demo
+http://react-trello-board.web-pal.com/
+
+dấu enter xuống dòng
+https://stackoverflow.com/questions/35808205/javascript-replace-from-string
+
+https://www.leadplus.net/vietnam-office
+
+https://tool.pyxey.com/
+python manage.py runsslserver 0.0.0.0:443
+
+=======================================================
+===================== HOC FRONTEND ====================
+=======================================================
+https://keyframe.vn/khoa-hoc-offline/khoa-hoc-thiet-ke-ui-ux-nang-cao-thiet-ke-giao-dien-app-25.html  
+
+https://scotch.io/tutorials/build-a-to-do-application-using-django-and-react  
+
+https://goclamweb.com/bai-24-tao-hieu-ung-load-trang-hay-cho-tai-trang-bang-jquery/  
+
+https://www.youtube.com/watch?v=uZgRbnIsgrA 
+https://www.youtube.com/watch?v=OSSpVLpuVWA 
+
+Học javascripthttps://www.sitepoint.com/learn-zdog/?utm_campaign=1744137&utm_source=sendpulse&utm_medium=push 
+https://www.youtube.com/watch?v=tqqZDotacss&list=PLJ5qtRQovuEOoKffoCBzTfvzMTTORnoyp&index=33 14:23 
+ 
+https://www.npmjs.com/package/react-leaflet-heatmap-layer  
+
+https://www.npmjs.com/search?q=%20heatmap&page=2  
+
+Scroll https://www.cssscript.com/create-scroll-position-heat-map-using-js-canvas-viewheatmap-js/  
+
+https://github.com/alexsaves/sparseheatmap  
+
+Link 18 chart hay dunghttps://www.sitepoint.com/best-javascript-charting-libraries/  
+
+Chart True vẽ biểu đồ charthttps://www.zingchart.com/docs/chart-types/tree-module  
+
+Tài liệu React:https://vntalking.com/wp-content/uploads/2020/08/ReactJSThatDonGian-Sample.pdf  
+
+=======================================================
+=======================================================
+=======================================================
+https://docs.google.com/spreadsheets/d/1k-VenhdntpgJmKTxssgdq-O5n6BEpSRtNrFdp9sB9Vo/edit#gid=0 
+
+https://docs.google.com/spreadsheets/d/14b0Y7nOAAURB_U-5uH_O0-8Nu_5oXTQMvGdAwxdtLRY/edit#gid=453669812 
+
+======================================================
+===================== CHART ==========================
+======================================================
+Chart barhttps://codepen.io/trinaitdeveloperweb/pen/oNvwoMy   
+
+Chart horizontalhttps://codepen.io/BarryWDD/pen/Empmyy  
+
+Chart bundle
+chart pyramidhttps://codepen.io/trinaitdeveloperweb/pen/XWbKRbB  
+
+======================================================
+======================= DATATABLE ====================
+======================================================
+Data Table 
+https://datatables.net/examples/basic_init/dom.html  
+
+Tự thêm , và .
+https://datatables.net/examples/basic_init/comma-decimal.html 
+
+Sửa chữ ở những ô search .. 
+https://datatables.net/examples/basic_init/language.html  
+
+Footer call back
+https://datatables.net/examples/advanced_init/footer_callback.html  
+
+Custom toolbar element
+https://datatables.net/examples/advanced_init/dom_toolbar.html  
+
+======================================================
+======================================================
+======================================================
+Convert IMG -> SVG https://www.youtube.com/watch?v=b2gAHMn9ZSo
+
+Danh sách màn hình MSPortalhttps://docs.google.com/spreadsheets/d/1sKwCiTgRU_NSwIc82weMmmi-Tzro0_SycHp7zKo-CTU/edit#gid=0
+Link sửa login (Main App)https://docs.djangoproject.com/en/3.1/topics/auth/default/
+http://127.0.0.1:8000/accounts/password_reset/done/
+
+Form Django:https://simpleisbetterthancomplex.com/tutorial/2018/11/28/advanced-form-rendering-with-django-crispy-forms.html
+
+Certication UIUXhttps://digitaldefynd.com/best-ui-ux-design-course-training-certification/  
+
+Amazon freehttps://aws.amazon.com/vi/free/webapps/?trk=ps_a131L0000057WOGQA2&trkCampaign=Emerging_Markets_Search&sc_channel=ps&sc_campaign=emp_VN&sc_publisher=google&sc_category=Websites&sc_country=VN&sc_geo=APAC&sc_outcome=acq&sc_detail=%2Btrang%20%2Bweb&sc_content=web_app_hosting_bmm&sc_segment=381687155492&sc_medium=EMP-P|PS-GO|Non-Brand|Desktop|SU|Websites|Solution|VN|VN|Text&s_kwcid=AL!4422!3!381687155492!b!!g!!%2Btrang%20%2Bweb&ef_id=EAIaIQobChMI3uCb7Z7n6QIVh1VgCh01swL5EAAYASAAEgJuMvD_BwE:G:s  
+
+chart
+https://www.fusioncharts.com/charts/chord-diagram?utm_source=ac.demos&utm_medium=banner&utm_campaign=apexcharts&utm_content=chord
+
+Giải thích tính nănghttps://docs.google.com/spreadsheets/d/1avDx1py973R_RkK-jR03raCzaUP3NMYhwJAF2lP0YJU/edit?ts=5e1ee93f#gid=410346348  
+
+https://reactjsexample.com/react-simple-infinite-carousel-with-lazy-loading-and-responsive-support/  
+
+Template đẹp tham khảo:https://colorlib.com/wp/free-bootstrap-admin-dashboard-templates/  
+
+borderhttps://www.thuthuatweb.net/css/css-border-nhung-dieu-khong-nen-bo-qua.html  
+
+https://aptech-danang.edu.vn/ace/tin-tuc-su-kien/chi-tiet/17887/17-hieu-ung-css-hang-dau-hien-nay  
+
+
+Table fixedTable header to stay fixed at the top when user scrolls it out of view with jQuery
+http://gudh.github.io/ihover/dist/  
+https://codepen.io/trinaitdeveloperweb/pen/wvvzKVB  
+
+>Hoc reacthttps://www.youtube.com/watch?v=TMtpG-cgmFU&list=PLJ5qtRQovuEOoKffoCBzTfvzMTTORnoyp&index=20 
+> JSXhttps://www.youtube.com/watch?v=eSZSj3iFoPg&list=PLv6GftO355Av24RavC6HDpzurm4MAfvrR&index=5  
+ 
+> Học UX:https://designlab.edu.vn/t7-dieu-gi-se-tao-ra-1-ux-tot  https://designlab.edu.vn/t13-buoc-strategize-mo-hinh-user-centered-business-canvas  
+
+Bài tập luyện pythonhttps://quantrimang.com/hon-100-bai-tap-python-co-loi-giai-code-mau-142456
+
+hoc tNhttps://realkana.com/hiragana/
+
+Tạo databasehttps://www.youtube.com/watch?v=kyj-ul1jgig
+foregin:https://www.youtube.com/watch?v=0kaUwiygcfw 
+all class bootstraphttps://www.w3schools.com/bootstrap/bootstrap_ref_all_classes.asp
+
+tải videohttps://vnreview.vn/tu-van-may-tinh/-/view_content/content/2160533/meo-tai-video-audio-tu-hang-ngan-website
+KEditorhttps://rawgit.com/Kademi/keditor/master/examples/index.html  
+
+sách đọc về front-enthttps://www.amazon.co.jp/Designing-User-Interface-Human-Computer-Interaction/dp/1292153911/ref=pd_rhf_gw_p_img_1?_encoding=UTF8&psc=1&refRID=6H0EW00TEBQTWF0APZ11  
+
+khóa học https://iviettech.vn/chuong-trinh-dao-tao/chuyen-nghiep/8373-lap-trinh-front-end.html  
+
+https://idesign.edu.vn/cac-khoa-hoc/khoa-hoc-thiet-ke-web.html?gclid=EAIaIQobChMIzvvZ8_vu4QIVga_ICh0THgUFEAAYASAAEgLzC_D_BwE  
+
+Chart jshttps://tobiasahlin.com/blog/chartjs-charts-to-get-you-started/  
+
+https://uyen.vn/20-quy-tac-thiet-ke-khong-nen-pha-vo/  
+
+Google analyticshttps://analytics.google.com/analytics/web/#/report/content-event-events/a58060170w91927824p95681205/_r.drilldown=analytics.eventCategory:Heatmap%20Scroll,analytics.eventAction:https:~2F~2Fwww.leadplus.net~2F&explorer-table.plotKeys=%5B%5D  
+
+ 
+
+Github cơ bảnhttps://viblo.asia/p/nhung-lenh-git-co-ban-can-nho-V3m5W1OyZO7  
+
+resizer: https://lab.maltewassermann.com/viewport-resizer/
+https://coreui.io/demo/2.0/#colors.html  
+
+Tham khảo phát triển tính thẩm mỹ:behance.netdribbble.comdevianart.com
+The best UI UXhttps://www.awwwards.com/websites/ui-design/  
+
+Coreui cuhttps://coreui.io/demo/2.0/#colors.html  
+
+www.udemy.com
+tran@leadplus.net
+ntrngoctranntr_123
+heatmaphttps://www.patrick-wied.at/static/heatmapjs/docs.html  
+
+Test email hubspothttps://app.hubspot.com/design-manager/480402/code/28370755400  
+https://app.hubspot.com/email/480402/edit-beta/28370475185/content 
+Email free semplan 
+
+
+
+
+
+
+ 
