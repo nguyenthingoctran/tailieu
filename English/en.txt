@@ -1,0 +1,3 @@
+obligation
+punctuation 
+distinguish
