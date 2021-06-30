@@ -1,3 +1,7 @@
 obligation
 punctuation 
 distinguish
+identity matrix / unit matrix
+linear algebra
+ambiguously 
+diagonal 
