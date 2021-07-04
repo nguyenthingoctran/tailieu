@@ -4,17 +4,3 @@
 ======================================
 =============== COMPLITE =============
 ======================================
-- Mở file "package.json" sửa: "test" -> "sasstocss"
-"sasstocss": "node-sass sass/main.scss css/style.css"
-
-- Tạo file "complie sass to css.txt" ở thư mục gốc của project. Click double vào file để thêm nội dung "npm run sasstocss". Đổi đuôi file "txt" -> "bat". Click double để run
-
-- Khi run xong file thì file tự động tắt. Mỗi lần sửa xong thì chạy lại như vậy.
-
-- Cách chạy tự động file sass, thêm -w
-"sasstocss": "node-sass sass/main.scss css/style.css -w". Khi sử dụng lệnh này thì chỉ cần run file .bat lần đầu tiên. Còn sau đó thì chỉ cần "save" là được.
-
-- Nguyên tắc khi chỉnh BEM là block element thì tất cả các class chung block thì gom lại chung 1 khai báo block. Và element trong block đó chung element thì tiếp tục gom vào khai báo element
-
-Đang cho chạy file bat
-20:41

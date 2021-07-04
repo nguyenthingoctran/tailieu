@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]>      <html class="no-js"> <!--<![endif]-->
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title></title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="">
+</head>
+
+<body>
+    <!--[if lt IE 7]>
+            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+
+    <script>
+        const employee = function (id, callback) {
+            switch (id) {
+                case 'Karel':
+                    callback({
+                        fullname: 'Karel Zoha',
+                        age: 39,
+                        sex: 'Male'
+                    });
+                    break;
+                case 'Peter':
+                    callback({
+                        fullname: 'Peter Cipov',
+                        age: 30,
+                        sex: 'Male'
+                    });
+                    break
+                case 'Milan':
+                    callback({
+                        fullname: 'Milan Boruvka',
+                        age: 40,
+                        sex: 'Male'
+                    });
+                    break;
+                case 'Marketa':
+                    callback({
+                        fullname: 'Marketa Dobra',
+                        age: 26,
+                        sex: 'Female'
+                    });
+                    break;
+                case 'Lucie':
+                    callback({
+                        fullname: 'Lucie Vesela',
+                        age: 23,
+                        sex: 'Female'
+                    });
+                    break;
+                default:
+                    callback(null, new Error('Unknown id: ' + id));
+                    break;
+            }
+        }
+
+
+        console.log(employee('Milan'))
+
+
+//////TODO:
+
+        /* 1) Call function for id 'Milan' and log result to console */
+
+//console.log("Hello");
+
+
+        /* 2) Wrap employee function, create a new function that uses promise */
+
+        /* const  employeeP = function(id) {
+        } */
+
+        /* 3) Use wrapped function employeeP and count an average age of males for a given list of emplyees ids */
+
+// const employeeIds = ['Karel', 'Peter', 'Milan', 'Marketa', 'Lucie'];
+    </script>
+</body>
+
+</html>

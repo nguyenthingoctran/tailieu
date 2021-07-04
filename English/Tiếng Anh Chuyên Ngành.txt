@@ -1,0 +1,28 @@
+Jargon - từ chuyên môn
+statement - câu lệnh
+variables - biến
+value - giá trị
+literal value - giá trị số
+operators - toán tử
+phép cộng - summation
+phép trừ - Subtraction
+phép nhân - multiplication
+phép chia - division
+expressions - biểu thức
+executed - thực thi
+Executing a Program - thực thi chương trình
+interpretor - thông dịch
+compiler - biên dịch
+coercison - ép kiểu
+explicit coercion - ép kiểu rõ ràng - "Trong so sánh ==="
+implicit coercion - ép kiểu không rõ ràng - "Trong so sánh =="
+block - nhóm câu lệnh đi cùng nhau
+function declarations - khai báo hàm
+function expression - biểu thức hàm
+invoke - gọi hàm
+Scope - phạm vi
+Coercion - ép kiểu
+explicit - rõ ràng
+implicit - ngầm hiểu
+parameters - tham số (sử dụng cho định nghĩa hàm)
+arguments - đối số (sử dụng cho run hàm)

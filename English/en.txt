@@ -5,3 +5,10 @@ identity matrix / unit matrix
 linear algebra
 ambiguously 
 diagonal 
+Czechia
+asynchronous 
+executed 
+sequence
+Statements
+literal
+immediately 
