@@ -1,2 +1,2 @@
 https://www.udemy.com/course/khoa-hoc-javascript-chuyen-sau/
-https://www.youtube.com/watch?v=PR0sSlvmB3U
+https://www.w3schools.com/js/js_function_closures.asp - đọc đến Variable Lifetime
