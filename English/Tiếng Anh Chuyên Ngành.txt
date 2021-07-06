@@ -26,3 +26,4 @@ explicit - rõ ràng
 implicit - ngầm hiểu
 parameters - tham số (sử dụng cho định nghĩa hàm)
 arguments - đối số (sử dụng cho run hàm)
+primitive - nguyên thủy
