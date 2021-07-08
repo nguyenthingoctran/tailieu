@@ -1,3 +1,7 @@
+Learn English
+https://www.youtube.com/watch?v=8aGhZQkoFbQ
+=============================================================================================================
+
 https://gist.github.com/adamar/a4c573c724f647d7fdcfce5a0f1638d9
 https://medium.com/@adriennedomingus/sending-notifications-to-a-django-application-using-websockets-d576e5e5acdf
 https://websockets.readthedocs.io/en/stable/

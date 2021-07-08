@@ -248,3 +248,12 @@ show_sort_datatable(table)
           .columns.adjust();
     });
   })
+
+==========================================================================
+=========================== Search Event =================================
+==========================================================================
+table_details.on('search.dt', function (){
+  var length_table_detail = table_details.rows({search:'applied'} ).count()
+  $("#data_table_details_info").remove();
+  $("#show-total-event-datatable").text("Total: "+length_table_detail)
+})
