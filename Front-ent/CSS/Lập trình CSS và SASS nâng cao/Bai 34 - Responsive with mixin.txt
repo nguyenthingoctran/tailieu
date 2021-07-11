@@ -1,0 +1,74 @@
+Cấu trúc của 1 media query
+@media (max-width: 900px){
+	.classname{
+		property: property-value;
+	}
+}
+
+--------------------------------------------
+Sử dụng cách khác để gọn hơn trong sass
+
+.classname{
+	@media (max-width: 900px){
+		property: property-value;
+	}
+}
+
+Nếu muốn viết media cho class nào thì viết ngay trong class đó là được
+
+===== Ví dụ có thể kết hợp giữa mixin và câu lệnh media
+
+@mixin respond-tab-port{
+	@media (max-width: 900px) {
+		@content
+	};
+}
+
+.classname{
+	@include respond-tab-port{
+		property: property-value;
+	}
+}
+
+Ta có biến @content => sẽ tự động lấy property trong phần class được include nó
+
+===== Ví dụ khác
+
+@mixin respond($breakpoint) {
+	@if $breakpoint == tab-port {
+		@media (max-width: 900px){ @content }
+	}
+}
+
+.classname{
+	@include respond(tab-port){
+		property: property-value;
+	}
+}
+
+----------------------------------------------
+Setup mixin query
+4 breakpoint thường gặp phổ biến nhất:
+	phone (max-width: 600px)
+	tab-land (600px -> 900px)
+	tab-port (900px -> 1200px)
+	big-desktop (1800px)
+
+=> Ta có thể sử dụng mixin như thế này 
+
+@mixin respond ($breakpoint){
+	@if $breakpoint == phone{
+		@media (max-width: 600px) {@content};
+	}
+	@if $breakpoint == tab-port{
+		@media (max-width: 900px) {@content};
+	}
+	@if $breakpoint == tab-land{
+		@media (max-width: 1200px) {@content};
+	}
+	@if $breakpoint == big-desktop{
+		@media (min-width: 1800px) {@content};
+	}
+}
+
+Lưu ý về thứ tự để chạy code chính xác - code css cũng chạy tuần tự từ trên xuống dưới

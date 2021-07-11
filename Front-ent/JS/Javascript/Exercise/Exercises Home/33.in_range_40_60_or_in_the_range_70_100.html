@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title></title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="css/style.css" rel="stylesheet">
+  </head>
+  <body>
+  
+  </body>
+  <script>
+    function check(number_1, number_2){
+      if ( number_1 >= 40 && number_1 <= 60 && number_2 >= 40 && number_2 <= 60 ){
+        return number_1 +" & " + number_2 + " in range 40 to 60"
+      }
+
+      if( number_1 >= 70 && number_1 <= 100 && number_2 >= 70 && number_2 <= 100 ){
+        return number_1 +" & " + number_2 + " in range 70 to 100"
+      }
+
+      return "No"
+    }
+
+    console.log(check(44, 56));
+    console.log(check(70, 95));
+    console.log(check(50, 89));
+  </script>
+</html>

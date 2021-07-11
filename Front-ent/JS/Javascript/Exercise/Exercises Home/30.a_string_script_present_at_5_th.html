@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title></title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="css/style.css" rel="stylesheet">
+  </head>
+  <body>
+  
+  </body>
+  <script>
+    function at_5th(str){
+
+      var find_str = str.substring(4, 10)
+
+      if ( find_str == "Script" ){
+        return str.substring(0, 4) + str.substring(11)
+      }else{
+        return str
+      }
+
+    }
+
+    console.log(at_5th("abcbScripabcbb"));
+  </script>
+</html>

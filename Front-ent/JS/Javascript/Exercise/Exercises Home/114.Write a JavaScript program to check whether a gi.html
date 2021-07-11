@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title></title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="css/style.css" rel="stylesheet">
+  </head>
+  <body>
+  
+  </body>
+  <script>
+    function check_sentence(str){
+      
+      var check_fisrt_letter = /^([A-Z])/
+      var check_last_point = /[.]$/
+      var fisrt_letter = str.search(check_fisrt_letter);
+      var last_letter = str.search(check_last_point);
+
+      if ( fisrt_letter != -1 && last_letter != -1 ){
+        return true
+      }else{
+        return false
+      }
+
+
+    }
+
+    console.log(check_sentence('This tool will help you write better English and efficiently corrects texts.'))
+    console.log(check_sentence('This tool will help you write better English and efficiently corrects texts'))
+    console.log(check_sentence('this tool will help you write better English and efficiently corrects texts.'))
+  </script>
+</html>

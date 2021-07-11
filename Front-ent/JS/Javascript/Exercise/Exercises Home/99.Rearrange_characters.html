@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title></title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="css/style.css" rel="stylesheet">
+  </head>
+  <body>
+  
+  </body>
+  <script>
+    function rearrange_character(s1, s2){
+      var sort_s1 = s1.split("").sort();
+      var sort_s2 = s2.split("").sort();
+      var result = true;
+
+      for ( var i = 0 ; i < Math.max(s1.length, s2.length); i++ ){
+        if ( sort_s1[i] != sort_s2[i] ){
+          result = false
+        }
+      }
+
+      return result;
+
+    }
+
+    console.log(rearrange_character("xyz", "zyx"))
+    console.log(rearrange_character("xyz", "zyp"))
+  </script>
+</html>

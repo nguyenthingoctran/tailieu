@@ -1,0 +1,32 @@
+===============================
+-Tại "TuSachCuaToi\urls.py" 
+==============================
+
+from django.urls import include,path
+
+urlpatterns = [
+    path('', include('frontend.urls'))
+]
+
+================================
+- Tại "frontend\urls.py"
+================================
+
+from django.urls import path, re_path
+from frontend.views import index
+
+urlpatterns = [
+  re_path(r".*", index)
+]
+
+================================
+ Tại "frontend\views.py"
+================================
+
+from django.shortcuts import render
+
+# Create your views here.
+def index(request):
+	return render(request, 'frontend/index.html')
+
+--> "frontend/index.html" này trong "frontend/templates/frontend/index.html"

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title></title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="css/style.css" rel="stylesheet">
+  </head>
+  <body>
+  
+  </body>
+  <script>
+    function the_larger(array){
+      var fisrt = array[0];
+      var last = array[array.length - 1]
+
+      var max_number = fisrt > last ? fisrt : last
+
+      var new_array = []
+      for ( var i = 0; i < array.length; i++ ){
+        new_array.push(max_number)
+      }
+
+      return new_array
+    }
+
+    console.log(the_larger([10,20,30, 40, 50]))
+  </script>
+</html>

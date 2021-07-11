@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title></title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="css/style.css" rel="stylesheet">
+</head>
+
+<body>
+
+</body>
+<script>
+  function exam_status(totmarks, is_exam) {
+    if (is_exam) {
+      return totmarks >= 90;
+    }
+    return (totmarks >= 89 && totmarks <= 100);
+  }
+
+  console.log(exam_status("78", " "));
+  console.log(exam_status("89", "true "));
+  console.log(exam_status("99", "true "));
+</script>
+
+</html>

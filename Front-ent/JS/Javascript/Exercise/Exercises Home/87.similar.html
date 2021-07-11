@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title></title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="css/style.css" rel="stylesheet">
+  </head>
+  <body>
+  
+  </body>
+  <script>
+    function similar(a1, a2){
+      var check = true
+      for ( var i = 0; i < a1.length; i++ ){
+        if ( a1[i] != a2[i] ){
+          check = false;
+        }
+      }
+
+      return check
+    }
+
+    console.log(similar([10,20,30], [10,20,30]))
+    console.log(similar([10,20,30], [30,10,20]))
+    console.log(similar([10,20,30,40], [10,30,20,40]))
+  </script>
+</html>

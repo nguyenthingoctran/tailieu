@@ -1,0 +1,33 @@
+===============================================
+========= Các thư mục component ===============
+===============================================
+Base/, Components/, Layout/, Pages/, Abstracts/, Themes/, Vendors/ (BEM và cách đặt tên Class)
+
+- Do code handmake nên ta không sử dụng thư mục "Themes/, Vendors/"
+- Tạo các thư mục này tại folder scss/
+- Chia các code trong main.scss chuyển thành các component trong các thư mục
+
+===============================================
+============ Chia vào các thư mục =============
+===============================================
+- File main.scss chỉ để import những file khác vào
+
+ABSTRACTS:
+		- Chứa các _mixin.scss, _variable.scss, _functions.scss (đặt tên theo cấu trúc này)
+		- Cắt các biến trong "main.scss" vào "variable.scss", sau đó import ngược lại "main.scss" = @import './Abstracts/variable' => lưu ý: khi đặt tên cho variable thì là _variable nhưng import vào thì không còn nữa
+
+		- Variable: chứa các biến
+
+BASE
+	animations:
+			- Chứa các animation
+	base:
+			- Chứa các scss common
+	typography:
+			- Chứa các setting font size và các property liên quan đến text của element body
+
+COMPONENT
+	Chứa các phần có thể tái sử dụng được
+
+LAYOUT
+	Chứa các phần tạo nên layout của website như header, footer, navigation

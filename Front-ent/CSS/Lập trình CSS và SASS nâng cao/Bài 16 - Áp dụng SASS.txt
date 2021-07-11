@@ -1,0 +1,6 @@
+- Tạo folder "sass" ngang cấp với index.html, và file "sass/main.scss"
+- Chuyển toàn bộ code trong file "style.css"
+
+======================================
+=============== COMPLITE =============
+======================================

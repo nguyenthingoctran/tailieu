@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    #wraper{
+      width: 800px;
+      height: 745px;
+      border: 1px solid #6c5ce7;
+      margin: auto;
+      border-radius: 10px;
+      position: relative;
+    }
+
+    #number-result{
+      font-size: 300px;
+      color: #a29bfe;
+      text-align: center;
+    }
+
+    #button-letsgo{
+      align-items: center;
+      border: none;
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+      background: #a29bfe;
+      width: 200px;
+      height: 70px;
+      color: #fff;
+      font-size: 35px;
+      border-radius: 10px;
+      cursor: pointer;
+      border-bottom: 5px solid #6c5ce7;
+      text-transform: uppercase;
+    }
+
+    #button-letsgo:active{
+      transform: translateY(4px);
+      border-bottom: 0 solid #6c5ce7;
+    }
+
+    .btn-click, .btn-click:not(:nth-child(5n+1)){
+      border: none;
+      width: 140px;
+      height: 40px;
+      margin-bottom: 10px;
+      cursor: pointer;
+      font-size: 15px;
+    }
+
+    .btn-click:hover, .btn-click:not(:nth-child(5n+1)):hover, .active {
+      background:#7fff00
+    }
+
+    .btn-click:not(:nth-child(5n+1)){
+      margin-left: 10px;
+    }
+
+    #list-btn{
+      margin-top: 50px;
+      text-align: center;
+    }
+
+    #message{
+      font-size: 100px;
+      text-align: center;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 100%;
+    }
+
+    #message span{
+      padding: 30px;
+      background: rgba(236, 240, 241,0.5);
+    }
+
+    .good-work{
+      color:#7fff00;
+    }
+
+    .not-matched{
+      color: rgba(231, 76, 60,1.0)
+    }
+
+    #reset{
+      border: none;
+      background: #6c5ce7;
+      width: 740px;
+      color: #fff;
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+      font-size: 20px;
+      padding: 15px 0;
+      cursor: pointer;
+    }
+
+    #reset:hover{
+      box-shadow: 0 0 5px rgb(88, 88, 88);
+    }
+  </style>
+</head>
+<body>
+  <div id="wraper">
+    <div id="number-result">
+      0
+    </div>
+
+    <div id="wrap-btn">
+
+    </div>
+    <button id="button-letsgo" onclick="lets_go();">Let's Go</button>
+
+    <div id="list-btn">
+
+    </div>
+
+    <button id="reset" onclick="reset();">Reset</button>
+
+    <div id="message">
+
+    </div>
+  </div>
+</body>
+
+<script>
+  var element_list_btn = document.getElementById("list-btn")
+  var element_node = element_list_btn.childNodes[0]
+
+  var element_number_result = document.getElementById("number-result");
+  var element_node_number_result = element_number_result.childNodes[0];
+
+  var list_btn = []
+  for ( var i=1; i<=20; i++ ){
+    list_btn.push(`<button class="btn-click btn-click-${i}" onclick="choose_number(${i})">${i}</button>`)
+  }
+
+  for ( element in list_btn ){
+    element_list_btn.innerHTML += list_btn[element]
+  }
+
+  // Disable buton "let's go" when don't have any button choose
+  document.getElementById('button-letsgo').disabled = true
+  document.getElementById('button-letsgo').style.opacity = 0.5
+  
+  var btn_active = 0
+  function choose_number(i){
+
+    // Remove class active
+    if ( btn_active != 0 ){
+      var e = document.querySelector(`.btn-click-${btn_active}`);
+      document.querySelector(`.btn-click-${btn_active}`).classList.remove("active");
+    }
+
+    // Add class active
+    btn_active = i;
+    document.querySelector(`.btn-click-${i}`).classList.add("active")
+    document.getElementById('button-letsgo').style.opacity = 1
+    document.getElementById('button-letsgo').disabled = false
+    
+  }
+
+  function lets_go(){
+    var number_user_choose = btn_active;
+    var number_random = Math.floor(Math.random() * 20) + 1;
+
+    var run_number = 1;
+    setInterval(function(){
+      if ( run_number <= number_random - 1 ){
+        run_number += 1;
+        element_node_number_result.data = run_number;
+      }
+
+      if (run_number == number_random){
+        var element_message = document.getElementById("message");
+        if (number_user_choose == number_random){
+          element_message.innerHTML = "<span class='good-work fadeOut'>Good Work!!!</span>";
+        }else{
+          element_message.innerHTML = "<span class='not-matched fadeOut'>Not matched</span>";
+        }       
+      }
+
+    }, 100)
+    
+  }
+
+  function reset(){
+    location.reload();
+  }
+
+</script>
+
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title></title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="css/style.css" rel="stylesheet">
+  </head>
+  <body>
+  
+  </body>
+  <script>
+    function check(str){
+      var result = "OK";
+      if ( /[^a-zA-Z]/g.test(str) == true ){
+        return "NO"
+      }else{
+        for ( var i = 0; i < str.length - 1; i++ ){
+          var lowercase = ( /[a-z]/.test(str[i]) && /[a-z]/.test(str[i + 1]) );
+          var uppercase = ( /[A-Z]/.test(str[i]) && /[A-Z]/.test(str[i + 1]) );
+          if ( lowercase == true || uppercase == true ){
+            result = "NO"
+          }
+        }
+      }
+
+      return result
+    }
+
+    console.log(check('xYr'))
+    console.log(check('XXyx'))
+  </script>
+</html>

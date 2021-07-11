@@ -1,0 +1,14 @@
+================================================
+===== Code button cho web landingpage P1 =======
+================================================
+
+.btn:hover{
+  transform: translateY(-3px);
+  box-shadow: 0 5px 20px rgba(0, 0, 0, .2);
+}
+
+.btn:active{
+  outline: none;
+  transform: translateY(-1px);
+  box-shadow: 0 5px 10px rgba(0, 0, 0, .2);
+}

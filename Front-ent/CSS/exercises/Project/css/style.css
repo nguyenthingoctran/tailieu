@@ -1,0 +1,162 @@
+@charset "UTF-8";
+/* 
+
+COLORS:
+light blue : #8e9efc
+medium blue : #5a73fc
+dark blue : #1c3eff
+
+*/
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit; }
+
+body {
+  font-family: 'Lato', sans-serif;
+  font-weight: 400;
+  font-size: 1.6rem;
+  line-height: 1.7;
+  color: #777777;
+  padding: 30px;
+  box-sizing: border-box; }
+
+header {
+  background-image: linear-gradient(to right bottom, #8e9efc, #1c3eff), url("../img/background1.jpg");
+  background-size: cover;
+  background-position: top;
+  position: relative;
+  height: 95vh;
+  clip-path: ellipse(75% 77% at 52% 23%); }
+
+.header__text-box {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center; }
+
+.header__logo {
+  height: 70px; }
+
+.header__logo-box {
+  position: absolute;
+  top: 30px;
+  left: 30px; }
+
+.heading-primary {
+  color: #fff;
+  text-transform: uppercase;
+  margin-bottom: 60px; }
+
+.heading-primary--main {
+  display: block;
+  font-size: 6.2rem;
+  font-weight: 400;
+  letter-spacing: 15px;
+  animation: moveInLeft 1s ease-out; }
+
+.heading-primary--sub {
+  display: block;
+  font-size: 2rem;
+  font-weight: 700;
+  letter-spacing: 18px;
+  animation: moveInRight 1s ease-out; }
+
+.btn,
+.btn:link,
+.btn:visited {
+  text-transform: uppercase;
+  text-decoration: none;
+  padding: 15px 40px;
+  display: inline-block;
+  border-radius: 100px;
+  font-size: 1.6rem;
+  position: relative; }
+
+.btn--white {
+  color: #777777;
+  background-color: #fff; }
+
+.btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2); }
+
+.btn:active {
+  outline: none;
+  transform: translateY(-1px);
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2); }
+
+.btn::after {
+  content: "";
+  display: inline-block;
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  /* Css cho button after giống hệt button gốc */
+  border-radius: 100px;
+  /* after nằm dưới button */
+  z-index: -1;
+  /* Hãy để transition vào thấy sự chuyển động */
+  transition: all .4s; }
+
+.btn--white::after {
+  background-color: #fff; }
+
+/* Xử lý button sau khi hover */
+.btn:hover::after {
+  transform: scaleX(1.4) scaleY(1.6);
+  opacity: 0; }
+
+.btn--animated {
+  animation: moveInBottom .5s ease-out .75s;
+  /* Mới đầu không muốn button không xuất hiện sẵn trên header cho đến khi animation được chạy */
+  animation-fill-mode: backwards; }
+
+@keyframes moveInLeft {
+  0% {
+    opacity: 0;
+    transform: translateX(-100px); }
+  80% {
+    transform: translateX(10px); }
+  100% {
+    opacity: 1;
+    transform: translateX(0); } }
+
+@keyframes moveInRight {
+  0% {
+    opacity: 0;
+    transform: translateX(100px); }
+  80% {
+    transform: translateX(-10px); }
+  100% {
+    opacity: 1;
+    transform: translateX(0); } }
+
+@keyframes moveInBottom {
+  0% {
+    opacity: 0;
+    transform: translateY(30px); }
+  100% {
+    opacity: 1;
+    transform: translateY(0); } }
+
+/* =================================== */
+/* ============= img-book ============ */
+/* =================================== */
+.wrapper-img {
+  position: relative;
+  display: inline-flex; }
+
+.line-shadow-white {
+  width: 100%;
+  height: 100%;
+  position: absolute; }
+
+/* =================================== */
+/* =========== END img-book ========== */
+/* =================================== */
+html {
+  font-size: 62.5%; }

@@ -1,9 +1,0 @@
-Để sử dụng clip path 
-1. Truy cập: https://bennettfeely.com/clippy/
-
-Ví dụ: 
-Thêm clip path vào "header"
-
-header{
-  clip-path: polygon(0 0, 100% 0%, 100% 68%, 0% 100%);
-}

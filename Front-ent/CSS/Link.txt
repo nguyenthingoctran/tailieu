@@ -1,0 +1,11 @@
+- Để sử dụng clip path 
+Truy cập: https://bennettfeely.com/clippy/
+
+- Pseudo class
+https://www.w3schools.com/css/css_pseudo_classes.asp
+
+- Set thời gian thực hiện animation
+https://cubic-bezier.com/#0,.98,.33,.99
+
+- Hướng dẫn sử dụng command line
+https://www.udacity.com/course/shell-workshop--ud206

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title></title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="css/style.css" rel="stylesheet">
+  </head>
+  <body>
+  
+  </body>
+  <script>
+    function capitalize_the_first_letter(str){
+
+      var array_str = str.split(' ');
+      var capitalize_str = ''
+      for ( element in array_str ){
+        var old_str = array_str[element]
+        var capitalize = old_str[0].toUpperCase();
+        var result = capitalize + old_str.substring(1)
+        capitalize_str = capitalize_str + result + " "
+      }
+      return capitalize_str
+      
+    }
+
+    console.log(capitalize_the_first_letter('nguyen thi ngoc tran'))
+  </script>
+</html>

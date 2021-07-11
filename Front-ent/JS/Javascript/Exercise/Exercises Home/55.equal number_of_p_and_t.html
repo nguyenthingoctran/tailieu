@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title></title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="css/style.css" rel="stylesheet">
+  </head>
+  <body>
+  
+  </body>
+  <script>
+    function equal_number_of_p_and_t(str){
+      var number_p = str.replace(/[^p]/g, "").length;
+      var number_t = str.replace(/[^t]/g, "").length;
+
+      if ( number_p != number_t ){
+        return false
+      }else{
+        return true
+      }
+
+    }
+
+    console.log(equal_number_of_p_and_t('ptpabct'))
+  </script>
+</html>

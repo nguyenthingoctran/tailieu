@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title></title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="css/style.css" rel="stylesheet">
+  </head>
+  <body>
+  
+  </body>
+  <script>
+    function check(n1, n2, n3){
+      if ( n1 == n2 && n2 == n3 ){
+        return 30
+      }else if( n1 == n2 || n1 == n3 || n2 == n3 ){
+        return 40
+      }else{
+        return 20
+      }
+    }
+
+    console.log(check(8, 8, 8))
+    console.log(check(8, 8, 18))
+    console.log(check(8, 7, 18))
+  </script>
+</html>

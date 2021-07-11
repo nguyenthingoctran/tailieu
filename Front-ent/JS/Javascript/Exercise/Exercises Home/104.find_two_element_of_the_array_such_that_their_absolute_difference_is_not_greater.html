@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title></title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="css/style.css" rel="stylesheet">
+  </head>
+  <body>
+  
+  </body>
+  <script>
+    function absolute(array, number){
+      var result = 0;
+      for ( var i = 0; i < array.length - 1; i++ ){
+        var diff = Math.abs(array[i+1] - array[i])
+        if ( diff < number ){
+          result = Math.max(result, diff)
+        }
+      }
+      return result
+    }
+
+    console.log(absolute([12, 10, 33, 34], 10))
+    console.log(absolute([12, 10, 33, 34], 24))
+    console.log(absolute([12, 10, 33, 44], 40))
+  </script>
+</html>

@@ -1,8 +1,0 @@
-Các phần mềm cần thiết:
-1. Visual code
-2. node.js : nền tảng giúp chạy server và sử dụng javascript
-3. npm : công cụ quản lý các thư viện của node.js (tưk động cài cùng với node.js)
-
-Nguyên tắc viết chuẩn SEO
-- Trong 1 trang chỉ duy nhất 1 thẻ H1, H2 thì 3-5 thẻ, sau đó thì H3
-- Những từ khóa muốn SEO thì dùng thẻ H1, những subheader có những thông tin quan trọng kế cận thì dùng H2

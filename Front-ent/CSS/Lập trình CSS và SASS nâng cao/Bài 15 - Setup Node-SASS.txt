@@ -1,0 +1,51 @@
+=========================================
+============== COMMAND LINE =============
+=========================================
+Sử dụng "Comman Prompt" trong window => "Start" > Type "Common Prompt"
+
+Các lệnh:
+- help: help del
+- cd ..: lui ra thư mục current
+- Tạo folder: mkdir "ten_folder"
+- Tạo file: echo > test\test.html
+- Xóa file: del /f test\test.html
+- Xóa folder: rmdir test
+
+
+
+========================================================
+============= Làm việc với NPM - Install SASS ==========
+========================================================
+
+===>
+===> Khởi tạo môi trường làm việc với NPM: npm init
+===>
+
+- Điền các tham số package.json mặc định của project 
+{
+  "name": "project",
+  "version": "1.0.0",
+  "description": "Set up SASS",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "NTR",
+  "license": "ISC"
+}
+
+- npm i node-sass
+
+- Create an scss folder and a css folder 
+
+- Add a script in package.json:
+ "scss": "node-sass --watch scss -o css"
+
+- Run the compiler
+npm run scss
+
+- Just create a file login.scss and save - It have automatic render the css file in css folder
+
+=========================================
+
+npm install node-sass@4.5.3 --save-dev

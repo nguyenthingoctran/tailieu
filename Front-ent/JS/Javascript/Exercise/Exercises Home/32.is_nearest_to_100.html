@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title></title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="css/style.css" rel="stylesheet">
+</head>
+
+<body>
+
+</body>
+<script>
+
+  function nearest_to_100(number_1st, number_2nd){
+    
+    
+    if ( number_1st != number_2nd ){
+      var nearest_number = number_1st;
+      if ( number_2nd < 100 && number_2nd > nearest_number ){
+        nearest_number = number_2nd
+      }
+    }else{
+      var nearest_number = "No"
+    }
+
+    return nearest_number;
+  }
+
+  console.log(nearest_to_100(90, 89))
+  console.log(nearest_to_100(-90, -89))
+  console.log(nearest_to_100(90, 90))
+
+</script>
+
+</html>

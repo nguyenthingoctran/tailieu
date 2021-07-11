@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title></title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="css/style.css" rel="stylesheet">
+  </head>
+  <body>
+  
+  </body>
+  <script>
+    function longest(array){
+
+      var longest = 0;
+      var string_longest = ''
+      for ( element in array ){
+        if (array[element].length > longest){
+          longest = array[element].length
+          string_longest = array[element]
+        }
+      }
+
+      return string_longest
+    }
+
+    console.log(longest(['nguyen','thi','ngoc','tran','nguyenthi']))
+  </script>
+</html>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title></title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="css/style.css" rel="stylesheet">
+  </head>
+  <body>
+  
+  </body>
+  <script>
+    function the_sum_of_absoluted(array){
+      var total = 0
+      for ( var i = 0; i < array.length - 1; i++  ){
+        var sum_array = Math.abs(array[i] - array[i+1]);
+        total = total + sum_array
+      }
+      return total
+    }
+
+    console.log(the_sum_of_absoluted([1, 2, 3, 2, -5]))
+  </script>
+</html>

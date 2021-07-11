@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title></title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="css/style.css" rel="stylesheet">
+  </head>
+  <body>
+  
+  </body>
+  <script>
+    function three_characters(str){
+      var new_string = ""
+      if ( str.length >= 3 ){
+        var string = str
+        var last_3_character = string.substring(string.length - 3);
+        new_string = last_3_character + string + last_3_character
+      }else{
+        new_string = str
+      }
+      return new_string
+    }
+
+    console.log(three_characters("1"))
+  </script>
+</html>

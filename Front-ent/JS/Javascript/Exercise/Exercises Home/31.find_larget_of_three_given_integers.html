@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title></title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+  </head>
+  <body>
+  
+  </body>
+  <script>
+    function largest_number(number_1st, number_2nd, number_3th){
+      var array_number = [number_1st, number_2nd, number_3th];
+      var largest_number_current = 0;
+      for ( number in array_number ){
+        if ( array_number[number] > largest_number_current ){
+          largest_number_current = array_number[number]
+        }
+      }
+      return largest_number_current
+    }
+
+    console.log(largest_number(10, 100, 1000));
+  </script>
+</html>

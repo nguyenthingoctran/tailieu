@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title></title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="css/style.css" rel="stylesheet">
+  </head>
+  <body>
+  
+  </body>
+  <script>
+    function digit_delete(number){
+
+      var to_string = number.toString().split("");
+      var array_number = [];
+      
+      for ( i = 0 ; i < to_string.length; i++ ){
+        var clone_to_string = [...to_string]
+        clone_to_string.splice(i, 1)
+        array_number.push(clone_to_string)
+      }
+
+      var result = 0
+      for ( j = 0 ; j < array_number.length; j++ ){
+        var number = parseInt(array_number[j].join(""));
+        if (number > result){
+          result = number
+        }
+      }
+
+      return result
+      
+    }
+
+    console.log(digit_delete(1253))
+  </script>
+</html>
