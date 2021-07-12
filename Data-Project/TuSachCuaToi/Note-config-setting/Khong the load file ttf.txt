@@ -1,0 +1,9 @@
+- Tại: "webpack.config.js"
+
+{
+	test: /\.(woff|woff2|ttf|eot)$/,
+	use: 'file-loader?name=fonts/[name].[ext]!static'
+}
+
+- Install:
+npm i file-loader
