@@ -1,0 +1,11 @@
+- Thêm vào index.html
+{%csrf_token%}
+
+- Cài: npm i js-cookie
+
+import Cookies from 'js-cookie'
+const csrftoken = Cookies.get('XSRF-TOKEN')
+
+headers: {
+     'X-CSRFToken': csrftoken
+},
